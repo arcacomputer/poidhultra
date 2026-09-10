@@ -585,7 +585,7 @@ h3 {
 }
 .bounty-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 .bounty-card {
@@ -596,6 +596,7 @@ h3 {
   border-radius: 12px;
   padding: 23px 22px 17px;
   min-height: 287px;
+  min-width: 0;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .bounty-card:hover {
@@ -697,6 +698,8 @@ h3 {
   align-items: start;
 }
 .card-title h3 {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 19px;
   letter-spacing: -0.6px;
   margin: 0 0 13px;

@@ -1,0 +1,9 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "poidh-ultra-community-gateway",
+  "main": "src/gateway.ts",
+  "compatibility_date": "2026-09-10",
+  "workers_dev": true,
+  "services": [{ "binding": "COMMUNITY", "service": "poidh-ultra-community" }],
+  "observability": { "enabled": true }
+}

@@ -41,6 +41,7 @@ try {
         updatedAt: new Date(r.updated_at).toISOString(),
         deletedAt: r.deleted_at ? new Date(r.deleted_at).toISOString() : null,
         moderated: r.moderated,
+        version: String(r.version),
         legacyId: r.provenance?.legacyId ?? r.id,
         provenance: r.provenance ?? { source: "poidh-ultra" },
       })),

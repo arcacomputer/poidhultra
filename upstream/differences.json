@@ -41,6 +41,17 @@
       "scope": ["packages/database/**", "apps/community-api/**"],
       "reason": "Shared versioned community backend with author authorization and import provenance.",
       "decision": "accepted-plan"
+    },
+    {
+      "id": "original-community-adapters",
+      "scope": [
+        "packages/client/src/legacy-community.ts",
+        "packages/client/src/server-proxy.ts",
+        "apps/web/src/trpc/compatibility.ts",
+        "apps/community-api/src/gateway.ts"
+      ],
+      "reason": "Original community procedures use the shared SIWE backend, complete pagination, owned albums and opaque identifiers. Owner-chosen profile names are distinct from verified naming records. The remaining original-client audit is documented before cutover.",
+      "decision": "requires-maintainer-review"
     }
   ]
 }

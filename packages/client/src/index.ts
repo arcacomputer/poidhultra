@@ -45,6 +45,9 @@ export class CommunityClient {
         new URLSearchParams({ cursor })
     );
   }
+  claim(id: string) {
+    return this.request<Claim>("/claims/" + encodeURIComponent(id));
+  }
   records(params: Record<string, string>) {
     return this.request<Page<CommunityRecord>>(
       "/records?" + new URLSearchParams(params)

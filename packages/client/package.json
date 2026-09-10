@@ -5,7 +5,9 @@
   "type": "module",
   "license": "MIT",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./legacy-community": "./src/legacy-community.ts",
+    "./server-proxy": "./src/server-proxy.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

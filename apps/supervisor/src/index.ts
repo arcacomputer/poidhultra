@@ -1,11 +1,7 @@
 import { Container, getContainer } from "@cloudflare/containers";
 import { DurableObject } from "cloudflare:workers";
-import {
-  github,
-  overdue,
-  validSignature,
-  type GitHubCredentials,
-} from "./github";
+import { github, validSignature, type GitHubCredentials } from "./github";
+import { MaintenanceWatchdog } from "./maintenance";
 interface Env extends GitHubCredentials {
   INDEXER_ENABLED?: string;
   INDEXER: DurableObjectNamespace<PoidhIndexer>;
@@ -35,49 +31,62 @@ export class PoidhIndexer extends Container<Env> {
   }
 }
 export class Maintenance extends DurableObject<Env> {
-  async check() {
-    let report: any;
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/${this.env.GITHUB_REPOSITORY}/maintenance-state/status.json`,
-        {
-          signal: AbortSignal.timeout(15_000),
-          headers: { "Cache-Control": "no-cache" },
+  private watchdog: MaintenanceWatchdog;
+  constructor(ctx: DurableObjectState, env: Env) {
+    super(ctx, env);
+    this.watchdog = new MaintenanceWatchdog(ctx.storage, {
+      readReport: async () => {
+        const response = await fetch(
+          `https://raw.githubusercontent.com/${env.GITHUB_REPOSITORY}/maintenance-state/status.json`,
+          {
+            signal: AbortSignal.timeout(15_000),
+            headers: { "Cache-Control": "no-cache" },
+          }
+        );
+        if (!response.ok) throw new Error("No published maintenance report");
+        return response.json();
+      },
+      openIncident: async (lastSuccessfulCheck) => {
+        const marker = "<!-- poidh-ultra-watchdog -->";
+        // Recover an issue created just before storage or process failure.
+        let existing: any;
+        for (let page = 1; ; page++) {
+          const issues: any = await github(
+            env,
+            `/issues?state=open&per_page=100&page=${page}`
+          );
+          existing = issues.find(
+            (issue: any) => !issue.pull_request && issue.body?.includes(marker)
+          );
+          if (existing || issues.length < 100) break;
         }
-      );
-      if (!response.ok) throw new Error("No published maintenance report");
-      report = await response.json();
-    } catch (error) {
-      report = { lastSuccessfulCheck: null, error: String(error) };
-    }
-    const failed = overdue(report);
-    const state = {
-      checkedAt: new Date().toISOString(),
-      overdue: failed,
-      lastSuccessfulCheck: report.lastSuccessfulCheck ?? null,
-    };
-    await this.ctx.storage.put("status", state);
-    let issue = await this.ctx.storage.get<number>("incident");
-    if (failed && !issue) {
-      const result: any = await github(this.env, "/issues", {
-        title: "Upstream maintenance missed successful checks",
-        body: `The Cloudflare watchdog has not observed a successful check within 3 hours.\n\nLast successful check: ${
-          state.lastSuccessfulCheck ?? "unknown"
-        }\n\nInspect disabled schedules, workflow errors, GitHub App credentials, and the maintenance-state report. Pending updates must stay pending.`,
-      });
-      await this.ctx.storage.put("incident", result.number);
-      console.error("upstream_check_overdue", state);
-    }
-    if (!failed && issue) {
-      await github(
-        this.env,
-        `/issues/${issue}`,
-        { state: "closed", state_reason: "completed" },
-        "PATCH"
-      );
-      await this.ctx.storage.delete("incident");
-    }
-    return state;
+        const issue: any =
+          existing ??
+          (await github(env, "/issues", {
+            title: "Upstream maintenance missed successful checks",
+            body: `${marker}\nThe Cloudflare watchdog has not observed a successful check within 3 hours.\n\nLast successful check: ${
+              lastSuccessfulCheck ?? "unknown"
+            }\n\nInspect disabled schedules, workflow errors, GitHub App credentials, and the maintenance-state report. Pending updates must stay pending.`,
+          }));
+        console.error("upstream_check_overdue", { lastSuccessfulCheck });
+        return issue.number;
+      },
+      closeIncident: async (number) => {
+        await github(
+          env,
+          `/issues/${number}`,
+          { state: "closed", state_reason: "completed" },
+          "PATCH"
+        );
+      },
+    });
+    ctx.blockConcurrencyWhile(() => this.watchdog.ensureAlarm());
+  }
+  async check() {
+    return this.watchdog.check();
+  }
+  async alarm() {
+    await this.watchdog.alarm();
   }
   async dispatch(delivery: string) {
     // Serialized Durable Object storage prevents duplicate dispatch from concurrent webhook deliveries.
@@ -97,12 +106,7 @@ export class Maintenance extends DurableObject<Env> {
     });
   }
   async status() {
-    return (
-      (await this.ctx.storage.get("status")) ?? {
-        overdue: true,
-        lastSuccessfulCheck: null,
-      }
-    );
+    return this.watchdog.status();
   }
 }
 export default {

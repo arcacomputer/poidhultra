@@ -5,6 +5,7 @@ node_modules/
 .wrangler/
 .ponder/
 dist/
+dist-gateway/
 coverage/
 test-results/
 playwright-report/

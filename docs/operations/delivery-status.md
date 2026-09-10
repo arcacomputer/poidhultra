@@ -40,6 +40,12 @@ GitHub CodeQL flagged a slow Markdown video-URL matcher; it was replaced with bo
 
 Credentials are stored outside the repository. The GitHub App is installed only on `arcacomputer/poidhultra`. No new bounty contracts were deployed. The production domain has not been promoted.
 
+## Additional engineering completed for review
+
+The launch-validation branch adds a Durable Object alarm fallback and stale-monitor detection; the compiled watchdog runs successfully in a local Cloudflare runtime with mocked network responses. Original community adapters now follow full comment/album pagination, count all reactions, preserve imported comment IDs, and enforce the signed-in author. A portable server proxy and optional HTTP gateway prepare original-site integration outside Cloudflare. The claim lookup now reads one canonical claim; the complete protocol-router audit is still pending.
+
+A real isolated Neon backup/restore verified 12 tables, 34 rows, sequence state and record versions. The restored Node API passed continued edits, change-feed cursor, idempotency, new SIWE login, and two byte-identical local media objects. This does not satisfy the pending Cloudflare/R2 and Worker-version rollback portion. See [backup and restore evidence](backup-restore.md). These changes require review and have not been deployed to production.
+
 ## Remaining launch prerequisites
 
 1. Supply archive-capable Ethereum/Base/Arbitrum RPC URLs, finish pinned-contract verification, and backfill/reconcile the independent indexer. Public endpoints failed historical reads on Ethereum and Arbitrum. A generic RPC trial option and cost are recorded in the cost estimate; no RPC subscription was purchased.

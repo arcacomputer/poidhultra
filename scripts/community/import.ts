@@ -7,7 +7,7 @@ import {
   serial,
 } from "../../packages/database/src/index";
 import { digest } from "../../packages/auth/src/index";
-import { address, bountyKey } from "../../packages/protocol/src/index";
+import { address, bountyKey, uint } from "../../packages/protocol/src/index";
 const item = z
   .object({
     id: z.string().min(1).max(256),
@@ -20,6 +20,9 @@ const item = z
     updatedAt: z.string().datetime(),
     deletedAt: z.string().datetime().nullable(),
     moderated: z.boolean(),
+    version: uint
+      .refine((v) => BigInt(v) > 0n && BigInt(v) <= 9223372036854775807n)
+      .default("1"),
     legacyId: z.string(),
     provenance: z.record(z.unknown()),
   })
@@ -149,7 +152,7 @@ export async function importBundle(
       // Import is deliberately insert-only. Reconciliation must never overwrite a newer community edit.
       for (const row of bundle.records) {
         await tx.query(
-          "INSERT INTO community.records(id,kind,author,bounty_id,parent_id,data,created_at,updated_at,deleted_at,moderated,provenance) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)",
+          "INSERT INTO community.records(id,kind,author,bounty_id,parent_id,data,created_at,updated_at,deleted_at,moderated,provenance,version) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)",
           [
             row.id,
             row.kind,
@@ -168,17 +171,19 @@ export async function importBundle(
               exportedAt: bundle.exportedAt,
               batch: hash,
             }),
+            row.version,
           ]
         );
       }
       for (const row of bundle.records) {
         const hidden = !!row.deletedAt || row.moderated;
         await tx.query(
-          "INSERT INTO community.changes(kind,record_id,operation,version,data) VALUES($1,$2,$3,1,$4)",
+          "INSERT INTO community.changes(kind,record_id,operation,version,data) VALUES($1,$2,$3,$4,$5)",
           [
             row.kind,
             row.id,
             hidden ? "delete" : "upsert",
+            row.version,
             hidden
               ? null
               : JSON.stringify({
@@ -192,7 +197,7 @@ export async function importBundle(
                   updatedAt: row.updatedAt,
                   deletedAt: row.deletedAt,
                   moderated: row.moderated,
-                  version: "1",
+                  version: row.version,
                 }),
           ]
         );

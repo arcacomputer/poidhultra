@@ -2,7 +2,12 @@
   "version": 1,
   "target": "https://poidh.arca.computer",
   "gates": [
-    { "id": "ci", "status": "pending", "evidence": null, "reviewedBy": null },
+    {
+      "id": "ci",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
     {
       "id": "contract-deployments",
       "status": "pending",
@@ -18,7 +23,7 @@
     {
       "id": "original-client-integration",
       "status": "pending",
-      "evidence": null,
+      "evidence": "docs/integrations/poidh-xyz.md (implementation prepared; Kenny deployment and audit pending)",
       "reviewedBy": null
     },
     {
@@ -36,7 +41,7 @@
     {
       "id": "production-rollback-rehearsal",
       "status": "pending",
-      "evidence": null,
+      "evidence": "docs/operations/backup-restore.md (partial: Neon/Node verified; Cloudflare/R2 rollback pending)",
       "reviewedBy": null
     }
   ]

@@ -21,7 +21,7 @@ test("imports preserve relationships, moderation, provenance, and timestamps; re
     source: "poidh.xyz",
     exportedAt: "2026-09-10T00:00:00.000Z",
     records: [
-      { ...base, id: "old:1", legacyId: "1" },
+      { ...base, id: "old:1", legacyId: "1", version: "9007199254740993" },
       {
         ...base,
         id: "old:2",
@@ -63,6 +63,7 @@ test("imports preserve relationships, moderation, provenance, and timestamps; re
     assert.equal(rows[1].parent_id, "old:1");
     assert.equal(rows[1].moderated, true);
     assert.equal(rows[0].provenance.legacyId, "1");
+    assert.equal(String(rows[0].version), "9007199254740993");
     assert.equal(new Date(rows[0].created_at).toISOString(), base.createdAt);
     const changes = (
       await db.query<any>(
@@ -71,6 +72,7 @@ test("imports preserve relationships, moderation, provenance, and timestamps; re
     ).rows;
     assert.equal(changes[1].operation, "delete");
     assert.equal(changes[1].data, null);
+    assert.equal(changes[0].data.version, "9007199254740993");
     await assert.rejects(
       importBundle(
         db,

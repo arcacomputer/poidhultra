@@ -3,6 +3,12 @@
   "reviewPolicy": "Each revision is maintainer-reviewed. This file records project decisions, not automatic approvals.",
   "differences": [
     {
+      "id": "dependency-security",
+      "scope": ["pnpm-workspace.yaml", "pnpm-lock.yaml"],
+      "reason": "Patched transitive dependencies address published security advisories. Ponder, OpenNext, and browser compatibility are verified before merge; imported source revisions are unchanged.",
+      "decision": "requires-maintainer-review"
+    },
+    {
       "id": "hosting",
       "scope": [
         "apps/web/next.config.js",

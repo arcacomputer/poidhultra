@@ -144,6 +144,18 @@ test("claims with overlapping onchain IDs are disambiguated by their bounty depl
   );
   assert.equal(legacy.body.uri, "ipfs://unchanged-proof-reference");
 });
+test("malformed proof URI text does not hide other submissions", async () => {
+  const claims = publicClaims.map((claim, index) => ({
+    ...claim,
+    url: index === 0 ? "A description entered in the URI field" : claim.url,
+  }));
+  const { read } = setup((url) => publicResponse(url, publicBounties, claims));
+  const page = await read(`/bounties/${id}/claims?limit=3`);
+  assert.equal(page.response.status, 200);
+  assert.equal(page.body.items.length, 3);
+  assert.equal(page.body.items[0].uri, claims[0].url);
+  assert.equal(page.body.items[1].uri, publicClaims[1].url);
+});
 test("unsafe upstream integers, numeric wei, deployment mismatches and duplicate pages fail visibly", async () => {
   for (const bad of [
     { ...publicBounties[0], id: 9007199254740992 },

@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { zeroAddress } from 'viem';
 import { readOnlyPreview } from '@/utils/preview';
+import { mediaURL, proofImage } from '@/utils/proofImage';
 import { api, useSession } from './providers';
 import { Comments } from './comments';
 import { ErrorNotice, Empty, short } from './shell';
@@ -32,14 +33,6 @@ import {
   parseAmount,
   WithdrawBalance,
 } from './transactions';
-function mediaURL(value: string) {
-  if (value.startsWith('ipfs://'))
-    return (
-      (process.env.NEXT_PUBLIC_IPFS_GATEWAY ?? 'https://ipfs.io/ipfs/') +
-      value.slice(7).replace(/^ipfs\//, '')
-    );
-  return value.startsWith('https://') ? value : null;
-}
 function ClaimCard({
   claim,
   canChoose,
@@ -52,21 +45,12 @@ function ClaimCard({
   transaction: ReturnType<typeof useTransaction>;
 }) {
   const metadata = useQuery({
-    queryKey: ['metadata', claim.uri],
-    queryFn: async () => {
-      const url = mediaURL(claim.uri);
-      if (!url) throw new Error('Unsupported proof URL');
-      const r = await fetch(url, { signal: AbortSignal.timeout(10_000) });
-      if (!r.ok) throw new Error('Proof host unavailable');
-      const type = r.headers.get('content-type');
-      return type?.startsWith('image/') ? { image: url } : await r.json();
-    },
+    queryKey: ['proof-image', claim.uri],
+    queryFn: ({ signal }) => proofImage(claim.uri, signal),
     retry: 1,
     staleTime: 3600_000,
   });
-  const image = metadata.data?.image
-    ? mediaURL(String(metadata.data.image))
-    : null;
+  const image = metadata.data;
   return (
     <article className='claim-card'>
       {image ? (
@@ -81,7 +65,9 @@ function ClaimCard({
         <div className='empty'>
           <Camera size={28} />
           <small>
-            {metadata.isError ? 'Proof preview unavailable' : 'Loading proof…'}
+            {metadata.isError || metadata.data === null
+              ? 'Proof preview unavailable'
+              : 'Loading proof…'}
           </small>
         </div>
       )}

@@ -4,7 +4,7 @@ An MIT-licensed monorepo for a modern poidh client, independently implemented in
 
 Website: **[poidh.arca.computer](https://poidh.arca.computer)**. The shared production launch is gated on original-client integration, a verified community migration, historical backfill, and the deployment checks in [the launch runbook](docs/operations/launch.md).
 
-The website runs as a read-only Cloudflare preview. A replaceable adapter reads real Ethereum, Base, and Arbitrum bounties, proofs, activity, and leaderboard estimates from [poidh's public API](https://indexer.poidh.xyz/swagger). Wallet transactions and community writes remain disabled. There are no deployed sample records, and shared community synchronization is pending. See [public API integration](docs/integrations/upstream-public-api.md) for source limitations and configuration.
+The website runs as a read-only Cloudflare preview. A replaceable adapter reads real Ethereum, Base, and Arbitrum bounties, proofs, activity, and leaderboard estimates from [poidh's public API](https://indexer.poidh.xyz/swagger). Homepage cards display bounty cover images or submitted proof images. Wallet transactions and community writes remain disabled. There are no deployed sample records, and shared community synchronization is pending. See [public API integration](docs/integrations/upstream-public-api.md) for source limitations and configuration.
 
 ## Repository
 

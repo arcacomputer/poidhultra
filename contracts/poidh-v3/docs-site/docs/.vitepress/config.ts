@@ -1,0 +1,134 @@
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  ignoreDeadLinks: true, 
+  title: 'poidh docs',
+  description: 'Secure bounty protocol with social crowdfunding, weighted polling, and pull-payments',
+  sitemap: { hostname: 'https://docs.poidh.xyz' },
+
+  // Dynamic meta tags for sub-pages
+  transformPageData(pageData) {
+    const title = pageData.frontmatter.title || pageData.title || 'poidh docs';
+    const description = pageData.frontmatter.description || pageData.description || '...';
+    pageData.frontmatter.head = [
+      ...(pageData.frontmatter.head || []),
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { name: 'twitter:title', content: title }]
+    ]
+  },
+
+  head: [
+    ['meta', { property: 'og:image', content: 'https://poidh.xyz/images/poidh-preview-hero-v2.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://poidh.xyz/images/poidh-preview-hero-v2.png' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js' }]
+  ],
+
+  themeConfig: {
+    nav: [
+      { text: 'start here', link: '/start-here/what-is-poidh' },
+      { text: 'using poidh', link: '/using-poidh/creating-a-bounty' },
+      { text: 'developers', link: '/developers/building-on-poidh' },
+      { text: 'contracts', link: '/contracts/overview' }
+    ],
+
+    sidebar: [
+      {
+        text: 'start here',
+        collapsed: false,
+        items: [
+          { text: 'what is poidh?', link: '/start-here/what-is-poidh' },
+          { text: 'how poidh works', link: '/start-here/how-it-works' }
+        ]
+      },
+      {
+        text: 'using poidh',
+        collapsed: false,
+        items: [
+          { text: 'creating a bounty', link: '/using-poidh/creating-a-bounty' },
+          { text: 'boosting a bounty', link: '/using-poidh/boosting-a-bounty' },
+          { text: 'claiming a bounty', link: '/using-poidh/claiming-a-bounty' },
+          { text: 'confirming a claim', link: '/using-poidh/confirming-a-claim' },
+          { text: 'voting on claims', link: '/using-poidh/voting-on-claims' },
+          { text: 'getting paid', link: '/using-poidh/getting-paid' }
+        ]
+      },
+      {
+        text: 'features',
+        collapsed: false,
+        items: [
+          { text: 'bounty pages', link: '/features/bounty-pages' },
+          { text: 'claim nfts', link: '/features/claim-nfts' },
+          { text: 'profiles', link: '/features/profiles' },
+          { text: 'albums', link: '/features/albums' },
+          { text: 'poidh score', link: '/features/poidh-score' }
+        ]
+      },
+      {
+        text: 'developers',
+        collapsed: false,
+        items: [
+          { text: 'building on poidh', link: '/developers/building-on-poidh' },
+          { text: 'alternate frontends', link: '/developers/alternate-frontends' },
+          { 
+            text: 'agent skill', 
+            link: 'https://github.com/picsoritdidnthappen/poidh-app/blob/prod/SKILL.md',
+            target: '_blank', 
+            rel: 'noreferrer' 
+          }
+        ]
+      },
+      {
+        text: 'contracts',
+        collapsed: false,
+        items: [
+          { text: 'overview', link: '/contracts/overview' },
+          { text: 'architecture', link: '/contracts/architecture' },
+          { text: 'state machines', link: '/contracts/state-machines' },
+          { text: 'security', link: '/contracts/security' },
+          { text: 'api reference', link: '/contracts/api' },
+          { text: 'deployment', link: '/contracts/deployment' }
+        ]
+      },
+      {
+        text: 'contact us',
+        collapsed: false,
+        items: [
+          { text: 'links', link: '/contact/links' },
+        ]
+      }
+    ],
+
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/picsoritdidnthappen/poidh-app' },
+      { icon: 'x', link: 'https://x.com/poidhxyz' }
+    ],
+
+    search: {
+      provider: 'local'
+    }
+  },
+
+  markdown: {
+    theme: {
+      light: 'github-light',
+      dark: 'github-dark'
+    }
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            :root {
+              --vp-c-brand-1: #6366f1;
+              --vp-c-brand-2: #818cf8;
+              --vp-home-hero-name-background: linear-gradient(120deg, #6366f1 0%, #818cf8 100%);
+            }
+          `
+        }
+      }
+    }
+  }
+})

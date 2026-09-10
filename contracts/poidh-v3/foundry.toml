@@ -1,0 +1,62 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+test = "test"
+script = "script"
+solc_version = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+show_progress = true
+fs_permissions = [{ access = "read-write", path = "./cache" }]
+
+remappings = [
+  "@openzeppelin/=lib/openzeppelin-contracts/"
+]
+
+[rpc_endpoints]
+ethereummainnet = "${ETH_MAINNET_RPC_URL}"
+base_sepolia = "${BASE_SEPOLIA_RPC_URL}"
+base = "${BASE_RPC_URL}"
+arbitrum = "${ARBITRUM_RPC_URL}"
+degen = "${DEGEN_RPC_URL}"
+
+[etherscan]
+ethereummainnet = { key = "${ETHERSCAN_API_KEY}", chain = 1, url = "https://api.etherscan.io/api" }
+base_sepolia = { key = "${BASESCAN_API_KEY}", chain = 84532, url = "https://api-sepolia.basescan.org/api" }
+base = { key = "${BASESCAN_API_KEY}", chain = 8453, url = "https://api.basescan.org/api" }
+
+[profile.default.fuzz]
+runs = 256
+
+[profile.default.invariant]
+runs = 256
+depth = 500
+
+[profile.long.fuzz]
+runs = 10000
+
+[profile.long.invariant]
+runs = 2000
+depth = 1000
+
+[profile.overnight.fuzz]
+runs = 100000
+
+[profile.overnight.invariant]
+runs = 50000
+depth = 10000
+# Enable coverage-guided fuzzing - stores/mutates call sequences that find new coverage
+corpus_dir = "cache/invariant-corpus"
+
+[fmt]
+bracket_spacing = false
+int_types = "long"
+line_length = 100
+multiline_func_header = "attributes_first"
+number_underscore = "thousands"
+quote_style = "double"
+single_line_statement_blocks = "single"
+tab_width = 2
+wrap_comments = true

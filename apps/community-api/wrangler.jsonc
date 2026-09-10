@@ -1,0 +1,34 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "poidh-ultra-community",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-10",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "r2_buckets": [
+    {
+      "binding": "PROOFS",
+      "bucket_name": "poidh-ultra-proofs"
+    }
+  ],
+  "vars": {
+    "CLIENT_ORIGINS": "https://poidh.arca.computer,https://poidh.xyz",
+    "PUBLIC_STORAGE_URL": "https://poidh.arca.computer/media"
+  },
+  "triggers": {
+    "crons": [
+      "41 3 * * *"
+    ]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "7559f87e18114937a13561ab5b8e98f9"
+    }
+  ]
+}

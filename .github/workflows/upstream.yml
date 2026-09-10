@@ -1,0 +1,56 @@
+name: Upstream maintenance
+on:
+  schedule:
+    - cron: "17 * * * *"
+    - cron: "43 5 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [upstream-change]
+permissions:
+  contents: read
+concurrency:
+  group: upstream-maintenance
+  cancel-in-progress: false
+jobs:
+  detect-and-prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Require the repository-scoped publisher
+        env:
+          APP_ID: ${{ vars.UPSTREAM_APP_ID }}
+        run: test -n "$APP_ID"
+      - uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        id: publisher
+        with:
+          app-id: ${{ vars.UPSTREAM_APP_ID }}
+          private-key: ${{ secrets.UPSTREAM_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: poidhultra
+          permission-contents: write
+          permission-pull-requests: write
+          permission-issues: write
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ steps.publisher.outputs.token }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Configure bot identity
+        run: |
+          git config user.name 'poidh-ultra-maintenance[bot]'
+          git config user.email 'poidh-ultra-maintenance[bot]@users.noreply.github.com'
+      - name: Detect all files, prepare candidates, publish pending status
+        env:
+          GH_TOKEN: ${{ steps.publisher.outputs.token }}
+          DISCOVER: ${{ github.event.schedule == '43 5 * * *' || github.event_name == 'workflow_dispatch' }}
+        run: node scripts/upstream/run.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: complete-upstream-report
+          path: upstream/reports
+          retention-days: 30

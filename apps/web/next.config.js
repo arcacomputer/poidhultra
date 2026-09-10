@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
-  experimental: {
-    esmExternals: 'loose',
-  },
-
   reactStrictMode: true,
-  swcMinify: true,
+  output: 'standalone',
+  outputFileTracingRoot: require('path').resolve(__dirname, '../..'),
+  transpilePackages: ['@poidh/protocol', '@poidh/client'],
 
   // Uncoment to add domain whitelist
   images: {
@@ -48,7 +42,7 @@ const nextConfig = {
     );
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i;
+    if (fileLoaderRule) fileLoaderRule.exclude = /\.svg$/i;
 
     config.resolve.extensionAlias = {
       ...config.resolve.extensionAlias,

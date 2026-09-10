@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "reviewPolicy": "Each revision is maintainer-reviewed. This file records project decisions, not automatic approvals.",
+  "differences": [
+    {
+      "id": "hosting",
+      "scope": [
+        "apps/web/next.config.js",
+        "apps/web/open-next.config.ts",
+        "infra/**"
+      ],
+      "reason": "Cloudflare/OpenNext and portable Node deployments replace Vercel-specific services.",
+      "decision": "accepted-plan"
+    },
+    {
+      "id": "identity",
+      "scope": ["packages/auth/**", "apps/community-api/**"],
+      "reason": "Domain-bound SIWE replaces arbitrary replayable signatures and proprietary identity.",
+      "decision": "accepted-plan"
+    },
+    {
+      "id": "storage",
+      "scope": ["packages/storage/**"],
+      "reason": "Content-addressed R2/S3 storage replaces the original external upload service.",
+      "decision": "accepted-plan"
+    },
+    {
+      "id": "contracts",
+      "scope": ["packages/protocol/deployments.json"],
+      "reason": "Verified transaction destinations are independent of upstream source updates.",
+      "decision": "accepted-plan"
+    },
+    {
+      "id": "community",
+      "scope": ["packages/database/**", "apps/community-api/**"],
+      "reason": "Shared versioned community backend with author authorization and import provenance.",
+      "decision": "accepted-plan"
+    }
+  ]
+}

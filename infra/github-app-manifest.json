@@ -1,0 +1,17 @@
+{
+  "name": "poidh Ultra Maintenance",
+  "url": "https://github.com/arcacomputer/poidhultra",
+  "hook_attributes": {
+    "url": "https://poidh-ultra-supervisor.lf-e32.workers.dev/webhooks/upstream",
+    "active": false
+  },
+  "public": false,
+  "default_permissions": {
+    "contents": "write",
+    "pull_requests": "write",
+    "issues": "write",
+    "actions": "write",
+    "metadata": "read"
+  },
+  "default_events": []
+}

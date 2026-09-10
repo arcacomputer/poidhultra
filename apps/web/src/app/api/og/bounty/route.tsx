@@ -1,110 +1,29 @@
-import BountyPreviewCard, {
-  BountyPreviewData,
-} from '@/components/og/BountyPreviewCard';
-import BountyErrorCard from '@/components/og/BountyErrorCard';
-import { ImageResponse, NextRequest } from 'next/server';
-import { ChainId } from '@/utils/types';
-
-export const runtime = 'edge';
-
-export async function GET(req: NextRequest) {
-  try {
-    const { searchParams } = new URL(req.url);
-    const imageFormat = searchParams.get('imageFormat') as 'og' | 'preview';
-    const title = searchParams.get('title');
-    const amount = searchParams.get('amount');
-    const chainId = searchParams.get('chainId');
-    const currencyRate = searchParams.get('currencyRate');
-    const participants = searchParams.get('participants');
-
-    if (!title || !amount || !currencyRate || !chainId || !participants) {
-      return new Response('Missing or invalid parameters', { status: 400 });
-    }
-
-    const bountyPreviewData = {
-      title,
-      amount,
-      chainId: Number(chainId) as ChainId,
-      currencyRate: Number(currencyRate),
-      participants: participants.split(','),
-    } as BountyPreviewData;
-    const fontData = await loadFont();
-    const farcasterParticipants = await loadFarcasterParticipants(
-      bountyPreviewData.participants
-    );
-
-    return new ImageResponse(
-      await BountyPreviewCard({
-        bountyData: bountyPreviewData,
-        farcasterParticipants,
-        imageFormat,
-      }),
-      {
-        width: imageFormat === 'og' ? 1200 : 600,
-        height: imageFormat === 'og' ? 630 : 400,
-        fonts: [
-          {
-            name: 'GeistMono',
-            data: fontData,
-            style: 'normal',
-          },
-        ],
-      }
-    );
-  } catch (error) {
-    console.error('Error generating bounty image:', error);
-    const errorMessage =
-      error instanceof Error ? error.message : 'Unknown error occurred';
-
-    return new ImageResponse(
-      (
-        <BountyErrorCard
-          message={`Failed to generate bounty image: ${errorMessage}`}
-        />
-      ),
-      {
-        width: 600,
-        height: 400,
-      }
-    );
-  }
-}
-
-async function loadFont(): Promise<ArrayBuffer> {
-  const fontUrl = new URL(
-    '../../../../../public/fonts/GeistMono-Regular.ttf',
-    import.meta.url
+import { ImageResponse } from 'next/og';
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          background: '#2059ee',
+          color: '#e9fcae',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: 60,
+        }}
+      >
+        <div style={{ fontSize: 30, marginBottom: 30 }}>poidh ULTRA</div>
+        <div style={{ fontSize: 64 }}>Pics or it didn’t happen.</div>
+        <div style={{ fontSize: 24, marginTop: 30 }}>
+          {(
+            url.searchParams.get('title') ?? 'Make it happen. Show the proof.'
+          ).slice(0, 100)}
+        </div>
+      </div>
+    ),
+    { width: 1200, height: 630 }
   );
-  return fetch(fontUrl).then((r) => r.arrayBuffer());
-}
-
-async function loadFarcasterParticipants(addresses: string[]) {
-  try {
-    const res = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_APP_URL
-      }/api/trpc/neynar.usersData?input=${encodeURIComponent(
-        JSON.stringify({ json: { addresses } })
-      )}`
-    );
-    const json = await res.json();
-    const users: Array<{
-      address: string;
-      farcasterTag: string | null;
-      pfpUrl: string | null;
-    }> = json?.result?.data?.json ?? [];
-    const result: {
-      [address: string]: Array<{ username: string; pfp_url: string }>;
-    } = {};
-    for (const user of users) {
-      if (user.farcasterTag) {
-        result[user.address] = [
-          { username: user.farcasterTag, pfp_url: user.pfpUrl ?? '' },
-        ];
-      }
-    }
-    return result;
-  } catch (error) {
-    return {};
-  }
 }

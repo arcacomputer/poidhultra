@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "source": "app",
+  "revision": "ea2f198486fcd713a84191e948d7ceca327beb96",
+  "subtreeRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
+  "disposition": "integrated",
+  "reason": "Initial licensed history import.",
+  "review": "Initial import authorized by the accepted implementation plan."
+}

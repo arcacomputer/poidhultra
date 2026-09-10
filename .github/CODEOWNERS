@@ -1,0 +1,6 @@
+# Every integration is maintainer-reviewed, including behavior differences and transaction destinations.
+* @felirami
+/upstream/ @felirami
+/packages/protocol/ @felirami
+/.github/ @felirami
+/infra/ @felirami

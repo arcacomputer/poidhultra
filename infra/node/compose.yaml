@@ -1,0 +1,93 @@
+name: poidhultra
+services:
+  postgres:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_DB: poidh
+      POSTGRES_USER: poidh
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes: [postgres:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U poidh -d poidh]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  storage:
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: server /data --console-address ':9001'
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY_ID:?Set S3_ACCESS_KEY_ID}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_ACCESS_KEY:?Set S3_SECRET_ACCESS_KEY}
+    volumes: [proofs:/data]
+    restart: unless-stopped
+  storage-init:
+    build:
+      context: ../..
+      dockerfile: infra/node/services.Dockerfile
+    command: [node, --import, tsx, scripts/storage/portable.ts, init]
+    environment:
+      S3_ENDPOINT: http://storage:9000
+      S3_BUCKET: poidh-proofs
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+    depends_on: [storage]
+  migrate:
+    build:
+      context: ../..
+      dockerfile: infra/node/services.Dockerfile
+    environment:
+      DATABASE_URL: postgresql://poidh:${POSTGRES_PASSWORD}@postgres:5432/poidh
+    command: [node, --import, tsx, packages/database/src/migrate.ts]
+    depends_on:
+      postgres: { condition: service_healthy }
+  community:
+    build:
+      context: ../..
+      dockerfile: infra/node/services.Dockerfile
+    command: [node, --import, tsx, apps/community-api/src/node.ts]
+    environment:
+      DATABASE_URL: postgresql://poidh:${POSTGRES_PASSWORD}@postgres:5432/poidh
+      CLIENT_ORIGINS: ${APP_ORIGIN:-http://localhost:3000}
+      PROXY_KEYS: ${PROXY_KEYS:?Set per-origin PROXY_KEYS JSON}
+      PUBLIC_STORAGE_URL: ${APP_ORIGIN:-http://localhost:3000}/media
+      S3_ENDPOINT: http://storage:9000
+      S3_BUCKET: poidh-proofs
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      MODERATORS: ${MODERATORS:-}
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      storage-init: { condition: service_completed_successfully }
+    restart: unless-stopped
+  indexer:
+    build:
+      context: ../..
+      dockerfile: infra/cloudflare/indexer.Dockerfile
+    environment:
+      DATABASE_URL: postgresql://poidh:${POSTGRES_PASSWORD}@postgres:5432/poidh
+      DATABASE_SCHEMA: poidh_index_v1
+      MAINNET_RPC_URL: ${MAINNET_RPC_URL:?Set MAINNET_RPC_URL}
+      BASE_RPC_URL: ${BASE_RPC_URL:?Set BASE_RPC_URL}
+      ARBITRUM_RPC_URL: ${ARBITRUM_RPC_URL:?Set ARBITRUM_RPC_URL}
+    depends_on:
+      postgres: { condition: service_healthy }
+    restart: unless-stopped
+    stop_grace_period: 45s
+  web:
+    build:
+      context: ../..
+      dockerfile: infra/node/web.Dockerfile
+      args:
+        APP_ORIGIN: ${APP_ORIGIN:-http://localhost:3000}
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_APP_URL: ${APP_ORIGIN:-http://localhost:3000}
+      COMMUNITY_API_URL: http://community:8787
+      COMMUNITY_PROXY_KEY: ${COMMUNITY_PROXY_KEY:?Set COMMUNITY_PROXY_KEY}
+    ports: [127.0.0.1:3000:3000]
+    depends_on: [community]
+    restart: unless-stopped
+volumes:
+  postgres:
+  proofs:

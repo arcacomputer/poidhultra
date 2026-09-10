@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "repository": "arcacomputer/poidhultra",
+  "discoveryOwner": "picsoritdidnthappen",
+  "sources": [
+    {
+      "id": "app",
+      "repository": "picsoritdidnthappen/poidh-app",
+      "repositoryId": 740747096,
+      "branch": "prod",
+      "path": "apps/web",
+      "license": "MIT",
+      "sourcePrefix": null,
+      "mode": "subtree",
+      "baseline": "ea2f198486fcd713a84191e948d7ceca327beb96",
+      "observe": ["branches", "pulls", "releases"]
+    },
+    {
+      "id": "protocol",
+      "repository": "picsoritdidnthappen/poidh-v3",
+      "repositoryId": 1133809079,
+      "branch": "main",
+      "path": "contracts/poidh-v3",
+      "license": "MIT",
+      "sourcePrefix": null,
+      "mode": "subtree",
+      "baseline": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
+      "observe": ["branches", "pulls", "releases"]
+    },
+    {
+      "id": "legacy-contracts",
+      "repository": "picsoritdidnthappen/poidh-v2-contracts",
+      "repositoryId": 726895025,
+      "branch": "main",
+      "path": "contracts/poidh-v2",
+      "license": "SPDX-MIT: Solidity sources only",
+      "sourcePrefix": "packages/evm/contracts",
+      "mode": "subtree",
+      "baseline": "c147a4909516474e1cc42471d5daa8ad2657d468",
+      "observe": ["branches", "pulls", "releases"]
+    },
+    {
+      "id": "frame",
+      "repository": "picsoritdidnthappen/poidh-frame",
+      "repositoryId": 797398883,
+      "branch": "main",
+      "path": null,
+      "license": null,
+      "sourcePrefix": null,
+      "mode": "independent",
+      "baseline": "31f0ba79b83aca487dcc1f65236100d2441713f0",
+      "observe": ["branches", "pulls", "releases"]
+    },
+    {
+      "id": "names",
+      "repository": "picsoritdidnthappen/wei-names",
+      "repositoryId": 1155735358,
+      "branch": "main",
+      "path": "contracts/wei-names",
+      "license": "MIT",
+      "sourcePrefix": null,
+      "mode": "subtree",
+      "baseline": "49abd2bb380112a8943619228c5a727bff276c40",
+      "observe": ["branches", "pulls", "releases"]
+    },
+    {
+      "id": "indexer",
+      "repository": "yukigesho/poidh-indexer",
+      "repositoryId": 863771858,
+      "branch": "main",
+      "path": null,
+      "license": null,
+      "sourcePrefix": null,
+      "mode": "independent",
+      "baseline": "82d4028540165912b3c3d2df366284e066af51f6",
+      "observe": ["branches", "pulls", "releases"]
+    }
+  ]
+}

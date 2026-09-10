@@ -1,0 +1,23 @@
+{
+  "name": "@poidh/indexer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev": "ponder dev",
+    "build": "ponder codegen",
+    "start": "ponder start --views-schema protocol_api"
+  },
+  "dependencies": {
+    "ponder": "0.17.10",
+    "viem": "2.56.3",
+    "@poidh/protocol": "workspace:*",
+    "hono": "4.13.7"
+  },
+  "devDependencies": {}
+}

@@ -17,3 +17,9 @@ playwright-report/
 apps/web/generated/
 upstream/reports/
 local-data/
+
+contracts/**/out/
+contracts/**/cache/
+apps/indexer/.test.config.ts
+
+apps/web/.preview.wrangler.json

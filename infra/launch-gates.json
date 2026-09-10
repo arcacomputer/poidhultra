@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "target": "https://poidh.arca.computer",
+  "gates": [
+    { "id": "ci", "status": "pending", "evidence": null, "reviewedBy": null },
+    {
+      "id": "contract-deployments",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
+    {
+      "id": "historical-backfill",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
+    {
+      "id": "original-client-integration",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
+    {
+      "id": "community-migration",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
+    {
+      "id": "degen-archive",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    },
+    {
+      "id": "production-rollback-rehearsal",
+      "status": "pending",
+      "evidence": null,
+      "reviewedBy": null
+    }
+  ]
+}

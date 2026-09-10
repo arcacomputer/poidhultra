@@ -1,0 +1,46 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "poidh-ultra-supervisor",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "containers": [
+    {
+      "class_name": "PoidhIndexer",
+      "image": "../../infra/cloudflare/indexer.Dockerfile",
+      "image_build_context": "../..",
+      "max_instances": 1,
+      "instance_type": "standard-1"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "INDEXER",
+        "class_name": "PoidhIndexer"
+      },
+      {
+        "name": "MAINTENANCE",
+        "class_name": "Maintenance"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["PoidhIndexer", "Maintenance"]
+    }
+  ],
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "vars": {
+    "GITHUB_REPOSITORY": "arcacomputer/poidhultra",
+    "DATABASE_SCHEMA": "poidh_index_v1",
+    "UPSTREAM_REPOSITORY_IDS": "740747096,1133809079,726895025,797398883,1155735358,863771858",
+    "INDEXER_ENABLED": "false"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,17 +1,11 @@
-'use client';
-
-import Navbar from '@/components/global/Navbar';
-import dynamic from 'next/dynamic';
-
-const AccountInfo = dynamic(() => import('@/components/account/AccountInfo'), {
-  ssr: false,
-});
-
-export default function Account({ params }: { params: { address: string } }) {
-  return (
-    <>
-      <AccountInfo address={params.address.toLocaleLowerCase()} />
-      <Navbar type='bounty' />
-    </>
-  );
+import { Profile } from '@/components/ultra/community-pages';
+import { notFound } from 'next/navigation';
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ address: string }>;
+}) {
+  const { address } = await params;
+  if (!/^0x[0-9a-fA-F]{40}$/.test(address)) notFound();
+  return <Profile address={address.toLowerCase()} />;
 }

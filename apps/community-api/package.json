@@ -1,0 +1,31 @@
+{
+  "name": "@poidh/community-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx watch src/node.ts",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "start": "tsx src/node.ts",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "4.13.7",
+    "@hono/node-server": "2.1.1",
+    "@poidh/database": "workspace:*",
+    "@poidh/auth": "workspace:*",
+    "@poidh/protocol": "workspace:*",
+    "@poidh/storage": "workspace:*",
+    "viem": "2.56.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "wrangler": "4.130.0",
+    "@cloudflare/workers-types": "5.20260910.1"
+  }
+}

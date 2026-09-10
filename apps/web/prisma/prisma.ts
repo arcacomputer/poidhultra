@@ -10,15 +10,14 @@ declare global {
   var cachedPrisma: PrismaClient;
 }
 
-let prisma: PrismaClient;
-if (process.env.NODE_ENV === 'production') {
-  prisma = createPrisma();
-} else {
-  if (!global.cachedPrisma) {
-    global.cachedPrisma = createPrisma();
-  }
-  prisma = global.cachedPrisma;
-}
+let instance: PrismaClient | undefined;
+const prisma = new Proxy({} as PrismaClient, {
+  get(_target, property) {
+    instance ??= createPrisma();
+    const value = Reflect.get(instance, property);
+    return typeof value === 'function' ? value.bind(instance) : value;
+  },
+});
 
 function createPrisma() {
   const databaseUrl = process.env.DATABASE_URL;

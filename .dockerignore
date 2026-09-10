@@ -1,0 +1,15 @@
+.git
+**/node_modules
+**/.next
+**/.open-next
+**/.wrangler
+**/.ponder
+**/dist
+**/.env*
+**/.dev.vars
+upstream/reports
+local-data
+
+**/.test.config.ts
+**/out
+**/cache

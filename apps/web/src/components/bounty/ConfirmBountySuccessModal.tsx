@@ -120,13 +120,13 @@ export default function ConfirmBountySuccessModal({
       const imageBlob = await response.blob();
       const uploadResult = await uploadFile(imageBlob);
 
-      if (!uploadResult?.IpfsHash) {
-        throw new Error('Failed to upload to Pinata');
+      if (!uploadResult?.url) {
+        throw new Error('Failed to upload proof');
       }
 
       await shareToFarcaster({
         text,
-        embedImage: `https://gateway.pinata.cloud/ipfs/${uploadResult.IpfsHash}`,
+        embedImage: uploadResult.url,
       });
     } catch (error) {
       console.error('Error sharing to Farcaster:', error);

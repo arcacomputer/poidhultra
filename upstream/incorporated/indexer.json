@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "source": "indexer",
+  "revision": null,
+  "subtreeRevision": null,
+  "disposition": "pending",
+  "reason": "Reuse permission undeclared; independent implementation requires reviewed behavior mapping.",
+  "review": "Initial import authorized by the accepted implementation plan."
+}

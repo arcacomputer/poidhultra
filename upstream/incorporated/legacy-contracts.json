@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "source": "legacy-contracts",
+  "revision": "c147a4909516474e1cc42471d5daa8ad2657d468",
+  "subtreeRevision": "b1a37ef5c7e7263c578d5c77b815f7f68c9f3739",
+  "disposition": "integrated",
+  "reason": "Initial licensed history import.",
+  "review": "Initial import authorized by the accepted implementation plan."
+}

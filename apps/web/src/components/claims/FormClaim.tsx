@@ -99,7 +99,7 @@ export default function FormClaim({
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         const cid = await uploadFile(file);
-        return cid.IpfsHash;
+        return cid.url;
       } catch (error) {
         if (attempt === MAX_RETRIES) {
           throw error;
@@ -118,7 +118,7 @@ export default function FormClaim({
       if (file) {
         try {
           const cid = await retryUpload(file);
-          setImageURI(`${LINK_IPFS}/${cid}`);
+          setImageURI(cid);
         } catch (error) {
           console.error('Error uploading file:', error);
           alert('Trouble uploading file');
@@ -141,7 +141,7 @@ export default function FormClaim({
       setLoading({ isLoading: true, status: 'Uploading metadata...' });
       const metadata = buildMetadata(imageURI, title, description);
       const metadataResponse = await uploadMetadata(metadata);
-      const uri = `${LINK_IPFS}/${metadataResponse.IpfsHash}`;
+      const uri = metadataResponse.url;
 
       setLoading({ isLoading: true, status: 'Creating claim...' });
       setPollingChainId(chain.id);

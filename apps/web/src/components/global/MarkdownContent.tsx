@@ -77,21 +77,27 @@ const components: Components = {
   ),
   td: ({ children }) => <td className='px-3 py-2'>{children}</td>,
   img: ({ src, alt }) => {
-    if (src && VIDEO_EXTENSIONS.test(src)) {
+    if (typeof src === 'string' && VIDEO_EXTENSIONS.test(src)) {
       return (
         <video
-          src={src}
+          src={typeof src === 'string' ? src : undefined}
           controls
           className='max-w-full rounded-md mb-3'
           title={alt}
         />
       );
     }
-    return <img src={src} alt={alt} className='max-w-full rounded-md mb-3' />;
+    return (
+      <img
+        src={typeof src === 'string' ? src : undefined}
+        alt={alt}
+        className='max-w-full rounded-md mb-3'
+      />
+    );
   },
   video: ({ src, title, width, height, children }) => (
     <video
-      src={src}
+      src={typeof src === 'string' ? src : undefined}
       controls
       title={title}
       width={width}

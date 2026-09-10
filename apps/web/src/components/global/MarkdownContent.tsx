@@ -1,0 +1,131 @@
+'use client';
+import ReactMarkdown, { type Components } from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
+
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [...(defaultSchema.tagNames ?? []), 'video', 'source'],
+  attributes: {
+    ...defaultSchema.attributes,
+    video: ['src', 'controls', 'title', 'width', 'height'],
+    source: ['src', 'type'],
+  },
+};
+
+const VIDEO_EXTENSIONS = /\.(mp4|webm|ogg|mov)(\?.*)?$/i;
+
+const components: Components = {
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='underline hover:text-gray-200'
+    >
+      {children}
+    </a>
+  ),
+  p: ({ children }) => <p className='mb-3 last:mb-0'>{children}</p>,
+  h1: ({ children }) => <h1 className='text-2xl font-bold mb-3'>{children}</h1>,
+  h2: ({ children }) => <h2 className='text-xl font-bold mb-2'>{children}</h2>,
+  h3: ({ children }) => <h3 className='text-lg font-bold mb-2'>{children}</h3>,
+  ul: ({ children }) => (
+    <ul className='list-disc pl-5 mb-3 space-y-1'>{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className='list-decimal pl-5 mb-3 space-y-1'>{children}</ol>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className='border-l-4 border-gray-400 pl-4 italic mb-3 opacity-80'>
+      {children}
+    </blockquote>
+  ),
+  pre: ({ children }) => (
+    <pre className='bg-black/30 rounded-md p-3 mb-3 max-w-full whitespace-pre-wrap break-words'>
+      {children}
+    </pre>
+  ),
+  code: ({ children, className }) => {
+    const content = String(children).replace(/\n$/, '');
+    const isBlock =
+      className?.startsWith('language-') || content.includes('\n');
+    if (isBlock) {
+      return <code className='text-sm font-mono'>{children}</code>;
+    }
+    return (
+      <code className='bg-black/30 rounded px-1 text-sm font-mono break-words'>
+        {children}
+      </code>
+    );
+  },
+  table: ({ children }) => (
+    <div className='overflow-x-auto mb-3'>
+      <table className='min-w-full border-collapse text-sm'>{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className='border-b border-gray-400'>{children}</thead>
+  ),
+  tbody: ({ children }) => <tbody>{children}</tbody>,
+  tr: ({ children }) => (
+    <tr className='border-b border-gray-600 last:border-0'>{children}</tr>
+  ),
+  th: ({ children }) => (
+    <th className='px-3 py-2 text-left font-semibold'>{children}</th>
+  ),
+  td: ({ children }) => <td className='px-3 py-2'>{children}</td>,
+  img: ({ src, alt }) => {
+    if (src && VIDEO_EXTENSIONS.test(src)) {
+      return (
+        <video
+          src={src}
+          controls
+          className='max-w-full rounded-md mb-3'
+          title={alt}
+        />
+      );
+    }
+    return <img src={src} alt={alt} className='max-w-full rounded-md mb-3' />;
+  },
+  video: ({ src, title, width, height, children }) => (
+    <video
+      src={src}
+      controls
+      title={title}
+      width={width}
+      height={height}
+      className='max-w-full rounded-md mb-3'
+    >
+      {children}
+    </video>
+  ),
+  strong: ({ children }) => <strong className='font-bold'>{children}</strong>,
+  em: ({ children }) => <em className='italic'>{children}</em>,
+  hr: () => <hr className='border-gray-400 my-4' />,
+};
+
+export default function MarkdownContent({
+  children,
+  className,
+}: {
+  children: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`normal-case min-w-0 max-w-full${
+        className ? ` ${className}` : ''
+      }`}
+    >
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
+        components={components}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
+  );
+}

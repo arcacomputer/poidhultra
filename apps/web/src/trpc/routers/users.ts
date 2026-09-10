@@ -1,0 +1,154 @@
+import prisma from 'prisma/prisma';
+import { baseProcedure } from '../init';
+import { z } from 'zod';
+import { Prisma } from 'generated/prisma/client';
+
+export const usersRouter = {
+  fetchByAddress: baseProcedure
+    .input(
+      z.object({
+        address: z.string(),
+      })
+    )
+    .query(async ({ input }) => {
+      const user = await prisma.users.findUnique({
+        where: { address: input.address.toLowerCase() },
+      });
+      const userExtra = await prisma.usersExtra.findUnique({
+        where: { address: input.address.toLowerCase() },
+      });
+      if (!user) return null;
+      return {
+        address: user.address,
+        withdrawalDegen: Number(user.withdrawalDegen),
+        withdrawalBase: Number(user.withdrawalBase),
+        withdrawalArbitrum: Number(user.withdrawalArbitrum),
+        withdrawalMainnet: Number(user.withdrawalMainnet),
+        pfpUrl: userExtra?.pfpUrl ?? null,
+        ens: userExtra?.ens ?? null,
+        degenName: userExtra?.degenName ?? null,
+        wei: userExtra?.wei ?? null,
+        gwei: userExtra?.gwei ?? null,
+        farcasterTag: userExtra?.farcasterTag ?? null,
+        farcasterFid: userExtra?.farcasterFid ?? null,
+        twitterTag: userExtra?.twitterTag ?? null,
+        zkpassportCountry: userExtra?.zkpassportCountry ?? null,
+        lastUpdated: userExtra?.lastUpdated ?? null,
+      };
+    }),
+
+  fetchByKeyword: baseProcedure
+    .input(
+      z.object({
+        search: z.string().optional().default(''),
+        cursor: z.string().optional().default(''),
+        limit: z.number().default(25),
+      })
+    )
+    .query(async ({ input }) => {
+      const search = `%${input.search}%`;
+      const ignoreAddresses = [
+        '0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf',
+        '0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217',
+        '0xbed82560c39c133a3d64516ecda82c71b72f3cd7',
+        '0x7c7f6cb2dab9de9b242eeec29d2f61bd7d9750e0',
+        '0x10fc964ef70c8467cd8c53e9ed9347422adf96a8',
+        '0xb69e851658dd228eca3bd888aa3b011db3e3a5c5',
+        '0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99',
+        '0x5934e2fabed0d4b766c89e29039c4875d5048750',
+        '0x2cd1353cf0e402770643b54011a63b546a189c44',
+        '0x023875c1c757953aa2ff410da001e79f2edb730d',
+        '0x081a1a9d254ad8c1da447f36566392a6dc7b9e7f',
+      ];
+
+      const hasCursor = Boolean(input.cursor && input.cursor.trim().length > 0);
+      const [cursorBountyCount, cursorAddress] = hasCursor
+        ? (() => {
+            const idx = input.cursor.indexOf(':');
+            const bc = Number(input.cursor.slice(0, idx));
+            const addr = input.cursor.slice(idx + 1);
+            return [Number.isFinite(bc) ? bc : null, addr || null] as const;
+          })()
+        : ([null, null] as const);
+
+      const rows = await prisma.$queryRaw<
+        Array<
+          Record<string, any> & {
+            pfp_url: string | null;
+            ens: string | null;
+            degen_name: string | null;
+            farcaster_tag: string | null;
+            bounty_count: number;
+          }
+        >
+      >`
+        WITH user_bounties AS (
+          SELECT
+            pb."user_address" AS user_address,
+            pb."bounty_id"    AS id,
+            pb."chain_id"     AS chain_id
+          FROM "ParticipationsBounties" pb
+          JOIN "Bounties" b
+            ON b."id"       = pb."bounty_id"
+          AND b."chain_id" = pb."chain_id"
+          WHERE
+            COALESCE(b."is_canceled", FALSE) = FALSE
+            AND NOT EXISTS (
+              SELECT 1
+              FROM "Ban" bn
+              WHERE bn."bounty_id" = pb."bounty_id"
+                AND bn."chain_id"  = pb."chain_id"
+            )
+        ),
+        counts AS (
+          SELECT
+            ub.user_address,
+            COUNT(*)::int AS bounty_count
+          FROM user_bounties ub
+          GROUP BY ub.user_address
+        ),
+        base AS (
+          SELECT
+            u.*,
+            ux."pfp_url",
+            ux."ens",
+            ux."degen_name",
+            ux."wei",
+            ux."gwei",
+            ux."farcaster_tag",
+            COALESCE(c.bounty_count, 0) AS bounty_count
+          FROM "Users" u
+          LEFT JOIN counts c
+            ON c.user_address = u."address"
+          LEFT JOIN "UsersExtra" ux
+            ON ux."address" = u."address"
+          WHERE
+            u."address" NOT IN (${Prisma.join(ignoreAddresses)})
+            AND CASE
+              WHEN ux."farcaster_tag" IS NOT NULL THEN ux."farcaster_tag" ILIKE ${search}
+              WHEN ux."gwei"         IS NOT NULL THEN ux."gwei"         ILIKE ${search}
+              WHEN ux."wei"          IS NOT NULL THEN ux."wei"          ILIKE ${search}
+              WHEN ux."ens"          IS NOT NULL THEN ux."ens"          ILIKE ${search}
+              WHEN ux."degen_name"   IS NOT NULL THEN ux."degen_name"   ILIKE ${search}
+              ELSE u."address" ILIKE ${search}
+            END
+        )
+        SELECT *
+        FROM base
+        WHERE
+          (
+            ${cursorBountyCount}::int IS NULL
+            OR ${cursorAddress}::text IS NULL
+            OR bounty_count < ${cursorBountyCount}::int
+            OR (bounty_count = ${cursorBountyCount}::int AND "address" > ${cursorAddress}::text)
+          )
+        ORDER BY bounty_count DESC, "address" ASC
+        LIMIT ${input.limit}::int;
+      `;
+
+      const last = rows.at(-1);
+      const nextCursor = last ? `${last.bounty_count}:${last.address}` : null;
+
+      return { items: rows, nextCursor };
+    }),
+};

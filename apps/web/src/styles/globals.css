@@ -1,0 +1,638 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* inter var - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/inter-var-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+      U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'GeistMono-Regular';
+    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/GeistMono-Regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'PixeloidSans';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/fonts/PixeloidSans-Regular.ttf') format('truetype');
+  }
+
+  /* #region  /**=========== Typography =========== */
+  .h0 {
+    @apply font-primary text-3xl font-bold md:text-5xl;
+  }
+
+  h1,
+  .h1 {
+    @apply font-primary text-2xl font-bold md:text-4xl;
+  }
+
+  h2,
+  .h2 {
+    @apply font-primary text-xl font-bold md:text-3xl;
+  }
+
+  h3,
+  .h3 {
+    @apply font-primary text-lg font-bold md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply font-primary text-base font-bold md:text-lg;
+  }
+
+  body,
+  .p {
+    @apply font-primary text-sm md:text-base;
+  }
+  /* #endregion  /**======== Typography =========== */
+
+  .layout {
+    /* 1100px */
+    max-width: 68.75rem;
+    @apply mx-auto w-11/12;
+  }
+
+  .bg-dark a.custom-link {
+    @apply border-gray-200 hover:border-gray-200/0;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    @apply appearance-none;
+  }
+
+  input[type='number'] {
+    @apply appearance-none;
+  }
+}
+
+@layer utilities {
+  .animated-underline {
+    background-image: linear-gradient(#33333300, #33333300),
+      linear-gradient(
+        to right,
+        var(--color-primary-400),
+        var(--color-primary-500)
+      );
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    background: #38598b;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #38598b transparent;
+  }
+}
+
+body {
+  font-family: 'GeistMono-Regular';
+  min-height: 100vh;
+  background-size: cover;
+  text-transform: lowercase;
+  background: linear-gradient(to bottom, #2a81d5, #70aae2, #6fa9e1, #2a81d5);
+}
+
+.dark body {
+  background: linear-gradient(to bottom, #0d1b2e, #1a3a5c, #15304f, #0d1b2e);
+}
+
+.aspect-w-1 {
+  width: 100%;
+}
+
+.aspect-h-1 {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+button {
+  text-transform: lowercase;
+}
+
+.otherClaims .submitForVote {
+  display: none;
+}
+
+.votingStarted .submitForVote {
+  display: none;
+}
+
+.bountyItem.pendingClaims .bg-gradient {
+  background: linear-gradient(to right, #2582d9, #f15e5f);
+  transition: all 0.3s ease;
+}
+
+.bountyItem.pendingClaims:hover .bg-gradient {
+  background: linear-gradient(to left, #2582d9, #f15e5f);
+}
+
+.bg-whiteblue {
+  background: #80b4ebd8;
+}
+
+.dark .bg-whiteblue {
+  background: #132b47;
+}
+
+.button .normal {
+  display: block;
+}
+
+.button .press {
+  display: none;
+}
+
+.button:hover .press {
+  display: block;
+}
+
+.button:hover .normal {
+  display: none;
+}
+
+.bg-blur {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.bg-blur-white {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.font-family-geist {
+  font-family: 'GeistMono-Regular';
+}
+
+.font-family-pixeloid {
+  font-family: 'PixeloidSans';
+}
+
+@keyframes bounce-emoji {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-emoji {
+  display: inline-block;
+  animation: bounce-emoji 1s ease-in-out infinite;
+}
+
+.bountyItem.pendingClaims > div > div.borderBox {
+  border: 1px solid #cf5d5d;
+}
+
+.bountyItem.pendingClaims:hover > div > div.borderBox {
+  border: 1px solid #4f80c5;
+}
+
+.bountyItem.noClaims > div > div.borderBox {
+  border: 1px solid white;
+}
+
+.bountyItem.canceled > div > div.borderBox {
+  border: 1px solid white;
+}
+
+.bountyItem.pendingClaims.canceled:hover > div > div.borderBox {
+  border: 1px solid white;
+}
+
+.Toastify__toast-theme--light {
+  background-color: rgba(209, 236, 255, 0.2) !important;
+  border: 1px solid white !important;
+  color: white !important;
+  backdrop-filter: blur(4px) !important;
+}
+.dark .Toastify__toast-theme--light {
+  background-color: rgba(13, 27, 46, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+.Toastify__close-button > svg {
+  fill: white !important;
+}
+
+body.how-it-works-modal-open .how-it-works-hidden {
+  display: none !important;
+}
+
+textarea.resize-y {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+textarea.resize-y::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea.resize-y::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea.resize-y::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  textarea.resize-y {
+    padding-bottom: 24px;
+  }
+
+  textarea.resize-y::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+  }
+}
+
+@keyframes turnstile {
+  0% {
+    transform: translateY(-100%) rotateX(-90deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------
+   konami camera
+-------------------------------- */
+
+.konami-camera-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  overflow: hidden;
+
+  display: grid;
+  place-items: center;
+}
+
+.konami-camera-stage {
+  position: relative;
+  width: 150px;
+  height: 190px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  animation:
+    konami-camera-enter 0.45s steps(6, end) forwards,
+    konami-camera-shake 0.15s steps(2, end) 1.05s,
+    konami-camera-exit 0.45s steps(6, end) 2.25s forwards;
+}
+
+.konami-camera {
+  position: relative;
+  width: 140px;
+  height: 92px;
+
+  image-rendering: pixelated;
+}
+
+/* top camera bump */
+
+.konami-camera-top {
+  position: absolute;
+  top: -18px;
+  left: 17px;
+
+  width: 48px;
+  height: 22px;
+
+  background: #292929;
+
+  border: 5px solid #000;
+  border-bottom: 0;
+}
+
+.konami-camera-shutter {
+  position: absolute;
+  top: -10px;
+  right: -54px;
+
+  width: 25px;
+  height: 10px;
+
+  background: #f15e5f;
+  border: 4px solid #000;
+
+  animation: konami-shutter-button 0.15s steps(2, end) 0.95s;
+}
+
+/* main camera */
+
+.konami-camera-body {
+  position: relative;
+
+  width: 140px;
+  height: 92px;
+
+  background: #303030;
+  border: 6px solid #000;
+
+  box-shadow:
+    6px 6px 0 #000,
+    inset 0 -12px 0 rgba(0, 0, 0, 0.18);
+}
+
+.konami-camera-viewfinder {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 22px;
+  height: 16px;
+
+  background: #8ee7ff;
+  border: 4px solid #000;
+}
+
+.konami-camera-light {
+  position: absolute;
+  left: 12px;
+  top: 13px;
+
+  width: 12px;
+  height: 12px;
+
+  background: #eee;
+  border: 3px solid #000;
+}
+
+/* lens */
+
+.konami-camera-lens {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 62px;
+  height: 62px;
+
+  transform: translate(-50%, -50%);
+
+  background: #555;
+  border: 6px solid #000;
+
+  display: grid;
+  place-items: center;
+}
+
+.konami-camera-lens-middle {
+  width: 42px;
+  height: 42px;
+
+  background: #252525;
+  border: 5px solid #777;
+
+  display: grid;
+  place-items: center;
+}
+
+.konami-camera-lens-inner {
+  width: 20px;
+  height: 20px;
+
+  background: #050505;
+  border: 4px solid #111;
+}
+
+/* photo */
+
+.konami-photo {
+  position: absolute;
+  z-index: -1;
+
+  top: 70px;
+  left: 50%;
+
+  width: 86px;
+  height: 104px;
+
+  transform: translateX(-50%);
+
+  background: #fff;
+  border: 5px solid #000;
+
+  padding: 7px;
+  box-sizing: border-box;
+
+  opacity: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  animation: konami-photo-eject 0.65s steps(7, end) 1.2s forwards;
+}
+
+.konami-photo-image {
+  width: 100%;
+  height: 65px;
+  flex: 0 0 65px;
+
+  background: #181818;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-family: monospace;
+  text-transform: lowercase;
+  line-height: 1;
+}
+
+.konami-photo-image span {
+  font-size: 11px;
+}
+
+.konami-photo-image strong {
+  margin-top: 7px;
+  font-size: 20px;
+}
+
+.konami-photo-label {
+  flex: 1;
+
+  display: grid;
+  place-items: center;
+
+  margin-top: 0;
+
+  color: #f15e5f;
+
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+/* screen flash */
+
+.konami-camera-flash {
+  position: absolute;
+  inset: 0;
+
+  background: #fff;
+
+  opacity: 0;
+
+  animation: konami-screen-flash 0.3s linear 1.05s;
+}
+
+/* animations */
+
+@keyframes konami-camera-enter {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes konami-camera-shake {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-6px, 3px) scale(1);
+  }
+
+  66% {
+    transform: translate(6px, -2px) scale(1);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes konami-camera-exit {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes konami-shutter-button {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes konami-screen-flash {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.95;
+  }
+
+  25% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes konami-photo-eject {
+  0% {
+    transform: translate(-50%, -10px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, 74px);
+    opacity: 1;
+  }
+}
+
+/* accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .konami-camera-stage,
+  .konami-camera-shutter,
+  .konami-camera-flash,
+  .konami-photo {
+    animation-duration: 0.01ms;
+  }
+}

@@ -33,3 +33,9 @@ No new bucket or paid image-transformation service is provisioned. R2 Standard s
 ## Validation
 
 Service tests cover origin outages, fresh instances, concurrent requests, immutable revisions, local uploaded metadata, credential isolation, private-address/redirect rejection, invalid/oversized media, and export relationships. The native Cloudflare runtime test writes actual emulated R2 objects, restarts the Worker, disables its origin, and verifies image bytes plus edge HIT and conditional GET. Desktop/mobile browser tests use the Node S3 adapter and check stored homepage, proof, and avatar images without direct remote image requests.
+
+## Live deployment evidence, 2026-09-10
+
+Worker `a11de4d9-d6a2-42f5-8e63-003427a04f8b` serves `poidh.arca.computer` with `REMOTE_MEDIA` bound to `poidh-ultra-proofs`. Among the first 12 open bounty cards, 9 available images were captured as 7 distinct stored objects. Every checked image returned a matching content hash, repeat edge-cache HIT, and conditional 304. The first cover was also downloaded directly from the remote R2 bucket: 746,264 bytes, SHA-256 `78bbbaecb79ed1cbe81b32014ad029b0d6853fc5138aa5c1b0da5805781dacfd`. Browser verification showed decoded same-origin card images and no horizontal overflow.
+
+The previous Worker version `0b299cf6-4515-474f-96bf-8a246797c441` remains a rollback target. Rolling back the web Worker does not delete captured media. This image deployment does not complete the separately tracked full production data-restore/rollback launch gate.

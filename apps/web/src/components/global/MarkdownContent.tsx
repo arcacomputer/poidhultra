@@ -3,6 +3,7 @@ import ReactMarkdown, { type Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
+import { isVideoSource } from '@/utils/mediaSource';
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -13,8 +14,6 @@ const sanitizeSchema = {
     source: ['src', 'type'],
   },
 };
-
-const VIDEO_EXTENSIONS = /\.(mp4|webm|ogg|mov)(\?.*)?$/i;
 
 const components: Components = {
   a: ({ href, children }) => (
@@ -77,7 +76,7 @@ const components: Components = {
   ),
   td: ({ children }) => <td className='px-3 py-2'>{children}</td>,
   img: ({ src, alt }) => {
-    if (typeof src === 'string' && VIDEO_EXTENSIONS.test(src)) {
+    if (typeof src === 'string' && isVideoSource(src)) {
       return (
         <video
           src={typeof src === 'string' ? src : undefined}

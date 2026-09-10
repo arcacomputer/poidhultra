@@ -53,6 +53,7 @@ The existing community proxy configuration is still required for community/auth 
 ```sh
 NEXT_PUBLIC_APP_URL=http://localhost:3000 NEXT_PUBLIC_READ_ONLY_PREVIEW=true NEXT_PUBLIC_UPSTREAM_READS=true pnpm --filter @poidh/web build
 pnpm test:e2e:upstream
+node --import tsx tests/upstream-runtime.mjs
 ```
 
 These tests use an isolated local HTTP fixture, exercise the actual adapter, verify search/proof pagination and leaderboard labels, and assert that writes and bounty RPC requests stay disabled. Fixtures and test credentials are never deployed. Live smoke checks separately verify the documented service without sending credentials.

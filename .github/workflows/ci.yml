@@ -48,6 +48,7 @@ jobs:
       - run: pnpm --filter @poidh/community-api exec wrangler deploy --config wrangler.gateway.jsonc --dry-run --outdir dist-gateway
       - run: pnpm --filter @poidh/supervisor exec wrangler deploy --dry-run --containers-rollout=none --outdir dist
       - run: node tests/watchdog-runtime.mjs
+      - run: node --import tsx tests/upstream-runtime.mjs
       - run: docker build -f infra/cloudflare/indexer.Dockerfile -t poidh-indexer:test .
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e

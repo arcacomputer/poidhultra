@@ -219,7 +219,10 @@ export class UpstreamPublicAPI {
         "Use an HTTPS upstream origin, or a local HTTP test server."
       );
     this.origin = url.origin;
-    this.fetcher = options.fetcher ?? fetch;
+    // Workers' native fetch requires its global receiver; a stored method would
+    // otherwise be invoked with this adapter as `this` and throw in production.
+    this.fetcher =
+      options.fetcher ?? ((input, init) => globalThis.fetch(input, init));
     this.now = options.now ?? Date.now;
     this.cacheMs = options.cacheMs ?? 60_000;
   }
@@ -256,7 +259,8 @@ export class UpstreamPublicAPI {
         headers: { Accept: "application/json" },
         credentials: "omit",
         cache: "no-store",
-        redirect: "error",
+        // Workers supports manual redirects; non-2xx responses fail below.
+        redirect: "manual",
         signal: AbortSignal.timeout(10_000),
       });
     } catch {

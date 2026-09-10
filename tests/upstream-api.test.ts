@@ -191,7 +191,7 @@ test("cookies, proxy keys and authorization never reach upstream, and writes rem
       assert.equal(headers.get(name), null);
     assert.equal(call.options?.method, "GET");
     assert.equal(call.options?.credentials, "omit");
-    assert.equal(call.options?.redirect, "error");
+    assert.equal(call.options?.redirect, "manual");
     assert.equal(call.url.origin, "https://indexer.test");
   }
   const before = calls.length;

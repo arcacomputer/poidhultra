@@ -21,6 +21,7 @@ import {
   Check,
 } from 'lucide-react';
 import { zeroAddress } from 'viem';
+import { readOnlyPreview } from '@/utils/preview';
 import { api, useSession } from './providers';
 import { Comments } from './comments';
 import { ErrorNotice, Empty, short } from './shell';
@@ -298,6 +299,7 @@ function BountyView({
   const [showProof, setShowProof] = useState(false);
   const [time, setTime] = useState(Date.now());
   useEffect(() => {
+    if (readOnlyPreview) return;
     const timer = setInterval(() => setTime(Date.now()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -343,7 +345,7 @@ function BountyView({
       },
       { ...base, functionName: 'MIN_CONTRIBUTION' },
     ],
-    query: { enabled: !archive, refetchInterval: 12_000 },
+    query: { enabled: !archive && !readOnlyPreview, refetchInterval: 12_000 },
   });
   const onchain = chain.data?.[0].result;
   const currentVote = chain.data?.[1].result ?? 0n;
@@ -365,15 +367,16 @@ function BountyView({
       (a) => a.toLowerCase() === address?.toLowerCase()
     ) ?? -1;
   const contribution = contributor >= 0 ? participants![1][contributor] : 0n;
-  const status = archive
-    ? b?.status
-    : cancelled
-    ? 'cancelled'
-    : !active
-    ? 'completed'
-    : currentVote > 0n
-    ? 'voting'
-    : 'open';
+  const status =
+    archive || readOnlyPreview
+      ? b?.status
+      : cancelled
+      ? 'cancelled'
+      : !active
+      ? 'completed'
+      : currentVote > 0n
+      ? 'voting'
+      : 'open';
   const deadline = voting?.[2] ?? 0n;
   return (
     <div className='content-page'>
@@ -432,6 +435,7 @@ function BountyView({
                         key={c.id}
                         claim={c}
                         canChoose={
+                          !readOnlyPreview &&
                           !archive &&
                           !!active &&
                           isIssuer &&
@@ -456,7 +460,7 @@ function BountyView({
                   More proofs
                 </button>
               )}
-              {showProof && !archive && (
+              {showProof && !archive && !readOnlyPreview && (
                 <SubmitProof
                   bountyId={id}
                   onChainId={resolved.onChainId}
@@ -480,7 +484,20 @@ function BountyView({
                 {open ? 'Community funded' : 'Solo bounty'}
               </span>
               <hr />
-              {!archive && (
+              {readOnlyPreview && (
+                <p className='notice'>
+                  Read-only preview. Browse the bounty and its proofs here.
+                  <a
+                    className='text-link'
+                    href={`https://poidh.xyz/${slug}/bounty/${display}`}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Open on poidh.xyz ↗
+                  </a>
+                </p>
+              )}
+              {!archive && !readOnlyPreview && (
                 <>
                   {chain.isError && <ErrorNotice error={chain.error} />}
                   <TransactionStatus

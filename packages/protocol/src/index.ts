@@ -124,7 +124,7 @@ export type Bounty = {
   createdAt: string;
   status: "open" | "voting" | "completed" | "cancelled";
   multiplayer: boolean;
-  claimCount: number;
+  claimCount: number | null;
   image?: string | null;
   archive: boolean;
   archiveAsOf?: string | null;
@@ -139,7 +139,20 @@ export type Claim = {
   description: string;
   uri: string;
   accepted: boolean;
-  createdAt: string;
+  createdAt: string | null;
+};
+export type ProtocolReadSource = {
+  kind: "upstream-api";
+  url: string;
+  fetchedAt: string;
+};
+export type LeaderboardEntry = {
+  address: string;
+  chainId: number;
+  earned: string | null;
+  paid: string | null;
+  nfts: string | null;
+  approximateAmounts?: { earned: string | null; paid: string | null };
 };
 export type CommunityRecord = {
   id: string;
@@ -154,7 +167,11 @@ export type CommunityRecord = {
   moderated: boolean;
   version: string;
 };
-export type Page<T> = { items: T[]; nextCursor: string | null };
+export type Page<T> = {
+  items: T[];
+  nextCursor: string | null;
+  source?: ProtocolReadSource;
+};
 export type Change = {
   sequence: string;
   kind: string;

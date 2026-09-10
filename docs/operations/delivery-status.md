@@ -5,7 +5,7 @@ Updated 2026-09-10. This is a working implementation and read-only preview; it i
 ## Available now
 
 - Public MIT monorepo with full licensed subtree histories: https://github.com/arcacomputer/poidhultra.
-- Read-only preview: https://poidh-ultra-preview.lf-e32.workers.dev. Wallet transactions, SIWE writes, and community writes are disabled in this deployment. The database contains no sample records; indexed reads remain unavailable until backfill.
+- Read-only preview: https://poidh.arca.computer (also available on the existing workers.dev hostname). Real Ethereum, Base, and Arbitrum bounty/proof reads, profiles' proof collections, transaction history, and leaderboard estimates use [poidh's public API](https://indexer.poidh.xyz/swagger) through a replaceable adapter. Wallet transactions, SIWE writes, and community writes remain disabled. There are no deployed sample records; independent indexing and shared community integration remain pending.
 - Private Cloudflare community Worker with restricted Neon PostgreSQL access through Hyperdrive, SQL caching disabled, and R2 proof storage.
 - Hourly/daily GitHub maintenance, App-authenticated publication, and a deployed Cloudflare watchdog. Two real manual runs succeeded and reused issues #1 and #2. The four licensed imports are current; frame and indexer source reuse remains blocked on licensing. The independent Ponder implementation does not incorporate unlicensed indexer source.
 - A built and registered Cloudflare Container image. Indexing is deliberately disabled until archive RPC is configured and deployment verification passes.
@@ -26,25 +26,30 @@ Local checks passed:
 
 GitHub CodeQL flagged a slow Markdown video-URL matcher; it was replaced with bounded extension classification and an adversarial regression test. Findings in imported wei-names standalone demo code and OpenZeppelin formal-verification tooling remain visible in GitHub for review. Those paths are not deployed by the active application. Do not equate a green build with a security audit.
 
+The public API integration in [PR #5](https://github.com/arcacomputer/poidhultra/pull/5) passed 7 maintenance tests, 23 service tests (including 10 adapter cases), all 9 package typechecks, Node/OpenNext builds, and 6 additional desktop/mobile browser tests. A compiled native Cloudflare runtime test verifies fetch binding, redirect rejection, cross-request caching, and credential isolation. The live custom domain returned 200 for discovery, the Base display-ID 986 bounty and its proof, leaderboard, activity, session reads, and album reads; auth and community writes returned the expected 503. The public API is not evidence of independently verified indexing or community migration.
+
 ## Deployment record
 
-| Service             | Revision / resource                                                       |
-| ------------------- | ------------------------------------------------------------------------- |
-| Preview Worker      | `c0b0bec3-6ed4-45f4-8c8a-c59ebd0dde01`                                    |
-| Community Worker    | `8a5886ee-aff9-4cc8-a543-1808b84f2549`                                    |
-| Supervisor Worker   | `054fbc8f-7e03-43a9-b79e-aa0728a65f6f`                                    |
-| Container image     | `sha256:394b64e1e318e813694f89cea3f2e143fb5faa0a0bfafca11552e84ab9a2b1d8` |
-| Neon project        | `damp-mouse-07534280`, PostgreSQL 17, AWS us-east-1, compute 0.25–0.5 CU  |
-| Database migrations | `001-community.sql`, `002-archive-and-moderation.sql`                     |
-| R2                  | `poidh-ultra-proofs`, `poidh-ultra-next-cache`                            |
+| Service                  | Revision / resource                                                       |
+| ------------------------ | ------------------------------------------------------------------------- |
+| Preview Worker           | `f62911c6-7cdd-4c36-b777-ee27e355d524`                                    |
+| Preview code             | `a9bb50767ec8b85091a1b04cfeccce4aebdf0667`, PR #5                         |
+| Preview read source      | `https://indexer.poidh.xyz`, preview write guards enabled                 |
+| Pre-integration rollback | `c0b0bec3-6ed4-45f4-8c8a-c59ebd0dde01` (without public protocol reads)    |
+| Community Worker         | `8a5886ee-aff9-4cc8-a543-1808b84f2549`                                    |
+| Supervisor Worker        | `054fbc8f-7e03-43a9-b79e-aa0728a65f6f`                                    |
+| Container image          | `sha256:394b64e1e318e813694f89cea3f2e143fb5faa0a0bfafca11552e84ab9a2b1d8` |
+| Neon project             | `damp-mouse-07534280`, PostgreSQL 17, AWS us-east-1, compute 0.25–0.5 CU  |
+| Database migrations      | `001-community.sql`, `002-archive-and-moderation.sql`                     |
+| R2                       | `poidh-ultra-proofs`, `poidh-ultra-next-cache`                            |
 
-Credentials are stored outside the repository. The GitHub App is installed only on `arcacomputer/poidhultra`. No new bounty contracts were deployed. The production domain has not been promoted.
+Credentials are stored outside the repository. The GitHub App is installed only on `arcacomputer/poidhultra`. No new bounty contracts were deployed. The custom domain hosts the user-authorized read-only preview; promotion to a fully shared, writable production service is pending. This integration changes only the web Worker, with no database migration or new cloud resources.
 
 ## Additional engineering completed for review
 
 The launch-validation branch adds a Durable Object alarm fallback and stale-monitor detection; the compiled watchdog runs successfully in a local Cloudflare runtime with mocked network responses. Original community adapters now follow full comment/album pagination, count all reactions, preserve imported comment IDs, and enforce the signed-in author. A portable server proxy and optional HTTP gateway prepare original-site integration outside Cloudflare. The claim lookup now reads one canonical claim; the complete protocol-router audit is still pending.
 
-A real isolated Neon backup/restore verified 12 tables, 34 rows, sequence state and record versions. The restored Node API passed continued edits, change-feed cursor, idempotency, new SIWE login, and two byte-identical local media objects. This does not satisfy the pending Cloudflare/R2 and Worker-version rollback portion. See [backup and restore evidence](backup-restore.md). These changes require review and have not been deployed to production.
+A real isolated Neon backup/restore verified 12 tables, 34 rows, sequence state and record versions. The restored Node API passed continued edits, change-feed cursor, idempotency, new SIWE login, and two byte-identical local media objects. This does not satisfy the pending Cloudflare/R2 and Worker-version rollback portion. See [backup and restore evidence](backup-restore.md). These changes require review. The web adapters are included in the read-only preview; the corresponding community API and supervisor updates have not been promoted.
 
 ## Remaining launch prerequisites
 

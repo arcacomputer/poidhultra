@@ -2,6 +2,8 @@
 
 The shared production launch is not complete until every gate in `infra/launch-gates.json` has evidence and maintainer review. Do not mark a pending gate complete because code exists or a deployment builds.
 
+The user-authorized read-only preview is published at `poidh.arca.computer`. Publishing this preview does not accept any shared launch gate. Its [public data adapter](../integrations/upstream-public-api.md) can display upstream records while independent indexing and original-client community integration are pending.
+
 ## Promotion
 
 1. Run CI without production secrets: upstream tests, community/auth/import checks, browser checks, Ponder recovery integration, OpenNext and container builds.
@@ -11,7 +13,7 @@ The shared production launch is not complete until every gate in `infra/launch-g
 5. Kenny runs the scoped `scripts/community/export-original.ts` exporter with a read-only database connection and reviewed album ownership map. Dry-run and then apply `scripts/community/import.ts`. Reconcile authors, relationships, moderation, historical paths, counts, and exclusions. The original schema has no creation timestamps for reactions/albums: preserve that absence explicitly in provenance and review capture-time substitution before accepting the export.
 6. Install the shared client/proxy in poidh.xyz and test both origins end to end against the same backend, each with a separate proxy key and SIWE session. Existing stateless signatures are not accepted as a replacement for SIWE. `compatibility.ts` supports the implemented bridge; all original procedures must be audited with Kenny before cutover.
 7. Import and independently verify the Degen archive. An imported snapshot initially remains unverified. Keep its source/capture timestamp public and all Degen transactions disabled.
-8. Record reviewed evidence in launch gates. Bind `poidh.arca.computer` only after the shared launch gates pass. Retain Worker version IDs, container image digest, database schema, migration revision, and export hashes in a release record.
+8. Record reviewed evidence in launch gates. Promote the read-only site at `poidh.arca.computer` to the fully shared, writable deployment only after the shared launch gates pass. Retain Worker version IDs, container image digest, database schema, migration revision, and export hashes in a release record.
 
 ## Monitoring
 

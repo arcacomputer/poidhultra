@@ -87,7 +87,11 @@ const bounty = {
     issuer: ref("Address"),
     status: { enum: ["open", "voting", "completed", "cancelled"] },
     multiplayer: { type: "boolean" },
-    claimCount: { type: "integer" },
+    claimCount: {
+      type: ["integer", "null"],
+      description:
+        "Null when the configured read source does not supply a count.",
+    },
     archive: { type: "boolean" },
     archiveAsOf: { type: ["string", "null"] },
   },
@@ -104,7 +108,11 @@ const claim = {
     description: { type: "string" },
     uri: { type: "string" },
     accepted: { type: "boolean" },
-    createdAt: ref("UInt"),
+    createdAt: {
+      anyOf: [ref("UInt"), { type: "null" }],
+      description:
+        "Unix seconds, or null when the source has no creation timestamp.",
+    },
   },
 };
 export const openapi = {

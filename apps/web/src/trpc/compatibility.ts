@@ -103,7 +103,7 @@ function legacy(b: Bounty) {
     isCanceled: b.status === 'cancelled',
     isVoting: b.status === 'voting',
     isMultiplayer: b.multiplayer,
-    hasClaims: b.claimCount > 0,
+    hasClaims: b.claimCount === null ? null : b.claimCount > 0,
     hasParticipants: b.multiplayer,
     extra: { album: '' },
     amountSort: b.amount,

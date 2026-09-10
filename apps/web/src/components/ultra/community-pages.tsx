@@ -23,7 +23,9 @@ import {
   type CommunityRecord,
   type Page,
   type Claim,
+  type LeaderboardEntry,
 } from '@poidh/protocol';
+import { upstreamPreview } from '@/utils/preview';
 import { api, useSession } from './providers';
 import { Empty, ErrorNotice, short } from './shell';
 import { Discovery, BountyCard } from './discovery';
@@ -582,8 +584,18 @@ export function Activity() {
   };
   return (
     <div className='content-page'>
-      <span className='eyebrow'>THE LATEST GOOD THINGS</span>
+      <span className='eyebrow'>
+        {upstreamPreview
+          ? 'PUBLIC TRANSACTION HISTORY'
+          : 'THE LATEST GOOD THINGS'}
+      </span>
       <h1>Something is always happening.</h1>
+      {upstreamPreview && (
+        <p className='muted'>
+          Browse historical transactions in the order provided by poidh’s public
+          API.
+        </p>
+      )}
       {query.isError ? (
         <ErrorNotice error={query.error} retry={() => query.refetch()} />
       ) : (
@@ -631,7 +643,7 @@ export function Activity() {
       )}
       {query.hasNextPage && (
         <button className='button' onClick={() => query.fetchNextPage()}>
-          Earlier activity
+          {upstreamPreview ? 'More activity' : 'Earlier activity'}
         </button>
       )}
     </div>
@@ -641,15 +653,9 @@ export function Leaderboard() {
   const query = useInfiniteQuery({
     queryKey: ['leaderboard'],
     queryFn: ({ pageParam }) =>
-      api.request<
-        Page<{
-          address: string;
-          chainId: number;
-          earned: string;
-          paid: string;
-          nfts: string;
-        }>
-      >('/leaderboard?' + new URLSearchParams({ cursor: pageParam })),
+      api.request<Page<LeaderboardEntry>>(
+        '/leaderboard?' + new URLSearchParams({ cursor: pageParam })
+      ),
     initialPageParam: '',
     getNextPageParam: (p) => p.nextCursor ?? undefined,
   });
@@ -661,8 +667,14 @@ export function Leaderboard() {
       <p className='muted'>
         Protocol rewards, funded bounties, and collected proofs.
       </p>
+      {rows.some((r) => r.approximateAmounts) && (
+        <p className='notice'>
+          Amounts and ranking are approximate estimates from poidh’s public API.
+          Bounty rewards retain their exact onchain amounts.
+        </p>
+      )}
       {query.isError ? (
-        <ErrorNotice error={query.error} />
+        <ErrorNotice error={query.error} retry={() => query.refetch()} />
       ) : (
         <div className='table-scroll'>
           <table className='leaderboard-table'>
@@ -686,9 +698,35 @@ export function Leaderboard() {
                   <td>
                     {deployments.find((d) => d.chainId === r.chainId)?.name}
                   </td>
-                  <td>{amountLabel(r.earned, 6)} ETH</td>
-                  <td>{amountLabel(r.paid, 6)} ETH</td>
-                  <td>{r.nfts}</td>
+                  <td>
+                    {r.approximateAmounts
+                      ? r.approximateAmounts.earned === null
+                        ? '—'
+                        : '≈ ' +
+                          Number(r.approximateAmounts.earned).toLocaleString(
+                            undefined,
+                            { maximumFractionDigits: 6 }
+                          ) +
+                          ' ETH'
+                      : r.earned === null
+                      ? '—'
+                      : amountLabel(r.earned, 6) + ' ETH'}
+                  </td>
+                  <td>
+                    {r.approximateAmounts
+                      ? r.approximateAmounts.paid === null
+                        ? '—'
+                        : '≈ ' +
+                          Number(r.approximateAmounts.paid).toLocaleString(
+                            undefined,
+                            { maximumFractionDigits: 6 }
+                          ) +
+                          ' ETH'
+                      : r.paid === null
+                      ? '—'
+                      : amountLabel(r.paid, 6) + ' ETH'}
+                  </td>
+                  <td>{r.nfts ?? '—'}</td>
                 </tr>
               ))}
             </tbody>

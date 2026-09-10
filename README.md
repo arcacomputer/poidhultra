@@ -2,9 +2,9 @@
 
 An MIT-licensed monorepo for a modern poidh client, independently implemented indexing, shared community services, and maintainer-reviewed upstream maintenance.
 
-Production target: **https://poidh.arca.computer**. The shared production launch is gated on original-client integration, a verified community migration, historical backfill, and the deployment checks in [the launch runbook](docs/operations/launch.md).
+Website: **[poidh.arca.computer](https://poidh.arca.computer)**. The shared production launch is gated on original-client integration, a verified community migration, historical backfill, and the deployment checks in [the launch runbook](docs/operations/launch.md).
 
-[Read-only Cloudflare preview](https://poidh-ultra-preview.lf-e32.workers.dev). It disables wallet transactions and community writes while launch prerequisites are pending. Unavailable indexed data is reported explicitly; this preview has no sample records in its database.
+The website runs as a read-only Cloudflare preview. A replaceable adapter reads real Ethereum, Base, and Arbitrum bounties, proofs, activity, and leaderboard estimates from [poidh's public API](https://indexer.poidh.xyz/swagger). Wallet transactions and community writes remain disabled. There are no deployed sample records, and shared community synchronization is pending. See [public API integration](docs/integrations/upstream-public-api.md) for source limitations and configuration.
 
 ## Repository
 

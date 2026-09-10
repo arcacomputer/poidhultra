@@ -1,5 +1,7 @@
 export const readOnlyPreview =
   process.env.NEXT_PUBLIC_READ_ONLY_PREVIEW === 'true';
+export const upstreamPreview =
+  readOnlyPreview && process.env.NEXT_PUBLIC_UPSTREAM_READS === 'true';
 
 export function requireWritableClient() {
   if (readOnlyPreview)

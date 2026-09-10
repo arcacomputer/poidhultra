@@ -46,9 +46,11 @@ export function BountyCard({
           {b.multiplayer ? <Users size={13} /> : <Camera size={13} />}{' '}
           {b.multiplayer ? 'Open bounty' : 'Solo bounty'}
         </span>
-        <span>
-          {b.claimCount} {b.claimCount === 1 ? 'proof' : 'proofs'}
-        </span>
+        {b.claimCount !== null && (
+          <span>
+            {b.claimCount} {b.claimCount === 1 ? 'proof' : 'proofs'}
+          </span>
+        )}
       </div>
       <div className='card-bottom'>
         <Link className='creator' href={'/account/' + b.issuer}>

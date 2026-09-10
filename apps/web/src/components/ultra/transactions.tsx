@@ -25,7 +25,7 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight, Plus } from 'lucide-react';
 import Link from 'next/link';
 import { ErrorNotice, WalletButton } from './shell';
-import { requireWritableClient } from '@/utils/preview';
+import { requireWritableClient, readOnlyPreview } from '@/utils/preview';
 export function useTransaction(deployment: Deployment) {
   const account = useAccount();
   const client = usePublicClient({
@@ -187,6 +187,7 @@ export function CreateBounty() {
     abi,
     functionName: 'MIN_BOUNTY_AMOUNT',
     chainId: d.chainId as 1 | 8453 | 42161,
+    query: { enabled: !readOnlyPreview },
   });
   useEffect(() => {
     try {
@@ -354,7 +355,7 @@ export function WithdrawBalance({ deployment }: { deployment: Deployment }) {
     args: [address!],
     chainId: deployment.chainId as 1 | 8453 | 42161,
     query: {
-      enabled: !!address && !deployment.archive,
+      enabled: !!address && !deployment.archive && !readOnlyPreview,
       refetchInterval: 15_000,
     },
   });

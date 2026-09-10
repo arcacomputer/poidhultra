@@ -17,6 +17,7 @@
     "upstream:check": "node scripts/upstream/check.mjs",
     "db:migrate": "node --import tsx packages/database/src/migrate.ts",
     "test:e2e": "playwright test",
+    "test:e2e:upstream": "playwright test --config playwright.upstream.config.ts",
     "test:indexer": "node tests/indexer-recovery.mjs"
   },
   "devDependencies": {

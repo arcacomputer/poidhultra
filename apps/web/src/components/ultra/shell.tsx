@@ -14,7 +14,7 @@ import {
   LogOut,
 } from 'lucide-react';
 import { api, useSession } from './providers';
-import { readOnlyPreview } from '@/utils/preview';
+import { readOnlyPreview, upstreamPreview } from '@/utils/preview';
 export const short = (address: string) =>
   address.slice(0, 6) + '…' + address.slice(-4);
 export function WalletButton() {
@@ -151,9 +151,23 @@ export function Shell({ children }: { children: React.ReactNode }) {
       </header>
       {readOnlyPreview && (
         <aside className='preview-banner' aria-label='Preview status'>
-          <strong>poidh Ultra preview</strong> · Indexing and community
-          migration are being prepared. Wallet transactions and community writes
-          are disabled.{' '}
+          <strong>poidh Ultra preview</strong> ·{' '}
+          {upstreamPreview ? (
+            <>
+              Bounties and proofs from{' '}
+              <a
+                href='https://indexer.poidh.xyz/swagger'
+                target='_blank'
+                rel='noreferrer'
+              >
+                poidh’s public API
+              </a>
+              .{' '}
+            </>
+          ) : (
+            <>Indexing and community migration are being prepared. </>
+          )}
+          Wallet transactions and community writes are disabled.{' '}
           <Link href='/maintenance'>View maintenance status ↗</Link>
         </aside>
       )}

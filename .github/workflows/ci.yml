@@ -51,6 +51,12 @@ jobs:
       - run: docker build -f infra/cloudflare/indexer.Dockerfile -t poidh-indexer:test .
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
+      - run: pnpm --filter @poidh/web build
+        env:
+          NEXT_PUBLIC_APP_URL: http://localhost:3000
+          NEXT_PUBLIC_READ_ONLY_PREVIEW: "true"
+          NEXT_PUBLIC_UPSTREAM_READS: "true"
+      - run: pnpm test:e2e:upstream
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: failure()
         with:

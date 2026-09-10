@@ -1,5 +1,82 @@
 import { test, expect } from "@playwright/test";
 
+test("homepage cards show cover and proof images with resilient fallbacks", async ({
+  page,
+}) => {
+  if (test.info().project.name === "desktop")
+    await page.setViewportSize({ width: 1440, height: 1000 });
+  // Large intrinsic dimensions catch grid overflow that a 1px image misses.
+  const image = Buffer.from(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600"><rect width="2400" height="1600" fill="#8bb2a5"/></svg>'
+  );
+  await page.route("https://proofs.test/**", (route) => {
+    const path = new URL(route.request().url()).pathname;
+    if (path === "/broken.png" || path === "/missing-metadata")
+      return route.fulfill({
+        status: 404,
+        headers: { "Access-Control-Allow-Origin": "*" },
+      });
+    if (path === "/good-metadata")
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        headers: { "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify({ image: "ipfs://bafytest/preview.png" }),
+      });
+    return route.fulfill({
+      status: 200,
+      contentType: "image/svg+xml",
+      headers: { "Access-Control-Allow-Origin": "*" },
+      body: image,
+    });
+  });
+  await page.route("https://ipfs.io/ipfs/bafytest/preview.png", (route) =>
+    route.fulfill({ status: 200, contentType: "image/svg+xml", body: image })
+  );
+  await page.goto("/#bounties");
+  for (const [title, source] of [
+    ["Public mission 120", "https://proofs.test/cover.png"],
+    ["Public mission 119", "https://ipfs.io/ipfs/bafytest/preview.png"],
+    ["Public mission 118", "https://proofs.test/fallback.png"],
+  ]) {
+    const card = page
+      .locator(".bounty-card")
+      .filter({ has: page.getByRole("heading", { name: title, exact: true }) });
+    await card.scrollIntoViewIfNeeded();
+    const img = card.locator(".bounty-thumbnail img");
+    await expect(img).toHaveAttribute("src", source);
+    await expect
+      .poll(() => img.evaluate((node: HTMLImageElement) => node.naturalWidth))
+      .toBe(2400);
+    const size = await img.boundingBox();
+    expect(size).not.toBeNull();
+    expect(size!.width / size!.height).toBeCloseTo(1.6, 1);
+    await expect(card.locator(".card-description")).not.toContainText("![");
+  }
+  const empty = page.locator(".bounty-card").filter({
+    has: page.getByRole("heading", {
+      name: "Public mission 117",
+      exact: true,
+    }),
+  });
+  await empty.scrollIntoViewIfNeeded();
+  await expect(empty).toContainText("Awaiting the first proof");
+  await expect(empty.locator("img")).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth
+    )
+  ).toBe(true);
+  await page.screenshot({
+    path: `test-results/homepage-images-${test.info().project.name}.png`,
+    fullPage: true,
+  });
+  await page
+    .getByRole("link", { name: "View bounty: Public mission 120", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/base\/bounty\/1106$/);
+});
+
 test("public data discovery searches all pages and preserves preview safeguards", async ({
   page,
 }) => {

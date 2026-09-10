@@ -131,8 +131,8 @@ function normalizeClaim(value: unknown): Claim {
   const identity = bountyIdentity(row.chainId, row.bountyId);
   const onChainId = integer(row.onChainId);
   const uri = text(row.url);
-  if (!/^(https:\/\/|ipfs:\/\/)/i.test(uri))
-    return unavailable("The upstream proof URL uses an unsupported scheme.");
+  // The contracts accept arbitrary URI text. Preserve it without letting a
+  // malformed submission hide all other proofs; clients validate before use.
   return {
     id: key(identity.chainId, identity.deployment.address, onChainId),
     bountyId: key(

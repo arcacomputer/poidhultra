@@ -14,8 +14,10 @@ import {
   Check,
 } from 'lucide-react';
 import { deployments, amountLabel, type Bounty } from '@poidh/protocol';
+import { cardMedia } from '@/utils/proofImage';
 import { api } from './providers';
 import { Empty, ErrorNotice, short } from './shell';
+import { BountyThumbnail } from './bounty-thumbnail';
 export function bountyURL(b: Bounty) {
   return `/${
     deployments.find((d) => d.chainId === b.chainId)?.slug ?? 'base'
@@ -29,8 +31,15 @@ export function BountyCard({
   index?: number;
 }) {
   const chain = deployments.find((d) => d.chainId === b.chainId);
+  const media = cardMedia(b.description, b.image);
   return (
     <article className='bounty-card'>
+      <BountyThumbnail
+        key={b.id + ':' + media.image}
+        bounty={b}
+        cover={media.image}
+        href={bountyURL(b)}
+      />
       <div className='card-top'>
         <span className={'chain-dot chain-' + (chain?.slug ?? 'base')} />
         <span>{chain?.name}</span>
@@ -40,7 +49,7 @@ export function BountyCard({
         <h3>{b.title}</h3>
         <ArrowUpRight size={22} />
       </Link>
-      <p className='card-description'>{b.description}</p>
+      <p className='card-description'>{media.description}</p>
       <div className='card-tags'>
         <span>
           {b.multiplayer ? <Users size={13} /> : <Camera size={13} />}{' '}

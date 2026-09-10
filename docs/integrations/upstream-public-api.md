@@ -23,12 +23,18 @@ Every successful adapted response has `X-Poidh-Data-Source: upstream-api` and a 
 ## Accuracy and availability
 
 - Bounty amounts stay exact decimal wei strings. Unsafe JSON numbers and inconsistent identities fail explicitly. The source's retained `isVoting` or `inProgress` flags cannot override cancellation or completion.
-- The source omits proof creation timestamps and bounty proof counts. The adapter returns `null` and the interface does not invent a date or show an unknown count as zero. Existing HTTPS/IPFS proof references are preserved.
+- The source omits proof creation timestamps and bounty proof counts. The adapter returns `null` and the interface does not invent a date or show an unknown count as zero. Existing proof references are preserved, including arbitrary text entered in the contract's URI field. Clients validate HTTPS/IPFS URLs before fetching or linking; one malformed URI cannot hide otherwise valid submissions.
 - Leaderboard ETH totals arrive as floating-point estimates. Exact `earned`/`paid` fields remain `null`; estimates live in `approximateAmounts` as decimal text and the UI marks them with `≈`. Rankings are approximate too. These values must never be used in transactions or accounting.
 - Activity is historical transaction data in source order, not a promise of a newest-first feed. No block number is invented. The source offers no verified block checkpoint, reorg watermark, atomic pagination snapshot, or deletion feed.
 - Bounty/leaderboard scans request at most four 100-row pages concurrently, with a 20,000-row cap, a 30-second scan budget checked between batches, 10-second request timeouts, and an 8 MiB response cap. Duplicate pages and contradictory end pages fail instead of returning a known incomplete list. The source can still change between requests; scans are not atomic chain snapshots.
 - Complete scans are cached in each server instance for 60 seconds; response results for 10 seconds. Identical concurrent requests coalesce. The cache is bounded to 64 entries and HTTP responses use `no-store`. A cache miss repeats the scan, so upstream availability and Worker subrequest capacity matter as usage grows. An expired leaderboard pagination snapshot returns 409 and requires a refresh. Proof/activity pages follow upstream offset pagination and may move when source records change.
 - Upstream failures remain visible as unavailable responses. This API currently supplies no verified Degen archive; Degen requests report that gap rather than an empty historical record.
+
+## Bounty card images
+
+Homepage bounty cards show an explicit cover or an image embedded in the bounty's Markdown description. Otherwise they request up to three proof references as the card approaches the viewport, prefer an accepted proof within that page, and resolve the first usable image. Captions distinguish bounty images, submitted proofs, and accepted proofs. Failed cover/metadata/image loads fall back to another candidate; a bounty without proofs has an explicit placeholder. Image failure never prevents the title, reward, or bounty link from loading.
+
+The same metadata resolver is shared with bounty detail pages. It accepts public HTTPS/IPFS image references, omits credentials and referrers when reading metadata, refuses redirects, caps metadata at 1 MiB with an eight-second timeout, and reuses cached results. Images retain their original host and are loaded lazily into a reserved aspect ratio. No image provider, upload, storage migration, or paid image transformation service is added.
 
 ## Community and launch boundaries
 

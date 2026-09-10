@@ -445,6 +445,15 @@ export function createAPI(options: Options) {
       nextCursor: rows.length > limit ? rows[limit - 1].id : null,
     });
   });
+  app.get("/api/v1/claims/:id", async (c) => {
+    const id = bountyKey.parse(c.req.param("id"));
+    const { rows } = await db.query<any>(
+      `SELECT id,bounty_id AS "bountyId",on_chain_id::text AS "onChainId",issuer,owner,title,description,uri,accepted,created_at::text AS "createdAt" FROM ${claimSource} WHERE id=$1 AND ${visibleClaim}`,
+      [id]
+    );
+    assert(rows[0], 404, "Claim not found");
+    return c.json(rows[0]);
+  });
   app.get("/api/v1/activity", async (c) => {
     const args: unknown[] = [];
     let filter = "true";
@@ -586,6 +595,57 @@ export function createAPI(options: Options) {
         found.deployment.address,
         found.onChainId
       ),
+    });
+  });
+  app.get("/api/v1/profiles", async (c) => {
+    const addresses = z
+      .array(address)
+      .min(1)
+      .max(100)
+      .parse((c.req.query("addresses") ?? "").split(","));
+    const { rows } = await db.query<any>(
+      "SELECT * FROM community.records WHERE kind='profile' AND author=ANY($1::text[]) AND moderated=false AND deleted_at IS NULL ORDER BY author",
+      [addresses]
+    );
+    return c.json({ items: rows.map(record) });
+  });
+  app.get("/api/v1/albums", async (c) => {
+    const trending = c.req.query("trending") === "true";
+    const contains = (c.req.query("contains") ?? "").trim().slice(0, 120);
+    const cursor = c.req.query("cursor")
+      ? z
+          .tuple([uint, z.string().max(120)])
+          .parse(JSON.parse(atob(c.req.query("cursor")!)))
+      : null;
+    const limit = limitOf(c.req.query("limit"));
+    const { rows } = await db.query<any>(
+      `WITH ranked AS (SELECT min(trim(r.data->>'title')) AS name,count(DISTINCT bounty.id)::int AS count,max(bounty.created_at)::text AS "latestTimestamp",${
+        trending ? "max(bounty.created_at)" : "count(DISTINCT bounty.id)"
+      } AS score
+       FROM community.records r
+       CROSS JOIN LATERAL jsonb_array_elements_text(CASE WHEN jsonb_typeof(r.data->'bounties')='array' THEN r.data->'bounties' ELSE '[]'::jsonb END) member(id)
+       JOIN ${bountySource} ON bounty.id=member.id
+       WHERE r.kind='album' AND r.deleted_at IS NULL AND r.moderated=false AND r.data->>'title' ILIKE $1
+       AND ${visibleBounty} AND ($2=false OR (bounty.status='open' AND bounty.archive=false))
+       GROUP BY lower(trim(r.data->>'title')))
+       SELECT name,count,"latestTimestamp",score::text FROM ranked WHERE $3::numeric IS NULL OR score<$3::numeric OR (score=$3::numeric AND lower(name)>$4)
+       ORDER BY score DESC,lower(name) LIMIT $5`,
+      [
+        "%" + contains + "%",
+        trending,
+        cursor?.[0] ?? null,
+        cursor?.[1] ?? null,
+        limit + 1,
+      ]
+    );
+    const items = rows.slice(0, limit);
+    const last = items.at(-1);
+    return c.json({
+      items: items.map(({ score, ...row }) => row),
+      nextCursor:
+        rows.length > limit && last
+          ? btoa(JSON.stringify([last.score, last.name.toLowerCase()]))
+          : null,
     });
   });
   app.get("/api/v1/records", async (c) => {

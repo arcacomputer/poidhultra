@@ -2,7 +2,7 @@
 
 `upstream/registry.json` pins repository identities and integration branches. Numeric IDs survive renames. All files and complete Git commit ranges are compared. Repositories without reuse permission remain monitored and explicitly blocked for source import. New repositories published by the `picsoritdidnthappen` user receive one tracking issue per repository identity.
 
-`upstream/incorporated/*.json` is read only from the default branch. A candidate PR can propose a new incorporated revision; it does not become effective before merge. `maintenance-state/status.json` is a separate reporting branch, published after checks. Failed checks preserve the prior successful heartbeat. `/maintenance` displays the last success and pending/blocked sources. A Cloudflare watchdog raises one incident after three hours without success, and closes it on recovery.
+`upstream/incorporated/*.json` is read only from the default branch. A candidate PR can propose a new incorporated revision; it does not become effective before merge. `maintenance-state/status.json` is a separate reporting branch, published after checks. Failed checks preserve the prior successful heartbeat. `/maintenance` displays the last success and pending/blocked sources. A Cloudflare watchdog raises one incident after three hours without success, and closes it on recovery. The candidate watchdog also schedules its own Durable Object alarm so delayed Worker cron delivery does not prevent checks. Its public status reports both upstream staleness and watchdog staleness; the compiled alarm is exercised in a local Cloudflare runtime without production credentials.
 
 The hourly schedule runs at minute 17. Daily discovery runs at 05:43 UTC. GitHub schedules can be delayed or disabled, so the watchdog is independent. Manual dispatch also discovers repositories. Signed webhooks can be installed by Kenny later; HMAC signatures, repository IDs, and delivery IDs are checked before dispatch.
 
@@ -10,7 +10,7 @@ The hourly schedule runs at minute 17. Daily discovery runs at 05:43 UTC. GitHub
 
 Create a GitHub App from `infra/github-app-manifest.json`, owned by Arca Computer, and install it only on `arcacomputer/poidhultra`. Store the App ID as `UPSTREAM_APP_ID` and private key as `UPSTREAM_APP_PRIVATE_KEY`. The watchdog uses the same scoped installation via encrypted Worker secrets. Never put the private key in source, workflow logs, or test jobs.
 
-Require pull requests, at least one maintainer approval, CODEOWNER review, dismissed stale approvals, resolved conversations, and the three CI jobs on `main`. No bot bypass or automatic merge. The App token allows published PRs to trigger ordinary CI; imported code executes only in uncredentialed CI jobs. The preparation job fetches source and runs trusted Git operations, not install/build/test scripts from candidate branches.
+Require pull requests, at least one maintainer approval, CODEOWNER review, dismissed stale approvals, resolved conversations, and the four CI jobs on `main`. No bot bypass or automatic merge. The App token allows published PRs to trigger ordinary CI; imported code executes only in uncredentialed CI jobs. The preparation job fetches source and runs trusted Git operations, not install/build/test scripts from candidate branches.
 
 ## Candidate behavior
 

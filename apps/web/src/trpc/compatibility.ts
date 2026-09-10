@@ -2,17 +2,42 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import superjson from 'superjson';
 import { z } from 'zod';
 import { communityProxy } from '@/utils/communityProxy';
+import { APIError } from '@poidh/client';
+import { legacyCommunity } from '@poidh/client/legacy-community';
 import {
   deployments,
   resolveLegacyURL,
   key,
   type Bounty,
-  type CommunityRecord,
+  bountyKey,
 } from '@poidh/protocol';
 const t = initTRPC
   .context<{ request: Request }>()
   .create({ transformer: superjson });
-const p = t.procedure;
+const p = t.procedure.use(async ({ next }) => {
+  const result = await next();
+  const error = !result.ok ? result.error.cause : undefined;
+  if (error instanceof APIError)
+    throw new TRPCError({
+      code:
+        error.status === 401
+          ? 'UNAUTHORIZED'
+          : error.status === 403
+          ? 'FORBIDDEN'
+          : error.status === 409
+          ? 'CONFLICT'
+          : error.status === 503
+          ? 'SERVICE_UNAVAILABLE'
+          : 'BAD_REQUEST',
+      message: error.message,
+    });
+  return result;
+});
+function community(ctx: { request: Request }) {
+  return legacyCommunity((path, method, data) =>
+    request(ctx, path, method, data)
+  );
+}
 const input = z.record(z.any());
 async function request(
   ctx: { request: Request },
@@ -40,7 +65,11 @@ async function request(
   if (!res.ok)
     throw new TRPCError({
       code:
-        res.status === 401
+        res.status === 503
+          ? 'SERVICE_UNAVAILABLE'
+          : res.status === 429
+          ? 'TOO_MANY_REQUESTS'
+          : res.status === 401
           ? 'UNAUTHORIZED'
           : res.status === 403
           ? 'FORBIDDEN'
@@ -117,160 +146,100 @@ export const compatibilityRouter = t.router({
             '/bounties/' + key(i.chainId, d.address, String(i.id))
           )
         );
-      } catch {
-        return null;
+      } catch (error) {
+        if (error instanceof TRPCError && error.code === 'NOT_FOUND')
+          return null;
+        throw error;
       }
     }),
-    addToAlbum: p.input(input).mutation(async ({ input: i, ctx }) => {
-      const album = await request(
-        ctx,
-        '/records/' + encodeURIComponent(i.album)
-      );
-      if (album.kind !== 'album')
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: 'Use an album ID',
-        });
-      return request(ctx, '/records/' + encodeURIComponent(album.id), 'PATCH', {
-        version: album.version,
-        data: {
-          ...album.data,
-          bounties: [
-            ...new Set([
-              ...(album.data.bounties ?? []),
-              identity(i.chainId, i.bountyId),
-            ]),
-          ],
-        },
-      });
-    }),
+    addToAlbum: p
+      .input(input)
+      .mutation(({ input: i, ctx }) => community(ctx).addToAlbum(i as any)),
   }),
   claims: t.router({
     fetch: p.input(input).query(async ({ input: i, ctx }) => {
+      if (typeof i.claimId === 'number' && !Number.isSafeInteger(i.claimId))
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Use a decimal string for large claim IDs',
+        });
+      const id =
+        typeof i.claimId === 'string' && i.claimId.includes(':')
+          ? bountyKey.parse(i.claimId)
+          : i.contract || i.chainId === 1
+          ? key(
+              i.chainId,
+              i.contract ?? deployments[0].address,
+              String(i.claimId)
+            )
+          : (() => {
+              throw new TRPCError({
+                code: 'BAD_REQUEST',
+                message:
+                  'Pass the canonical claim ID from fetchBountyClaims, or provide its contract. Numeric IDs can overlap between contract versions.',
+              });
+            })();
+      if (Number(id.split(':')[0]) !== i.chainId)
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Claim belongs to another chain',
+        });
+      return request(ctx, '/claims/' + encodeURIComponent(id));
+    }),
+    fetchBountyClaims: p.input(input).query(async ({ input: i, ctx }) => {
       const result = await request(
         ctx,
-        '/bounties/' + identity(i.chainId, i.bountyId) + '/claims'
+        '/bounties/' +
+          identity(i.chainId, i.bountyId) +
+          '/claims?' +
+          new URLSearchParams({
+            limit: String(i.limit ?? 10),
+            ...(i.cursor ? { cursor: String(i.cursor) } : {}),
+          })
       );
-      return result.items.map((c: any) => ({
-        ...c,
-        bountyId: i.bountyId,
-        chainId: i.chainId,
-        url: c.uri,
-        isAccepted: c.accepted,
-      }));
+      return {
+        nextCursor: result.nextCursor,
+        items: result.items.map((c: any) => ({
+          ...c,
+          bountyId: i.bountyId,
+          chainId: i.chainId,
+          url: c.uri,
+          isAccepted: c.accepted,
+        })),
+      };
     }),
   }),
   comments: t.router({
-    fetch: p.input(input).query(async ({ input: i, ctx }) => {
-      const bountyId = identity(i.chainId, i.bountyId);
-      const [comments, reactions] = await Promise.all([
-        request(
-          ctx,
-          '/records?' +
-            new URLSearchParams({ kind: 'comment', bountyId, limit: '100' })
-        ),
-        request(
-          ctx,
-          '/records?' +
-            new URLSearchParams({ kind: 'reaction', bountyId, limit: '100' })
-        ),
-      ]);
-      return comments.items.map((c: CommunityRecord) => ({
-        ...c,
-        body: c.data.body,
-        userAddress: c.author,
-        author: { address: c.author },
-        createdAt: new Date(c.createdAt),
-        chainId: i.chainId,
-        bountyId: i.bountyId,
-        upvotes: reactions.items.filter(
-          (r: CommunityRecord) =>
-            r.parentId === c.id && r.data.type === 'upvote'
-        ).length,
-        downvotes: reactions.items.filter(
-          (r: CommunityRecord) =>
-            r.parentId === c.id && r.data.type === 'downvote'
-        ).length,
-      }));
-    }),
+    fetch: p
+      .input(input)
+      .query(({ input: i, ctx }) => community(ctx).comments(i as any)),
     comment: p
       .input(input)
-      .mutation(({ input: i, ctx }) =>
-        request(ctx, '/records', 'POST', {
-          kind: 'comment',
-          bountyId: identity(i.chainId, i.bountyId),
-          parentId: i.parrentId ? String(i.parrentId) : null,
-          data: { body: i.text },
-        })
-      ),
-    rate: p.input(input).mutation(async ({ input: i, ctx }) => {
-      const comment = await request(
-        ctx,
-        '/records/' + encodeURIComponent(i.commentId)
-      );
-      const actor = await request(ctx, '/auth/session');
-      const records = await request(
-        ctx,
-        '/records?' +
-          new URLSearchParams({
-            kind: 'reaction',
-            parentId: String(i.commentId),
-            author: actor?.address ?? '',
-          })
-      );
-      const existing = records.items[0];
-      return existing
-        ? request(ctx, '/records/' + encodeURIComponent(existing.id), 'PATCH', {
-            version: existing.version,
-            data: { type: i.type },
-          })
-        : request(ctx, '/records', 'POST', {
-            kind: 'reaction',
-            bountyId: comment.bountyId,
-            parentId: comment.id,
-            data: { type: i.type },
-          });
-    }),
+      .mutation(({ input: i, ctx }) => community(ctx).comment(i as any)),
+    rate: p
+      .input(input)
+      .mutation(({ input: i, ctx }) => community(ctx).rate(i as any)),
   }),
   albums: t.router({
     fetch: p
-      .input(input)
-      .query(({ input: i, ctx }) =>
-        request(ctx, '/records/' + encodeURIComponent(i.album))
-      ),
-    trending: p.query(({ ctx }) => request(ctx, '/records?kind=album')),
+      .input(z.object({ contains: z.string().max(120) }))
+      .query(({ input: i, ctx }) => community(ctx).albums(i.contains)),
+    trending: p
+      .input(
+        z
+          .object({ limit: z.number().int().min(1).max(100).optional() })
+          .optional()
+      )
+      .query(({ input: i, ctx }) => community(ctx).trending(i?.limit)),
   }),
   neynar: t.router({
-    usersData: p.input(input).query(async ({ input: i, ctx }) =>
-      Promise.all(
-        (i.addresses as string[]).map(async (address) => {
-          const result = await request(
-            ctx,
-            '/records?' +
-              new URLSearchParams({ kind: 'profile', author: address })
-          );
-          const data = result.items[0]?.data;
-          return {
-            address,
-            pfpUrl: data?.image ?? null,
-            ens: data?.name ?? null,
-            farcasterTag: null,
-            twitterTag: null,
-          };
-        })
-      )
-    ),
+    usersData: p
+      .input(z.object({ addresses: z.array(z.string()).max(100) }))
+      .query(({ input: i, ctx }) => community(ctx).profiles(i.addresses)),
   }),
   admin: t.router({
     banComment: p
       .input(input)
-      .mutation(({ input: i, ctx }) =>
-        request(ctx, '/moderation/' + encodeURIComponent(i.id), 'POST', {
-          hidden: true,
-          reason:
-            i.reason ??
-            'Hidden through the original poidh client moderation adapter.',
-        })
-      ),
+      .mutation(({ input: i, ctx }) => community(ctx).banComment(i as any)),
   }),
 });

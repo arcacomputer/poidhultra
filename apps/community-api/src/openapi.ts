@@ -196,11 +196,50 @@ export const openapi = {
         parameters: cursor,
       },
     },
+    "/claims/{id}": {
+      parameters: [parameter("id", "path", true)],
+      get: operation(
+        "Read one proof by its chain, contract and claim ID",
+        ref("Claim")
+      ),
+    },
     "/profiles/{address}/proofs": {
       parameters: [parameter("address", "path", true)],
       get: {
         ...operation("Proofs created or owned", page(ref("Claim"))),
         parameters: [...cursor, parameter("mode")],
+      },
+    },
+    "/profiles": {
+      get: {
+        ...operation(
+          "Read public profiles for up to 100 comma-separated wallet addresses",
+          {
+            type: "object",
+            properties: { items: { type: "array", items: ref("Record") } },
+          }
+        ),
+        parameters: [parameter("addresses", "query", true)],
+      },
+    },
+    "/albums": {
+      get: {
+        ...operation(
+          "Search album names and count distinct visible bounties; trending includes open current-chain bounties",
+          page({
+            type: "object",
+            properties: {
+              name: { type: "string" },
+              count: { type: "integer" },
+              latestTimestamp: ref("UInt"),
+            },
+          })
+        ),
+        parameters: [
+          ...cursor,
+          parameter("contains"),
+          parameter("trending", "query", false, { type: "boolean" }),
+        ],
       },
     },
     "/activity": {

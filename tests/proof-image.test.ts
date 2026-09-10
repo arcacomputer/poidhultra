@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   cardMedia,
   mediaURL,
-  proofImage,
+  cachedImage,
 } from "../apps/web/src/utils/proofImage";
 
 test("card images preserve public HTTPS/IPFS sources and remove Markdown image syntax", () => {
@@ -42,66 +42,41 @@ test("card images preserve public HTTPS/IPFS sources and remove Markdown image s
   );
 });
 
-test("proof metadata handles JSON and direct images without forwarding credentials", async () => {
-  let calls = 0;
-  const image = await proofImage(
-    "https://proofs.example/metadata",
+test("browser image resolution only accepts same-origin immutable cache URLs", async () => {
+  const hash = "a".repeat(64);
+  const result = await cachedImage(
+    "claim",
+    "8453:contract:1",
     undefined,
-    async (_url, options) => {
-      calls++;
-      assert.equal(options?.credentials, "omit");
-      assert.equal(options?.referrerPolicy, "no-referrer");
-      assert.equal(options?.redirect, "error");
-      assert.equal(options?.headers, undefined);
-      return Response.json({ image: "ipfs://bafyexample/photo.jpg" });
+    async (url, init) => {
+      assert.equal(url, "/api/media/claim/8453%3Acontract%3A1");
+      assert.equal(init?.credentials, "omit");
+      assert.equal(init?.redirect, "error");
+      return Response.json({ url: "/media/remote/sha256/" + hash });
     }
   );
-  assert.equal(image, "https://ipfs.io/ipfs/bafyexample/photo.jpg");
-  let cancelled = false;
-  assert.equal(
-    await proofImage(
-      "https://proofs.example/image",
-      undefined,
-      async () =>
-        new Response(
-          new ReadableStream({
-            cancel() {
-              cancelled = true;
-            },
-          }),
-          { headers: { "Content-Type": "image/png" } }
-        )
+  assert.equal(result, "/media/remote/sha256/" + hash);
+  await assert.rejects(
+    cachedImage("bounty", "1", undefined, async () =>
+      Response.json({ url: "https://origin.example/image.png" })
     ),
-    "https://proofs.example/image"
+    /Invalid/
   );
-  assert.equal(cancelled, true);
   assert.equal(
-    await proofImage("javascript:alert(1)", undefined, async () => {
-      calls++;
-      throw new Error("Must not fetch");
-    }),
-    null
-  );
-  assert.equal(calls, 1);
-  assert.equal(
-    await proofImage("https://proofs.example/unsafe", undefined, async () =>
-      Response.json({ image: "javascript:alert(1)" })
+    await cachedImage(
+      "claim",
+      "1",
+      undefined,
+      async () => new Response(null, { status: 422 })
     ),
     null
   );
   await assert.rejects(
-    proofImage(
-      "https://proofs.example/huge",
+    cachedImage(
+      "claim",
+      "1",
       undefined,
-      async () => new Response(" ".repeat(1024 * 1024 + 1))
-    ),
-    /too large/
-  );
-  await assert.rejects(
-    proofImage(
-      "https://proofs.example/missing",
-      undefined,
-      async () => new Response(null, { status: 404 })
+      async () => new Response(null, { status: 503 })
     ),
     /unavailable/
   );

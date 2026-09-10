@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Camera, ImageOff } from 'lucide-react';
 import type { Bounty, Claim, Page } from '@poidh/protocol';
-import { mediaURL, proofImage } from '@/utils/proofImage';
+import { cachedImage } from '@/utils/proofImage';
 import { api } from './providers';
 
 export function BountyThumbnail({
@@ -20,7 +20,15 @@ export function BountyThumbnail({
   const [near, setNear] = useState(false);
   const [coverFailed, setCoverFailed] = useState(false);
   const [candidateIndex, setCandidateIndex] = useState(0);
-  const direct = cover && !coverFailed ? cover : null;
+  const coverImage = useQuery({
+    queryKey: ['cached-cover', bounty.id, cover],
+    queryFn: ({ signal }) => cachedImage('bounty', bounty.id, signal),
+    enabled: near && !!cover && !coverFailed,
+    staleTime: 300_000,
+    retry: 1,
+  });
+  const waitingForCover = !!cover && !coverFailed && coverImage.isPending;
+  const direct = coverFailed ? null : coverImage.data;
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(
@@ -42,19 +50,19 @@ export function BountyThumbnail({
         '/bounties/' + encodeURIComponent(bounty.id) + '/claims?limit=3',
         { signal }
       ),
-    enabled: near && !direct && bounty.claimCount !== 0,
+    enabled: near && !direct && !waitingForCover && bounty.claimCount !== 0,
     staleTime: 60_000,
     retry: 1,
   });
   const candidates = (claims.data?.items ?? [])
-    .filter((claim) => mediaURL(claim.uri))
+    .filter((claim) => !!claim.uri)
     .sort((a, b) => Number(b.accepted) - Number(a.accepted));
   const candidate = candidates[candidateIndex];
   const metadata = useQuery({
-    queryKey: ['proof-image', candidate?.uri],
-    queryFn: ({ signal }) => proofImage(candidate!.uri, signal),
+    queryKey: ['cached-proof', candidate?.id, candidate?.uri],
+    queryFn: ({ signal }) => cachedImage('claim', candidate!.id, signal),
     enabled: near && !direct && !!candidate,
-    staleTime: 3600_000,
+    staleTime: 300_000,
     retry: false,
   });
   useEffect(() => {
@@ -64,6 +72,7 @@ export function BountyThumbnail({
   const image = direct ?? metadata.data;
   const loading =
     !near ||
+    waitingForCover ||
     (!image && bounty.claimCount !== 0 && claims.isPending) ||
     (!!candidate && !metadata.isError && metadata.isPending);
   const empty =

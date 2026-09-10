@@ -26,6 +26,7 @@ import {
   type LeaderboardEntry,
 } from '@poidh/protocol';
 import { upstreamPreview } from '@/utils/preview';
+import { cachedImage } from '@/utils/proofImage';
 import { api, useSession } from './providers';
 import { Empty, ErrorNotice, short } from './shell';
 import { Discovery, BountyCard } from './discovery';
@@ -42,6 +43,13 @@ export function Profile({ address }: { address: string }) {
     queryFn: () => api.records({ kind: 'profile', author: address }),
   });
   const record = profile.data?.items[0];
+  const avatar = useQuery({
+    queryKey: ['cached-avatar', address, record?.version],
+    queryFn: ({ signal }) => cachedImage('profile', address, signal),
+    enabled: !!record?.data.image,
+    staleTime: 300_000,
+    retry: 1,
+  });
   const mine = account.address?.toLowerCase() === address.toLowerCase();
   return (
     <div className='content-page wide'>
@@ -51,12 +59,8 @@ export function Profile({ address }: { address: string }) {
       </Link>
       <div className='profile-heading'>
         <div className='profile-avatar'>
-          {record?.data.image ? (
-            <img
-              src={String(record.data.image)}
-              alt='Profile'
-              referrerPolicy='no-referrer'
-            />
+          {avatar.data ? (
+            <img src={avatar.data} alt='Profile' referrerPolicy='no-referrer' />
           ) : (
             <Camera size={30} />
           )}

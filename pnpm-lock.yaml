@@ -143,6 +143,9 @@ importers:
       '@poidh/protocol':
         specifier: workspace:*
         version: link:../../packages/protocol
+      '@poidh/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
       '@prisma/adapter-pg':
         specifier: 7.10.0
         version: 7.10.0

@@ -85,6 +85,10 @@ services:
       NEXT_PUBLIC_APP_URL: ${APP_ORIGIN:-http://localhost:3000}
       COMMUNITY_API_URL: http://community:8787
       COMMUNITY_PROXY_KEY: ${COMMUNITY_PROXY_KEY:?Set COMMUNITY_PROXY_KEY}
+      S3_ENDPOINT: http://storage:9000
+      S3_BUCKET: poidh-proofs
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
     ports: [127.0.0.1:3000:3000]
     depends_on: [community]
     restart: unless-stopped

@@ -5,46 +5,29 @@ test("homepage cards show cover and proof images with resilient fallbacks", asyn
 }) => {
   if (test.info().project.name === "desktop")
     await page.setViewportSize({ width: 1440, height: 1000 });
-  // Large intrinsic dimensions catch grid overflow that a 1px image misses.
-  const image = Buffer.from(
-    '<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600"><rect width="2400" height="1600" fill="#8bb2a5"/></svg>'
-  );
-  await page.route("https://proofs.test/**", (route) => {
-    const path = new URL(route.request().url()).pathname;
-    if (path === "/broken.png" || path === "/missing-metadata")
-      return route.fulfill({
-        status: 404,
-        headers: { "Access-Control-Allow-Origin": "*" },
-      });
-    if (path === "/good-metadata")
-      return route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        headers: { "Access-Control-Allow-Origin": "*" },
-        body: JSON.stringify({ image: "ipfs://bafytest/preview.png" }),
-      });
-    return route.fulfill({
-      status: 200,
-      contentType: "image/svg+xml",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      body: image,
-    });
+  const externalImages: string[] = [];
+  page.on("request", (request) => {
+    if (
+      request.resourceType() === "image" &&
+      new URL(request.url()).origin !== "http://localhost:3000"
+    )
+      externalImages.push(request.url());
   });
-  await page.route("https://ipfs.io/ipfs/bafytest/preview.png", (route) =>
-    route.fulfill({ status: 200, contentType: "image/svg+xml", body: image })
-  );
   await page.goto("/#bounties");
-  for (const [title, source] of [
-    ["Public mission 120", "https://proofs.test/cover.png"],
-    ["Public mission 119", "https://ipfs.io/ipfs/bafytest/preview.png"],
-    ["Public mission 118", "https://proofs.test/fallback.png"],
+  for (const title of [
+    "Public mission 120",
+    "Public mission 119",
+    "Public mission 118",
   ]) {
     const card = page
       .locator(".bounty-card")
       .filter({ has: page.getByRole("heading", { name: title, exact: true }) });
     await card.scrollIntoViewIfNeeded();
     const img = card.locator(".bounty-thumbnail img");
-    await expect(img).toHaveAttribute("src", source);
+    await expect(img).toHaveAttribute(
+      "src",
+      /^\/media\/remote\/sha256\/[a-f0-9]{64}$/
+    );
     await expect
       .poll(() => img.evaluate((node: HTMLImageElement) => node.naturalWidth))
       .toBe(2400);
@@ -53,6 +36,7 @@ test("homepage cards show cover and proof images with resilient fallbacks", asyn
     expect(size!.width / size!.height).toBeCloseTo(1.6, 1);
     await expect(card.locator(".card-description")).not.toContainText("![");
   }
+  expect(externalImages).toEqual([]);
   const empty = page.locator(".bounty-card").filter({
     has: page.getByRole("heading", {
       name: "Public mission 117",
@@ -124,17 +108,6 @@ test("bounty proofs load with NFT ownership and without RPC or wallet actions", 
     if (/publicnode|mainnet\.base\.org|arb1\.arbitrum\.io/.test(request.url()))
       rpcRequests.push(request.url());
   });
-  await page.route("https://proofs.test/**", (route) =>
-    route.fulfill({
-      status: 200,
-      contentType: "image/png",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      body: Buffer.from(
-        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=",
-        "base64"
-      ),
-    })
-  );
   await page.goto("/base/bounty/986");
   await expect(
     page.getByRole("heading", { name: "Public mission 0", exact: true })
@@ -174,4 +147,20 @@ test("leaderboard estimates and historical activity are labeled accurately", asy
   await expect(
     page.getByRole("link", { name: "View bounty", exact: true })
   ).toHaveAttribute("href", "/base/bounty/986");
+});
+
+test("profile avatars are read from the persistent media store", async ({
+  page,
+}) => {
+  await page.goto("/account/0x0000000000000000000000000000000000000001");
+  const avatar = page.locator(".profile-avatar img");
+  await expect(avatar).toHaveAttribute(
+    "src",
+    /^\/media\/remote\/sha256\/[a-f0-9]{64}$/
+  );
+  await expect
+    .poll(() =>
+      avatar.evaluate((image: HTMLImageElement) => image.naturalWidth)
+    )
+    .toBe(2400);
 });

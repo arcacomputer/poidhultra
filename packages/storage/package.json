@@ -5,7 +5,12 @@
   "type": "module",
   "license": "MIT",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./objects": "./src/objects.ts",
+    "./media-source": "./src/media-source.ts",
+    "./mirror": "./src/mirror.ts",
+    "./node-fetch": "./src/node-fetch.ts",
+    "./media-handler": "./src/media-handler.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

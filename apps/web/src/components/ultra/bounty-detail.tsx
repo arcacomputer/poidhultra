@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { zeroAddress } from 'viem';
 import { readOnlyPreview } from '@/utils/preview';
-import { mediaURL, proofImage } from '@/utils/proofImage';
+import { mediaURL, cachedImage } from '@/utils/proofImage';
 import { api, useSession } from './providers';
 import { Comments } from './comments';
 import { ErrorNotice, Empty, short } from './shell';
@@ -45,10 +45,10 @@ function ClaimCard({
   transaction: ReturnType<typeof useTransaction>;
 }) {
   const metadata = useQuery({
-    queryKey: ['proof-image', claim.uri],
-    queryFn: ({ signal }) => proofImage(claim.uri, signal),
+    queryKey: ['cached-proof', claim.id, claim.uri],
+    queryFn: ({ signal }) => cachedImage('claim', claim.id, signal),
     retry: 1,
-    staleTime: 3600_000,
+    staleTime: 300_000,
   });
   const image = metadata.data;
   return (

@@ -9,6 +9,10 @@ import {
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
+import {
+  verifyObject,
+  verifyReferences,
+} from "../../packages/storage/src/portable";
 const client = new S3Client({
   endpoint: process.env.S3_ENDPOINT,
   region: process.env.S3_REGION ?? "us-east-1",
@@ -43,41 +47,48 @@ if (command === "init") {
   await mkdir(dir, { recursive: true, mode: 0o700 });
   const objects: { key: string; sha256: string; type: string; size: number }[] =
     [];
-  let cursor: string | undefined;
-  do {
-    const page = await client.send(
-      new ListObjectsV2Command({
-        Bucket,
-        Prefix: "sha256/",
-        ContinuationToken: cursor,
-      })
-    );
-    for (const item of page.Contents ?? []) {
-      if (!item.Key?.match(/^sha256\/[a-f0-9]{64}$/))
-        throw new Error("Unexpected content key");
-      const object = await client.send(
-        new GetObjectCommand({ Bucket, Key: item.Key })
+  for (const prefix of ["sha256/", "remote/v1/"]) {
+    let cursor: string | undefined;
+    do {
+      const page = await client.send(
+        new ListObjectsV2Command({
+          Bucket,
+          Prefix: prefix,
+          ContinuationToken: cursor,
+        })
       );
-      const bytes = await object.Body!.transformToByteArray();
-      const sha256 = hash(bytes);
-      if (item.Key !== "sha256/" + sha256)
-        throw new Error("Content digest mismatch");
-      await writeFile(resolve(dir, sha256), bytes, { mode: 0o600 });
-      objects.push({
-        key: item.Key,
-        sha256,
-        type: object.ContentType ?? "application/octet-stream",
-        size: bytes.length,
-      });
-    }
-    if (page.IsTruncated && !page.NextContinuationToken)
-      throw new Error("Storage pagination stopped early");
-    cursor = page.NextContinuationToken;
-  } while (cursor);
+      for (const item of page.Contents ?? []) {
+        if (!item.Key) throw new Error("Missing storage key");
+        const object = await client.send(
+          new GetObjectCommand({ Bucket, Key: item.Key })
+        );
+        const bytes = await object.Body!.transformToByteArray();
+        const sha256 = await verifyObject(item.Key, bytes);
+        await writeFile(resolve(dir, sha256), bytes, { mode: 0o600 });
+        objects.push({
+          key: item.Key,
+          sha256,
+          type: object.ContentType ?? "application/octet-stream",
+          size: bytes.length,
+        });
+      }
+      if (page.IsTruncated && !page.NextContinuationToken)
+        throw new Error("Storage pagination stopped early");
+      cursor = page.NextContinuationToken;
+    } while (cursor);
+  }
+  const keys = new Set(objects.map((item) => item.key));
+  for (const item of objects)
+    if (/^remote\/v1\/(sources|manifests)\//.test(item.key))
+      verifyReferences(
+        item.key,
+        await readFile(resolve(dir, item.sha256)),
+        keys
+      );
   await writeFile(
     resolve(dir, "manifest.json"),
     JSON.stringify(
-      { version: 1, exportedAt: new Date().toISOString(), objects },
+      { version: 2, exportedAt: new Date().toISOString(), objects },
       null,
       2
     ) + "\n",
@@ -88,17 +99,29 @@ if (command === "init") {
   const manifest = JSON.parse(
     await readFile(resolve(dir, "manifest.json"), "utf8")
   );
-  if (manifest.version !== 1 || !Array.isArray(manifest.objects))
+  if (![1, 2].includes(manifest.version) || !Array.isArray(manifest.objects))
     throw new Error("Invalid manifest");
   for (const item of manifest.objects) {
-    if (
-      !/^[a-f0-9]{64}$/.test(item.sha256) ||
-      item.key !== "sha256/" + item.sha256
-    )
+    if (!/^[a-f0-9]{64}$/.test(item.sha256) || typeof item.key !== "string")
       throw new Error("Invalid content key");
     const bytes = await readFile(resolve(dir, item.sha256));
     if (hash(bytes) !== item.sha256 || bytes.length !== item.size)
       throw new Error("Corrupt export");
+    await verifyObject(item.key, bytes);
+    verifyReferences(
+      item.key,
+      bytes,
+      new Set(manifest.objects.map((object: any) => object.key))
+    );
+  }
+  // Validate the complete export before writing; publish mutable pointers last.
+  manifest.objects.sort(
+    (a: any, b: any) =>
+      Number(a.key.startsWith("remote/v1/sources/")) -
+      Number(b.key.startsWith("remote/v1/sources/"))
+  );
+  for (const item of manifest.objects) {
+    const bytes = await readFile(resolve(dir, item.sha256));
     await client.send(
       new PutObjectCommand({
         Bucket,
@@ -109,7 +132,9 @@ if (command === "init") {
       })
     );
   }
-  console.log(`Restored ${manifest.objects.length} verified immutable objects`);
+  console.log(
+    `Restored ${manifest.objects.length} verified objects and source mappings`
+  );
 } else
   throw new Error(
     "Usage: portable.ts init | export <directory> | import <directory>"

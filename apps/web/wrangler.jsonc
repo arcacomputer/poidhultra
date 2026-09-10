@@ -4,18 +4,40 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-10",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
   "services": [
-    { "binding": "WORKER_SELF_REFERENCE", "service": "poidh-ultra-web" },
-    { "binding": "COMMUNITY", "service": "poidh-ultra-community" }
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "poidh-ultra-web"
+    },
+    {
+      "binding": "COMMUNITY",
+      "service": "poidh-ultra-community"
+    }
   ],
   "r2_buckets": [
     {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
       "bucket_name": "poidh-ultra-next-cache"
+    },
+    {
+      "binding": "REMOTE_MEDIA",
+      "bucket_name": "poidh-ultra-proofs"
     }
   ],
-  "vars": { "NEXT_PUBLIC_APP_URL": "https://poidh.arca.computer" },
-  "routes": [{ "pattern": "poidh.arca.computer", "custom_domain": true }],
-  "observability": { "enabled": true }
+  "vars": {
+    "NEXT_PUBLIC_APP_URL": "https://poidh.arca.computer"
+  },
+  "routes": [
+    {
+      "pattern": "poidh.arca.computer",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
 }

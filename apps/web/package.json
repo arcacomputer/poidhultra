@@ -73,7 +73,8 @@
     "zod": "^3.24.2",
     "@opennextjs/cloudflare": "1.20.6",
     "@poidh/protocol": "workspace:*",
-    "@poidh/client": "workspace:*"
+    "@poidh/client": "workspace:*",
+    "@poidh/storage": "workspace:*"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",

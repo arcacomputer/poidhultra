@@ -6,6 +6,7 @@ Updated 2026-09-10. This is a working implementation and read-only preview; it i
 
 - Public MIT monorepo with full licensed subtree histories: https://github.com/arcacomputer/poidhultra.
 - Read-only preview: https://poidh.arca.computer (also available on the existing workers.dev hostname). Real Ethereum, Base, and Arbitrum bounty/proof reads, profiles' proof collections, transaction history, and leaderboard estimates use [poidh's public API](https://indexer.poidh.xyz/swagger) through a replaceable adapter. Wallet transactions, SIWE writes, and community writes remain disabled. There are no deployed sample records; independent indexing and shared community integration remain pending.
+- Bounty covers, proof images, and profile avatars use [persistent R2 image storage](image-storage.md) and same-origin Cloudflare edge caching. Original source references remain intact.
 - Private Cloudflare community Worker with restricted Neon PostgreSQL access through Hyperdrive, SQL caching disabled, and R2 proof storage.
 - Hourly/daily GitHub maintenance, App-authenticated publication, and a deployed Cloudflare watchdog. Two real manual runs succeeded and reused issues #1 and #2. The four licensed imports are current; frame and indexer source reuse remains blocked on licensing. The independent Ponder implementation does not incorporate unlicensed indexer source.
 - A built and registered Cloudflare Container image. Indexing is deliberately disabled until archive RPC is configured and deployment verification passes.
@@ -30,21 +31,23 @@ The public API integration in [PR #5](https://github.com/arcacomputer/poidhultra
 
 The homepage image update adds bounty covers and submitted proof thumbnails, lazy loading, shared metadata caching, and image failure fallbacks. Local checks passed 7 maintenance tests, 26 service tests, all 9 package typechecks, Node/OpenNext builds, and 8 desktop/mobile browser checks. The image tests use 2400-pixel fixtures and verify decoding, fixed aspect ratios, fallback behavior, navigation, and page width. Live browser verification confirmed both description images and submitted proof images in the three-column grid, with no horizontal overflow. Malformed URI text stays preserved without blocking other proof records; display URLs are validated separately.
 
+The R2 image update in [PR #7](https://github.com/arcacomputer/poidhultra/pull/7) passed 7 maintenance tests, 30 service tests, all 9 package typechecks, Node/OpenNext builds, a native R2 persistence/cache test, and 10 desktop/mobile browser checks. Live validation of the first 12 open bounties found 9 available card images (7 distinct content hashes). All 9 returned same-origin stored image bytes matching their hashes, a repeated Cloudflare cache HIT, and a 304 conditional response. The remaining three cards have no available image among their first three proofs. A direct read from the remote R2 bucket independently verified the cover object's bytes. Public protocol reads still returned 200; auth/community writes remained blocked with 503.
+
 ## Deployment record
 
-| Service                  | Revision / resource                                                        |
-| ------------------------ | -------------------------------------------------------------------------- |
-| Preview Worker           | `0b299cf6-4515-474f-96bf-8a246797c441`                                     |
-| Preview code             | `a0a1440980e7e0b8ee555c6c0ddfae25d53ec393`, homepage image update          |
-| Previous preview         | `f62911c6-7cdd-4c36-b777-ee27e355d524` (public reads, without card images) |
-| Preview read source      | `https://indexer.poidh.xyz`, preview write guards enabled                  |
-| Pre-integration rollback | `c0b0bec3-6ed4-45f4-8c8a-c59ebd0dde01` (without public protocol reads)     |
-| Community Worker         | `8a5886ee-aff9-4cc8-a543-1808b84f2549`                                     |
-| Supervisor Worker        | `054fbc8f-7e03-43a9-b79e-aa0728a65f6f`                                     |
-| Container image          | `sha256:394b64e1e318e813694f89cea3f2e143fb5faa0a0bfafca11552e84ab9a2b1d8`  |
-| Neon project             | `damp-mouse-07534280`, PostgreSQL 17, AWS us-east-1, compute 0.25–0.5 CU   |
-| Database migrations      | `001-community.sql`, `002-archive-and-moderation.sql`                      |
-| R2                       | `poidh-ultra-proofs`, `poidh-ultra-next-cache`                             |
+| Service                  | Revision / resource                                                          |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| Preview Worker           | `a11de4d9-d6a2-42f5-8e63-003427a04f8b`                                       |
+| Preview code             | `69985879ce6c724ccf0fe5519252fa50b7ea1de5`, persistent R2 image cache        |
+| Previous preview         | `0b299cf6-4515-474f-96bf-8a246797c441` (homepage images from original hosts) |
+| Preview read source      | `https://indexer.poidh.xyz`, preview write guards enabled                    |
+| Pre-integration rollback | `c0b0bec3-6ed4-45f4-8c8a-c59ebd0dde01` (without public protocol reads)       |
+| Community Worker         | `8a5886ee-aff9-4cc8-a543-1808b84f2549`                                       |
+| Supervisor Worker        | `054fbc8f-7e03-43a9-b79e-aa0728a65f6f`                                       |
+| Container image          | `sha256:394b64e1e318e813694f89cea3f2e143fb5faa0a0bfafca11552e84ab9a2b1d8`    |
+| Neon project             | `damp-mouse-07534280`, PostgreSQL 17, AWS us-east-1, compute 0.25–0.5 CU     |
+| Database migrations      | `001-community.sql`, `002-archive-and-moderation.sql`                        |
+| R2                       | `poidh-ultra-proofs`, `poidh-ultra-next-cache`                               |
 
 Credentials are stored outside the repository. The GitHub App is installed only on `arcacomputer/poidhultra`. No new bounty contracts were deployed. The custom domain hosts the user-authorized read-only preview; promotion to a fully shared, writable production service is pending. This integration changes only the web Worker, with no database migration or new cloud resources.
 

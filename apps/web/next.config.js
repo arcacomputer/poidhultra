@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   outputFileTracingRoot: require('path').resolve(__dirname, '../..'),
-  transpilePackages: ['@poidh/protocol', '@poidh/client'],
+  transpilePackages: ['@poidh/protocol', '@poidh/client', '@poidh/storage'],
 
   // Uncoment to add domain whitelist
   images: {

@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-09-12T14:11:21.932Z",
-  "completedAt": "2026-09-12T14:11:38.832Z",
+  "startedAt": "2026-09-12T17:13:28.795Z",
+  "completedAt": "2026-09-12T17:13:40.623Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "0549219fef202cca7fcc7142a67d6c9483fa7734",
+      "observedRevision": "d0b72cc336dc8f151df0695eaaeab1cd1643a830",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "0549219fef202cca7fcc7142a67d6c9483fa7734",
+        "head": "d0b72cc336dc8f151df0695eaaeab1cd1643a830",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -50,16 +50,41 @@
           "697fb53077f0eb0b040ef12dd5cd31b7e91385a2",
           "971795c115310b72fa9ee907c1e2495901f59631",
           "67f9584303d900300134df29d4f8c9b6cb1c97da",
-          "0549219fef202cca7fcc7142a67d6c9483fa7734"
+          "0549219fef202cca7fcc7142a67d6c9483fa7734",
+          "251313c594ee13ba06f2cf3f2350a0aad91a5779",
+          "20475eec6e2c05415e4f8a96765c2745ea1ab6df",
+          "344b1a57364aaa1a8a09a3716373d54b488394b3",
+          "0e016bbfa3412fee8078e5d018ef9ed1a188cf2e",
+          "d0b72cc336dc8f151df0695eaaeab1cd1643a830"
         ],
         "files": [
+          {
+            "status": "A",
+            "path": "public/poidh logo transparent.png"
+          },
           {
             "status": "M",
             "path": "src/app/[netname]/bounty/[id]/page.tsx"
           },
           {
             "status": "M",
+            "path": "src/app/a/[album]/page.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/app/explore/page.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/app/layout.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/app/page.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/account/AccountInfo.tsx"
           },
           {
             "status": "M",
@@ -82,8 +107,20 @@
             "path": "src/components/feed/LatestClaimImages.tsx"
           },
           {
+            "status": "M",
+            "path": "src/components/global/DarkModeToggle.tsx"
+          },
+          {
             "status": "A",
             "path": "src/components/global/Footer.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/global/GameButton.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/global/Logo.tsx"
           },
           {
             "status": "M",
@@ -91,11 +128,27 @@
           },
           {
             "status": "M",
+            "path": "src/components/global/WalletProvider.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/context/ThemeContext.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/hooks/useClaimMedia.ts"
           },
           {
             "status": "M",
+            "path": "src/styles/globals.css"
+          },
+          {
+            "status": "M",
             "path": "src/trpc/routers/claims.ts"
+          },
+          {
+            "status": "M",
+            "path": "tailwind.config.ts"
           }
         ],
         "removedCommits": []
@@ -421,7 +474,7 @@
           },
           {
             "name": "prod",
-            "sha": "0549219fef202cca7fcc7142a67d6c9483fa7734"
+            "sha": "d0b72cc336dc8f151df0695eaaeab1cd1643a830"
           },
           {
             "name": "public-schema-for-indexer",
@@ -513,7 +566,7 @@
           },
           {
             "name": "staging",
-            "sha": "344b1a57364aaa1a8a09a3716373d54b488394b3"
+            "sha": "0e016bbfa3412fee8078e5d018ef9ed1a188cf2e"
           },
           {
             "name": "testing-twitter-images",
@@ -637,7 +690,7 @@
             "number": 1499,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1499",
             "head": "6294617f2b97483510c543b2a471aa2cf74d9557",
-            "base": "prod",
+            "base": "staging",
             "title": " ZeroDev ERC-4337 smart account integration "
           },
           {
@@ -659,7 +712,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-12T14:11:26.262Z"
+      "checkedAt": "2026-09-12T17:13:31.988Z"
     },
     {
       "source": "protocol",
@@ -734,7 +787,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T14:11:27.832Z"
+      "checkedAt": "2026-09-12T17:13:33.136Z"
     },
     {
       "source": "legacy-contracts",
@@ -782,7 +835,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T14:11:31.102Z"
+      "checkedAt": "2026-09-12T17:13:35.319Z"
     },
     {
       "source": "frame",
@@ -819,7 +872,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-12T14:11:34.376Z"
+      "checkedAt": "2026-09-12T17:13:37.439Z"
     },
     {
       "source": "names",
@@ -851,7 +904,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T14:11:35.771Z"
+      "checkedAt": "2026-09-12T17:13:38.459Z"
     },
     {
       "source": "indexer",
@@ -911,7 +964,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-12T14:11:38.832Z"
+      "checkedAt": "2026-09-12T17:13:40.623Z"
     }
   ],
   "discovery": {
@@ -949,5 +1002,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-12T14:11:38.832Z"
+  "lastSuccessfulCheck": "2026-09-12T17:13:40.623Z"
 }

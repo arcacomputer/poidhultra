@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-09-12T19:25:40.594Z",
-  "completedAt": "2026-09-12T19:25:57.623Z",
+  "startedAt": "2026-09-12T22:20:57.000Z",
+  "completedAt": "2026-09-12T22:21:13.993Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "d0b72cc336dc8f151df0695eaaeab1cd1643a830",
+      "observedRevision": "49a60cac89b97ef400f671ea9fc17be3f4e21ffa",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "d0b72cc336dc8f151df0695eaaeab1cd1643a830",
+        "head": "49a60cac89b97ef400f671ea9fc17be3f4e21ffa",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -55,7 +55,18 @@
           "20475eec6e2c05415e4f8a96765c2745ea1ab6df",
           "344b1a57364aaa1a8a09a3716373d54b488394b3",
           "0e016bbfa3412fee8078e5d018ef9ed1a188cf2e",
-          "d0b72cc336dc8f151df0695eaaeab1cd1643a830"
+          "d0b72cc336dc8f151df0695eaaeab1cd1643a830",
+          "dd38feb92818ec188f9327deb633212afbc594f6",
+          "b1227cfb1f3b39e8a1779d37d8778eb5bde1b116",
+          "9f539eabb7007ed3c0bc504254d4ad0853d50737",
+          "c2fe27dd76fe9cde4ce73f515759e9594541b044",
+          "b240faa2e4330a0682067d13ac75fa68d484718b",
+          "719baa08976f69bde3caea113f3157292c6736ba",
+          "4062c9f5e7c3bb4f21b0cfa104bb1ec54f3f59fa",
+          "e9203286e244cfe11d2b12a797f12a489aa2a8a6",
+          "412937482fa562833ddbc52cfb83d08661994416",
+          "bf2c30bc29f095a76b6ab3767b99d50041b74640",
+          "49a60cac89b97ef400f671ea9fc17be3f4e21ffa"
         ],
         "files": [
           {
@@ -76,6 +87,10 @@
           },
           {
             "status": "M",
+            "path": "src/app/feed/page.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/app/layout.tsx"
           },
           {
@@ -85,6 +100,10 @@
           {
             "status": "M",
             "path": "src/components/account/AccountInfo.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/bounty/BountyItem.tsx"
           },
           {
             "status": "M",
@@ -101,6 +120,14 @@
           {
             "status": "M",
             "path": "src/components/claims/FormClaim.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/feed/Activity.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/feed/ClaimImageEmbed.tsx"
           },
           {
             "status": "M",
@@ -141,6 +168,10 @@
           {
             "status": "M",
             "path": "src/styles/globals.css"
+          },
+          {
+            "status": "M",
+            "path": "src/trpc/routers/accounts.ts"
           },
           {
             "status": "M",
@@ -474,7 +505,7 @@
           },
           {
             "name": "prod",
-            "sha": "d0b72cc336dc8f151df0695eaaeab1cd1643a830"
+            "sha": "49a60cac89b97ef400f671ea9fc17be3f4e21ffa"
           },
           {
             "name": "public-schema-for-indexer",
@@ -565,8 +596,12 @@
             "sha": "a4cc2fe5e0976f5f99895dfe801c8df2175dfa02"
           },
           {
+            "name": "speed-up-feed-page",
+            "sha": "719baa08976f69bde3caea113f3157292c6736ba"
+          },
+          {
             "name": "staging",
-            "sha": "0e016bbfa3412fee8078e5d018ef9ed1a188cf2e"
+            "sha": "bf2c30bc29f095a76b6ab3767b99d50041b74640"
           },
           {
             "name": "testing-twitter-images",
@@ -607,6 +642,10 @@
           {
             "name": "updating-basedev-json",
             "sha": "d17b9ba9c9059974bcb4cc5d6bd5ea4fcc57dc43"
+          },
+          {
+            "name": "updating-bounty-card-headings",
+            "sha": "412937482fa562833ddbc52cfb83d08661994416"
           },
           {
             "name": "updating-error-loading-media-bounty-pages",
@@ -712,7 +751,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-12T19:25:44.356Z"
+      "checkedAt": "2026-09-12T22:21:00.866Z"
     },
     {
       "source": "protocol",
@@ -787,7 +826,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T19:25:45.911Z"
+      "checkedAt": "2026-09-12T22:21:02.419Z"
     },
     {
       "source": "legacy-contracts",
@@ -835,7 +874,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T19:25:49.282Z"
+      "checkedAt": "2026-09-12T22:21:05.557Z"
     },
     {
       "source": "frame",
@@ -872,7 +911,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-12T19:25:52.657Z"
+      "checkedAt": "2026-09-12T22:21:09.467Z"
     },
     {
       "source": "names",
@@ -904,7 +943,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-12T19:25:54.154Z"
+      "checkedAt": "2026-09-12T22:21:10.708Z"
     },
     {
       "source": "indexer",
@@ -964,7 +1003,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-12T19:25:57.623Z"
+      "checkedAt": "2026-09-12T22:21:13.993Z"
     }
   ],
   "discovery": {
@@ -1002,5 +1041,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-12T19:25:57.623Z"
+  "lastSuccessfulCheck": "2026-09-12T22:21:13.993Z"
 }

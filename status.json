@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-14T19:25:36.353Z",
-  "completedAt": "2026-09-14T19:25:49.532Z",
+  "startedAt": "2026-09-14T23:10:13.986Z",
+  "completedAt": "2026-09-14T23:10:31.572Z",
   "successful": true,
   "sources": [
     {
@@ -221,416 +221,44 @@
       "observations": {
         "branches": [
           {
-            "name": "accept-claim-issue-v3",
-            "sha": "6296b91afaa6785c4a5a5ba446b4c0d59852259d"
-          },
-          {
-            "name": "add-videos-to-bounties",
-            "sha": "a3d96f2a25d131601f97b7144bb068a093f31678"
-          },
-          {
-            "name": "adding-accept-claim",
-            "sha": "f85a391f0284378e69d9ddd8eec88df6dfcc22c1"
-          },
-          {
-            "name": "adding-bounty-data-feed",
-            "sha": "2f7b380300e5ad171b0b12b5774852233d4f3089"
-          },
-          {
-            "name": "adding-bounty-template",
-            "sha": "d9c37d0712fb1fecf615d0b218c143255cab30e8"
-          },
-          {
-            "name": "adding-data-route",
-            "sha": "629aacfc8a5a180c6fe0821040f95dd862ef582a"
-          },
-          {
-            "name": "adding-explore-to-menu",
-            "sha": "4b7d38fd6e5df3981e6d918a921c41f733fad091"
-          },
-          {
-            "name": "adding-feed-to-menu",
-            "sha": "cf688fc37df808fde5e2e029a7e70016394e86d9"
-          },
-          {
-            "name": "adding-fetchalbumcounts",
-            "sha": "2458d56ed5726a4775e984b578406da0c1d7cea3"
-          },
-          {
             "name": "adding-footer",
             "sha": "a285e65bb4781d3db736042710b1d9b3db0779e0"
-          },
-          {
-            "name": "adding-leaderboard-menu",
-            "sha": "6d93948dad5fc827a40cd6d80071aa3e6725d30c"
-          },
-          {
-            "name": "adding-poidh-icon",
-            "sha": "9321f3ec888904d8efa585a8014553b0e43f88b8"
-          },
-          {
-            "name": "adding-tiktok-to-menu",
-            "sha": "2dde8035e2ae14b9d5c104a8e2701629bf823e01"
-          },
-          {
-            "name": "address-dislpay-fix",
-            "sha": "0caaa606d9f2cfeff82cbe2ec65fb4f5f4e06442"
-          },
-          {
-            "name": "album-page-header-font",
-            "sha": "944198796bd6026e38bf3f7ce95fb56ca07a3427"
           },
           {
             "name": "ambire-wallet-warning",
             "sha": "b975c76ac2da00725418d4a7e5ef31dd97359b13"
           },
           {
-            "name": "background-splash-update",
-            "sha": "bde6859df2dda8d1c2b866b848265827c2c838b5"
-          },
-          {
-            "name": "backlog-script-bounty-album",
-            "sha": "0e4782a7eca4f025acd9aa85d0a18513162b536e"
-          },
-          {
-            "name": "bountyinfoediting",
-            "sha": "65c1f8f2866e3c322a76e126fbf9b7c94f2d063a"
-          },
-          {
-            "name": "camera-emoji-album",
-            "sha": "ca1013598d6df443f1c03f735391f9aa8746519f"
-          },
-          {
-            "name": "code-refactoring-v3",
-            "sha": "a506ce6af4e5227ec2f93d1104e260e46b0bd580"
-          },
-          {
-            "name": "comments-notifications",
-            "sha": "aaaf36c4f6948818c1000d82a337960834a467c4"
-          },
-          {
-            "name": "copilot/add-dark-mode-toggle",
-            "sha": "35dad7276c33b9dc3f9c5bb2bf5d74d34ae775f8"
-          },
-          {
             "name": "copilot/fix-issue-1286-again",
             "sha": "35c78cb6978e9ab1779cc9b8cfde97d9905af3ba"
-          },
-          {
-            "name": "copilot/fix-issue-1286",
-            "sha": "e4d63dcfd4fc3da1f63f203882e56ff7a1760afa"
-          },
-          {
-            "name": "copilot/staging-fix-issue-1283",
-            "sha": "126aac6afefe399fa3056f06bd24526b36c04f82"
           },
           {
             "name": "copilot/update-dark-mode-colors",
             "sha": "2f6ef8590be2ee8120dc7e3be08d95aaa8eba4a6"
           },
           {
-            "name": "db-comments",
-            "sha": "8a9a4262f24b4f210efb87f866a179dbccc529ca"
-          },
-          {
-            "name": "default-open-skill",
-            "sha": "549d428ad487a90bf85d4d840a9496de63c6968e"
-          },
-          {
             "name": "degen-retirement-messages",
             "sha": "ee7d2edf143c851a582688b29d05ea97b2c0a3af"
-          },
-          {
-            "name": "enabling-twitter-videos",
-            "sha": "ebab933c07b804ee59ba061e981ba36bb0a09908"
-          },
-          {
-            "name": "explore-metadata-tweaks",
-            "sha": "29efdd531d1a0c489e43e1364e9ab505ce0dfd31"
-          },
-          {
-            "name": "fix-albums-insert",
-            "sha": "a49d4a389acef417df2838885f2183739f60d1c2"
-          },
-          {
-            "name": "fix-issue-1185",
-            "sha": "94bbdb11af3a9204928193be63f3ac0c5b93fff0"
           },
           {
             "name": "fix-latest-claim-loading",
             "sha": "971795c115310b72fa9ee907c1e2495901f59631"
           },
           {
-            "name": "fix-leaderboard-score",
-            "sha": "b7b3e2e965598cdd7b4693b5d021453a081a8049"
-          },
-          {
-            "name": "fixing-all-image-embeds",
-            "sha": "71c9afb651cdf59fb7445ef402f39f80645e1137"
-          },
-          {
-            "name": "fixing-blank-grey-homepage-squares",
-            "sha": "daf3503191ad1bba4f8d24b8a2b6754cd8de3ea6"
-          },
-          {
-            "name": "fixing-broken-claim-zoom",
-            "sha": "f471e92b8d2a2b97d2c70e01a116cea67a6da1a2"
-          },
-          {
-            "name": "fixing-dark-toggle-sizing",
-            "sha": "93019aca2e34e9f67bd6a54779c0eecbd5da719c"
-          },
-          {
-            "name": "fixing-images-preview-non-ipfs",
-            "sha": "c03722d740087f68b9bdca7cc16bdcf168bc0d7d"
-          },
-          {
-            "name": "fixing-mini-app-image",
-            "sha": "5ff5810a92c59899f51cb7358c0cc3df77c43bd9"
-          },
-          {
-            "name": "fixing-swithing",
-            "sha": "e947835afbc9ea7ed45100b6b01c0b3889e6631f"
-          },
-          {
-            "name": "get-all-latest-claims",
-            "sha": "4f1723fc35a82697ec33a0cf1eba7f3e501b2a82"
-          },
-          {
-            "name": "google-meta-description",
-            "sha": "7c7d65beca9ef90f52d3afd6648d89fa14b1dd9d"
-          },
-          {
             "name": "harden-claim-form-wallet-chain-switching",
             "sha": "a4f68e97ac60b56a2ed5d2e50c839e9be9e91e40"
-          },
-          {
-            "name": "homepage-headers",
-            "sha": "15b3e7a48f606258f0d2dc57d51a5da4702c4214"
-          },
-          {
-            "name": "json-basedev-update",
-            "sha": "139c4368323e61c6f34beb786687f9d29a627458"
-          },
-          {
-            "name": "latest-claims",
-            "sha": "319e746a78c9e08b14dfea2ce34c110692d93d3d"
-          },
-          {
-            "name": "leader-board",
-            "sha": "0b6bc2c1bb6eee9a61ecb3c43cef09411ca78350"
-          },
-          {
-            "name": "leaderboard",
-            "sha": "d733dbdfaf509c0828fa046e4cc8d421fe7b6ae7"
-          },
-          {
-            "name": "leaderboard-media",
-            "sha": "19a5fbd7e50546d80fbf0fe37a8b3ecb54ad4b3a"
-          },
-          {
-            "name": "mini-app-icon-fix",
-            "sha": "d3aca40edcd16455c2bdab6fa09f7ecec88f5ed4"
-          },
-          {
-            "name": "new-camera-testing",
-            "sha": "f0323e79f6e44219b557a1905595ae2559ef6c40"
-          },
-          {
-            "name": "new-desktop-form",
-            "sha": "66127243ebac4024d2da8aaaf9aead635ec576fb"
-          },
-          {
-            "name": "new-error-message",
-            "sha": "b960f7f6910858c0adfbf86cb562b4d04ae849e3"
-          },
-          {
-            "name": "new-json-bounty-claims",
-            "sha": "1765644e8f83b4e744234b031e515684c1a76398"
-          },
-          {
-            "name": "new-menu-for-docs",
-            "sha": "0e8134352683ecc35cd58860379fe49f58e598f2"
-          },
-          {
-            "name": "new-metadata-for-twitter",
-            "sha": "9a5d471cfb5962961f01b2006e0beee4de5411ea"
-          },
-          {
-            "name": "new-pinata-flow",
-            "sha": "04649d7bed577ca689731f1424e2fa1117aa7b13"
-          },
-          {
-            "name": "new-video-test-bounty-page",
-            "sha": "616a628daefa7b6d204f401734f5a252b38220ae"
-          },
-          {
-            "name": "notification-service-table",
-            "sha": "2de64cfa66b755cf34e15eefcb9f983935ee9b85"
-          },
-          {
-            "name": "og-open-bounty-confirmation-message",
-            "sha": "87d8620f6bf4735bf735f5438616fed0e7118839"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-1",
-            "sha": "ab127ec3f503bcc0d3afdcb9602371fc8a4ddcf4"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-2",
-            "sha": "cc56d68b2a5762cc6f45b2a99122a9943c0e2ce0"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-3",
-            "sha": "cf952de02014a06be4d8439cf9cb664c3d1d9ec3"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-4",
-            "sha": "7398825bbc14487307155626fac6dc268d659d35"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-5",
-            "sha": "a1c2eb11459a226046aa1ce677dded34584b59b4"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-6",
-            "sha": "2a72a7de22ccbaa8824ea8d3c02ab5dd9710b353"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-7",
-            "sha": "5cae017a12fae7385d8daa7d445f2bdec5d79865"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-8",
-            "sha": "df4a33cb280314f57f2b15f773832361c125fdab"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-9",
-            "sha": "5baa11ac58cad9e0054581d62dbbe70ba2d0ec72"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-10",
-            "sha": "30f1383ced6ddf875c19d1048f19c248b96de86a"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-11",
-            "sha": "1a52e14b39149b78dad02624098afefd00bf87b7"
-          },
-          {
-            "name": "picsoritdidnthappen-patch-12",
-            "sha": "b7fa05c6622c4df361605096672f8a5b619349f7"
           },
           {
             "name": "picsoritdidnthappen-patch-13",
             "sha": "f2e48a09ceb393de6ebaf6ca2d90fff51092229a"
           },
           {
-            "name": "picsoritdidnthappen-simplify-homepage",
-            "sha": "0e15753a1fbf678d5f7e24d4c050b9c6c4c5c547"
-          },
-          {
-            "name": "picsoritdidnthappen-skill-update",
-            "sha": "a2adcfc26f696de82fa32544d98605ea9be11ec1"
-          },
-          {
-            "name": "prisma-public-schema-prod",
-            "sha": "896c7dd6d21837423c71662965a3652c58e73a10"
-          },
-          {
             "name": "prod",
             "sha": "e35190e6d6fe5747b48232772aa700fc0bc0354a"
           },
           {
-            "name": "public-schema-for-indexer",
-            "sha": "4a4827dfdac401c644d16e475293d8321bddcada"
-          },
-          {
-            "name": "refactoring-fixes",
-            "sha": "d64a0bda6fb4193083d3726004fb65fa8f5cc267"
-          },
-          {
-            "name": "remove-gabe-build",
-            "sha": "a7d6766768c0d89a3e85d28226a95938261071bb"
-          },
-          {
-            "name": "remove-supports-color",
-            "sha": "348ade4d3abf268596b3b0faade5eedaece19430"
-          },
-          {
-            "name": "remove-vercel-cache",
-            "sha": "e41b6959308188524b6a2f6715f1c0d1d81ea09a"
-          },
-          {
             "name": "removing-ambire-block",
             "sha": "5864e10ba329b3e732d59cd479d72e59b28dfa7b"
-          },
-          {
-            "name": "removing-degen-create-bounty",
-            "sha": "dff12f8424101e5675491d595e7f9395504a50a4"
-          },
-          {
-            "name": "removing-prism",
-            "sha": "13b38e67ee517cc12049a72659647c01bb5c2200"
-          },
-          {
-            "name": "rename-category",
-            "sha": "d289e85442b6e07c39e10909f5d55dba004f6e22"
-          },
-          {
-            "name": "revert-631-fixing-mini-app-image",
-            "sha": "eb037ecd1a9adc03ef211492b79528d08625e88b"
-          },
-          {
-            "name": "revert-657-staging",
-            "sha": "cb4df1e809e081164754496691a8f21ace504f98"
-          },
-          {
-            "name": "revert-733-public-schema-for-indexer",
-            "sha": "fd7fbe96e72d08b1a5d323b2eafd88cea0a57d8f"
-          },
-          {
-            "name": "revert-809-staging",
-            "sha": "b22d1cf68b8f5fe79e29cc10d82c9f815b42fcca"
-          },
-          {
-            "name": "revert-924-fix/issue-879-homepage",
-            "sha": "54427c49905161c2c9d82e5504807d6e6d940109"
-          },
-          {
-            "name": "revert-1023-staging",
-            "sha": "2ac238d0f8cb869b9afd8c115ff8d4faf62bcd63"
-          },
-          {
-            "name": "revert-1047-prod",
-            "sha": "f2a0100d72b833511866912e05d207305b17b1eb"
-          },
-          {
-            "name": "revert-1156-code-refactoring-v3",
-            "sha": "1165fbbee82897af5557258077f790ace15cf482"
-          },
-          {
-            "name": "revert-1157-revert-1156-code-refactoring-v3",
-            "sha": "a82ebeba8d6cb589eb845e41c9322bbeed4bed63"
-          },
-          {
-            "name": "revert-1165-staging",
-            "sha": "6cc642fb9f100837ddcf2359337febb08a9b3888"
-          },
-          {
-            "name": "revert-1394-working",
-            "sha": "93507f6fd3ab23b03db742c7dc56ea1cbc4082c0"
-          },
-          {
-            "name": "revert-1412-new-pinata-flow",
-            "sha": "13a41d35a23165edda12860823427d3ba7900f6c"
-          },
-          {
-            "name": "schema-update-05-28-2025",
-            "sha": "0c7cb85297bd693ccd5833ff5c2d19c3d2e00a74"
-          },
-          {
-            "name": "sort-by-price-global",
-            "sha": "a4cc2fe5e0976f5f99895dfe801c8df2175dfa02"
           },
           {
             "name": "speed-up-feed-page",
@@ -638,127 +266,23 @@
           },
           {
             "name": "staging",
-            "sha": "37caaf30dea38bfcc94121fa4d2d0a2ff7a11d89"
+            "sha": "333613263b0b7439fa5f506ad6b26d0754218494"
           },
           {
-            "name": "testing-twitter-images",
-            "sha": "7f57c8e06326a02742685e22a20e37bed949e843"
-          },
-          {
-            "name": "testing-video-previews",
-            "sha": "6cba30decef67f392c935270d6c4deaa53ec7864"
-          },
-          {
-            "name": "tweaking-how-it-works",
-            "sha": "2a6078a4e40214f3df802c84ddfa27c662e626c7"
+            "name": "update-cyber-main-menu-color",
+            "sha": "78886052ce0d72a061c1fee736e7c3b649e8e66e"
           },
           {
             "name": "update-database-link-pattern-zod",
             "sha": "d383921d5702ed73980e6e3c2f6d1e3f8beadc22"
           },
           {
-            "name": "update-db-schema-june-1",
-            "sha": "71a3c16df371cebcf64fed6172779d0a4c727bb0"
-          },
-          {
-            "name": "update-deps",
-            "sha": "b50325c545cb441961f1a35ea3fe235fd92b5da6"
-          },
-          {
-            "name": "update-ignore-list-leaderboard-08-05-2025",
-            "sha": "1123c9265e80d9c20a22882c7994d1b4128a0bf7"
-          },
-          {
-            "name": "update-pinata-flow",
-            "sha": "e5a6d2e1397be40e4e268576e23e0530580729fe"
-          },
-          {
-            "name": "update-prisma-schema-05202025",
-            "sha": "741fcee2a82e3fea13a3dd402b2423f9788de33b"
-          },
-          {
-            "name": "updating-basedev-json",
-            "sha": "d17b9ba9c9059974bcb4cc5d6bd5ea4fcc57dc43"
-          },
-          {
             "name": "updating-bounty-card-headings",
             "sha": "412937482fa562833ddbc52cfb83d08661994416"
           },
           {
-            "name": "updating-error-loading-media-bounty-pages",
-            "sha": "b588e6ff44dea797476e5ee08fe2a9daf9ff4e3a"
-          },
-          {
-            "name": "updating-schema-db-may-28",
-            "sha": "e87c8fdfd82b1cd2aff558981f9f6fe47288343b"
-          },
-          {
-            "name": "updating-schema-may-31",
-            "sha": "28a126f5930d3789b6773e16f8f547067d6a52e1"
-          },
-          {
-            "name": "updating-stuck-resolve-vote-button",
-            "sha": "34a9d1c5d4b6db09761b9340b445f2c81ac00a4c"
-          },
-          {
-            "name": "v3-database-changes",
-            "sha": "8513710ea793e46fdadefa5b5f99a102efe7611d"
-          },
-          {
-            "name": "v3-fix-prisma-connection-client",
-            "sha": "b66d75f3e0d53cc05f68c0bd170c3eb6ec8e4a71"
-          },
-          {
-            "name": "v3-fixes-round-one",
-            "sha": "5cd31a0234aa689700e350199af5e24eeecfbcad"
-          },
-          {
-            "name": "v3-vote-fix",
-            "sha": "7a2d037a1a9775100987b2875e74266b9fcc2582"
-          },
-          {
-            "name": "v3.1-contract-address-change",
-            "sha": "abadd3c7b3d9dc75319da4cf22fa39eb5221a757"
-          },
-          {
-            "name": "v3.1-fix-abi",
-            "sha": "8a14ca9bdd7122f03f3afe87120ac7a061e799c6"
-          },
-          {
-            "name": "v3.1-new-price-workflow",
-            "sha": "882f703c21baa079e83aae5defd0e54407c36d6a"
-          },
-          {
-            "name": "vercel-refactoring",
-            "sha": "7223af649f28d1dcba64e27f9e4f64bf863d0a8f"
-          },
-          {
-            "name": "video-claims-bounty-pages",
-            "sha": "1dfc521deb4f396ceae36888b32998c5e841dc03"
-          },
-          {
-            "name": "voting-fix",
-            "sha": "213d058618415fbf81909c41285c4f93f442d98e"
-          },
-          {
             "name": "wallet-connect-safety-tweaks",
             "sha": "87154602847c0ea7a2410129be0dee5c530a8073"
-          },
-          {
-            "name": "warplet-description-tweak",
-            "sha": "0a4447e52dbdccaf2029404c483b7838a9314147"
-          },
-          {
-            "name": "well-known-edit-june-1",
-            "sha": "49504137ca6b2b045089c91b68d62abfb5182136"
-          },
-          {
-            "name": "well-known-tweaks-may-31",
-            "sha": "2b122eb78286573bc1f83d71f660440446f11768"
-          },
-          {
-            "name": "working",
-            "sha": "3b5173d40fc040fe0f2dde66f70448fbbf3c0ae1"
           }
         ],
         "pulls": [
@@ -788,7 +312,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-14T19:25:39.474Z"
+      "checkedAt": "2026-09-14T23:10:18.992Z"
     },
     {
       "source": "protocol",
@@ -863,7 +387,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T19:25:40.565Z"
+      "checkedAt": "2026-09-14T23:10:20.502Z"
     },
     {
       "source": "legacy-contracts",
@@ -911,7 +435,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T19:25:42.887Z"
+      "checkedAt": "2026-09-14T23:10:23.846Z"
     },
     {
       "source": "frame",
@@ -948,7 +472,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-14T19:25:45.314Z"
+      "checkedAt": "2026-09-14T23:10:27.277Z"
     },
     {
       "source": "names",
@@ -980,7 +504,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T19:25:46.361Z"
+      "checkedAt": "2026-09-14T23:10:28.492Z"
     },
     {
       "source": "indexer",
@@ -1058,7 +582,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-14T19:25:49.531Z"
+      "checkedAt": "2026-09-14T23:10:31.572Z"
     }
   ],
   "discovery": {
@@ -1096,5 +620,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-14T19:25:49.532Z"
+  "lastSuccessfulCheck": "2026-09-14T23:10:31.572Z"
 }

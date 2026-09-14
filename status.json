@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-14T14:08:24.573Z",
-  "completedAt": "2026-09-14T14:08:40.087Z",
+  "startedAt": "2026-09-14T19:25:36.353Z",
+  "completedAt": "2026-09-14T19:25:49.532Z",
   "successful": true,
   "sources": [
     {
@@ -561,6 +561,10 @@
             "sha": "e41b6959308188524b6a2f6715f1c0d1d81ea09a"
           },
           {
+            "name": "removing-ambire-block",
+            "sha": "5864e10ba329b3e732d59cd479d72e59b28dfa7b"
+          },
+          {
             "name": "removing-degen-create-bounty",
             "sha": "dff12f8424101e5675491d595e7f9395504a50a4"
           },
@@ -634,7 +638,7 @@
           },
           {
             "name": "staging",
-            "sha": "c0fc840e218d0e5147530a65b7356b4517fad4b9"
+            "sha": "37caaf30dea38bfcc94121fa4d2d0a2ff7a11d89"
           },
           {
             "name": "testing-twitter-images",
@@ -784,7 +788,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-14T14:08:28.698Z"
+      "checkedAt": "2026-09-14T19:25:39.474Z"
     },
     {
       "source": "protocol",
@@ -859,7 +863,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T14:08:30.449Z"
+      "checkedAt": "2026-09-14T19:25:40.565Z"
     },
     {
       "source": "legacy-contracts",
@@ -907,7 +911,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T14:08:33.386Z"
+      "checkedAt": "2026-09-14T19:25:42.887Z"
     },
     {
       "source": "frame",
@@ -944,7 +948,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-14T14:08:36.153Z"
+      "checkedAt": "2026-09-14T19:25:45.314Z"
     },
     {
       "source": "names",
@@ -976,20 +980,22 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-14T14:08:37.371Z"
+      "checkedAt": "2026-09-14T19:25:46.361Z"
     },
     {
       "source": "indexer",
       "repository": "yukigesho/poidh-indexer",
       "incorporatedRevision": null,
-      "observedRevision": "00946e7795b1fd49497b3c4ec3e4e93d42e0b576",
+      "observedRevision": "14c38fed137d4bb289f27cedb2d9d8884b741a0c",
       "status": "blocked-license",
       "range": {
         "base": "82d4028540165912b3c3d2df366284e066af51f6",
-        "head": "00946e7795b1fd49497b3c4ec3e4e93d42e0b576",
+        "head": "14c38fed137d4bb289f27cedb2d9d8884b741a0c",
         "rewritten": false,
         "commits": [
-          "00946e7795b1fd49497b3c4ec3e4e93d42e0b576"
+          "00946e7795b1fd49497b3c4ec3e4e93d42e0b576",
+          "b9f477557a0b149b1653b6b1e376a68971b3bd4d",
+          "14c38fed137d4bb289f27cedb2d9d8884b741a0c"
         ],
         "files": [
           {
@@ -1010,7 +1016,23 @@
           },
           {
             "status": "A",
+            "path": "scripts/degen-leaderboard.mjs"
+          },
+          {
+            "status": "A",
+            "path": "scripts/degen-leaderboard.test.mjs"
+          },
+          {
+            "status": "A",
             "path": "scripts/runtime.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "scripts/start.mjs"
+          },
+          {
+            "status": "A",
+            "path": "scripts/start.test.mjs"
           },
           {
             "status": "A",
@@ -1028,7 +1050,7 @@
         "branches": [
           {
             "name": "main",
-            "sha": "00946e7795b1fd49497b3c4ec3e4e93d42e0b576"
+            "sha": "14c38fed137d4bb289f27cedb2d9d8884b741a0c"
           }
         ],
         "pulls": [],
@@ -1036,7 +1058,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-14T14:08:40.087Z"
+      "checkedAt": "2026-09-14T19:25:49.531Z"
     }
   ],
   "discovery": {
@@ -1074,5 +1096,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-14T14:08:40.087Z"
+  "lastSuccessfulCheck": "2026-09-14T19:25:49.532Z"
 }

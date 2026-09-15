@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-09-15T13:36:56.792Z",
-  "completedAt": "2026-09-15T13:37:10.064Z",
+  "startedAt": "2026-09-15T18:14:44.229Z",
+  "completedAt": "2026-09-15T18:14:58.889Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "e35190e6d6fe5747b48232772aa700fc0bc0354a",
+      "observedRevision": "735141931f0ae412c976560aed77e2ac6f542b88",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "e35190e6d6fe5747b48232772aa700fc0bc0354a",
+        "head": "735141931f0ae412c976560aed77e2ac6f542b88",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -82,7 +82,20 @@
           "98fc392164866aede1f01cd3dd5c992f6bb7629a",
           "98227c017a45da7f685dac68b983ca2c3cfd8022",
           "c0fc840e218d0e5147530a65b7356b4517fad4b9",
-          "e35190e6d6fe5747b48232772aa700fc0bc0354a"
+          "e35190e6d6fe5747b48232772aa700fc0bc0354a",
+          "5864e10ba329b3e732d59cd479d72e59b28dfa7b",
+          "2a9c2894039882653313858c567acc1eb5c5b66c",
+          "37caaf30dea38bfcc94121fa4d2d0a2ff7a11d89",
+          "b3f39c588b3e2c7c996005007ec17f3eb4864d27",
+          "b79fda589446aca3d1a7cdaf6c871e43299fa163",
+          "1888e760151c0a8137741f3e02fd1570b4cff142",
+          "515421b27d30027b54a62cc32d7ab68171856128",
+          "78886052ce0d72a061c1fee736e7c3b649e8e66e",
+          "333613263b0b7439fa5f506ad6b26d0754218494",
+          "1d80c4e9e71e27556d98fafdc6bceb2dac2ffffc",
+          "2cdb23269d618364a02fa508d4edff91714e09ef",
+          "c657624d29d406706518d1eb638d7f290efa4043",
+          "735141931f0ae412c976560aed77e2ac6f542b88"
         ],
         "files": [
           {
@@ -208,6 +221,10 @@
           },
           {
             "status": "M",
+            "path": "src/trpc/routers/leaderboard.ts"
+          },
+          {
+            "status": "M",
             "path": "src/utils/generateMetadata.ts"
           },
           {
@@ -254,7 +271,7 @@
           },
           {
             "name": "prod",
-            "sha": "e35190e6d6fe5747b48232772aa700fc0bc0354a"
+            "sha": "735141931f0ae412c976560aed77e2ac6f542b88"
           },
           {
             "name": "removing-ambire-block",
@@ -266,7 +283,7 @@
           },
           {
             "name": "staging",
-            "sha": "333613263b0b7439fa5f506ad6b26d0754218494"
+            "sha": "7e5937ad8d361191d7d744ee083081a0db570b57"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -289,7 +306,7 @@
           {
             "number": 1499,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1499",
-            "head": "30b3729fa5e9a662774cf4f582362e773c726351",
+            "head": "43dc336de52e0fa4e92c8a04de05939b6565d6f7",
             "base": "staging",
             "title": " ZeroDev ERC-4337 smart account integration "
           },
@@ -312,7 +329,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-15T13:37:00.099Z"
+      "checkedAt": "2026-09-15T18:14:47.852Z"
     },
     {
       "source": "protocol",
@@ -387,7 +404,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T13:37:01.491Z"
+      "checkedAt": "2026-09-15T18:14:49.410Z"
     },
     {
       "source": "legacy-contracts",
@@ -435,7 +452,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T13:37:03.987Z"
+      "checkedAt": "2026-09-15T18:14:52.220Z"
     },
     {
       "source": "frame",
@@ -472,7 +489,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-15T13:37:06.474Z"
+      "checkedAt": "2026-09-15T18:14:55.146Z"
     },
     {
       "source": "names",
@@ -504,7 +521,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T13:37:07.694Z"
+      "checkedAt": "2026-09-15T18:14:56.379Z"
     },
     {
       "source": "indexer",
@@ -582,7 +599,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-15T13:37:10.064Z"
+      "checkedAt": "2026-09-15T18:14:58.889Z"
     }
   ],
   "discovery": {
@@ -620,5 +637,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-15T13:37:10.064Z"
+  "lastSuccessfulCheck": "2026-09-15T18:14:58.889Z"
 }

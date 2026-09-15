@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-15T10:25:36.983Z",
-  "completedAt": "2026-09-15T10:25:51.545Z",
+  "startedAt": "2026-09-15T13:36:56.792Z",
+  "completedAt": "2026-09-15T13:37:10.064Z",
   "successful": true,
   "sources": [
     {
@@ -289,7 +289,7 @@
           {
             "number": 1499,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1499",
-            "head": "6294617f2b97483510c543b2a471aa2cf74d9557",
+            "head": "30b3729fa5e9a662774cf4f582362e773c726351",
             "base": "staging",
             "title": " ZeroDev ERC-4337 smart account integration "
           },
@@ -312,7 +312,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-15T10:25:40.120Z"
+      "checkedAt": "2026-09-15T13:37:00.099Z"
     },
     {
       "source": "protocol",
@@ -387,7 +387,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T10:25:41.645Z"
+      "checkedAt": "2026-09-15T13:37:01.491Z"
     },
     {
       "source": "legacy-contracts",
@@ -435,7 +435,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T10:25:44.541Z"
+      "checkedAt": "2026-09-15T13:37:03.987Z"
     },
     {
       "source": "frame",
@@ -472,7 +472,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-15T10:25:47.541Z"
+      "checkedAt": "2026-09-15T13:37:06.474Z"
     },
     {
       "source": "names",
@@ -504,7 +504,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-15T10:25:48.672Z"
+      "checkedAt": "2026-09-15T13:37:07.694Z"
     },
     {
       "source": "indexer",
@@ -582,7 +582,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-15T10:25:51.319Z"
+      "checkedAt": "2026-09-15T13:37:10.064Z"
     }
   ],
   "discovery": {
@@ -620,5 +620,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-15T10:25:51.545Z"
+  "lastSuccessfulCheck": "2026-09-15T13:37:10.064Z"
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-20T22:29:16.243Z",
-  "completedAt": "2026-09-20T22:29:31.463Z",
+  "startedAt": "2026-09-21T01:09:50.084Z",
+  "completedAt": "2026-09-21T01:10:06.858Z",
   "successful": true,
   "sources": [
     {
@@ -359,7 +359,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-20T22:29:19.925Z"
+      "checkedAt": "2026-09-21T01:09:54.292Z"
     },
     {
       "source": "protocol",
@@ -434,7 +434,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-20T22:29:21.398Z"
+      "checkedAt": "2026-09-21T01:09:55.784Z"
     },
     {
       "source": "legacy-contracts",
@@ -482,7 +482,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-20T22:29:24.416Z"
+      "checkedAt": "2026-09-21T01:09:58.962Z"
     },
     {
       "source": "frame",
@@ -519,7 +519,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-20T22:29:27.581Z"
+      "checkedAt": "2026-09-21T01:10:02.475Z"
     },
     {
       "source": "names",
@@ -551,7 +551,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-20T22:29:28.641Z"
+      "checkedAt": "2026-09-21T01:10:03.765Z"
     },
     {
       "source": "indexer",
@@ -624,12 +624,20 @@
             "sha": "14c38fed137d4bb289f27cedb2d9d8884b741a0c"
           }
         ],
-        "pulls": [],
+        "pulls": [
+          {
+            "number": 18,
+            "url": "https://github.com/yukigesho/poidh-indexer/pull/18",
+            "head": "3a12bbbae9a59c906c240764655132677a284424",
+            "base": "main",
+            "title": "Save votes for legacy bounties"
+          }
+        ],
         "releases": []
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-20T22:29:31.463Z"
+      "checkedAt": "2026-09-21T01:10:06.858Z"
     }
   ],
   "discovery": {
@@ -667,5 +675,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-20T22:29:31.463Z"
+  "lastSuccessfulCheck": "2026-09-21T01:10:06.858Z"
 }

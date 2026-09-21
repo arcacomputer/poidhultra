@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-21T01:09:50.084Z",
-  "completedAt": "2026-09-21T01:10:06.858Z",
+  "startedAt": "2026-09-21T06:25:16.104Z",
+  "completedAt": "2026-09-21T06:25:28.051Z",
   "successful": true,
   "sources": [
     {
@@ -359,7 +359,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-21T01:09:54.292Z"
+      "checkedAt": "2026-09-21T06:25:19.284Z"
     },
     {
       "source": "protocol",
@@ -434,7 +434,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-21T01:09:55.784Z"
+      "checkedAt": "2026-09-21T06:25:20.460Z"
     },
     {
       "source": "legacy-contracts",
@@ -482,7 +482,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-21T01:09:58.962Z"
+      "checkedAt": "2026-09-21T06:25:22.503Z"
     },
     {
       "source": "frame",
@@ -519,7 +519,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-21T01:10:02.475Z"
+      "checkedAt": "2026-09-21T06:25:24.713Z"
     },
     {
       "source": "names",
@@ -551,7 +551,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-21T01:10:03.765Z"
+      "checkedAt": "2026-09-21T06:25:25.697Z"
     },
     {
       "source": "indexer",
@@ -628,7 +628,7 @@
           {
             "number": 18,
             "url": "https://github.com/yukigesho/poidh-indexer/pull/18",
-            "head": "3a12bbbae9a59c906c240764655132677a284424",
+            "head": "1148c2760b3014c4319b50d94a058a47d561f2a3",
             "base": "main",
             "title": "Save votes for legacy bounties"
           }
@@ -637,7 +637,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-21T01:10:06.858Z"
+      "checkedAt": "2026-09-21T06:25:28.051Z"
     }
   ],
   "discovery": {
@@ -675,5 +675,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-21T01:10:06.858Z"
+  "lastSuccessfulCheck": "2026-09-21T06:25:28.051Z"
 }

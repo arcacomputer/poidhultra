@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-09-25T18:40:14.235Z",
-  "completedAt": "2026-09-25T18:40:30.425Z",
+  "startedAt": "2026-09-25T22:24:46.964Z",
+  "completedAt": "2026-09-25T22:24:59.368Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "3c7dc88a97b4d1c20b5526b57c530993a3794bb9",
+      "observedRevision": "e3e65381b0d598f28160a462749f6f095a75d4e7",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "3c7dc88a97b4d1c20b5526b57c530993a3794bb9",
+        "head": "e3e65381b0d598f28160a462749f6f095a75d4e7",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -161,7 +161,15 @@
           "9ad204748c02a82da9ea0fce08f63692585cfa57",
           "200c3abbdeaefebd68548f721b7aa3dab6959661",
           "a7a79dd9e8e55554711419ed3d43e2f9f8741606",
-          "3c7dc88a97b4d1c20b5526b57c530993a3794bb9"
+          "3c7dc88a97b4d1c20b5526b57c530993a3794bb9",
+          "edb5d7be02e338196bd38f28ab2e3457e6967217",
+          "4a92afc90097dc3c65e742bcbfc624754d58c1ba",
+          "381764105ce48f359dfbc32f62280d92d05d4805",
+          "ba3563cc776cf0ca2a5f6fc7dd2c6f059a2ffc35",
+          "d84b80271b20e2d0a5b61b15fe325934ff728552",
+          "01080cc6b54be0e6816e6b9b0ead233bb13f866b",
+          "25d206459546d54c2d2f50ce9b40d80c3c7c869b",
+          "e3e65381b0d598f28160a462749f6f095a75d4e7"
         ],
         "files": [
           {
@@ -248,6 +256,10 @@
           {
             "status": "M",
             "path": "src/components/claims/ClaimCard.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/claims/ClaimItem.tsx"
           },
           {
             "status": "M",
@@ -401,7 +413,7 @@
           },
           {
             "name": "prod",
-            "sha": "3c7dc88a97b4d1c20b5526b57c530993a3794bb9"
+            "sha": "e3e65381b0d598f28160a462749f6f095a75d4e7"
           },
           {
             "name": "removing-ambire-block",
@@ -413,7 +425,7 @@
           },
           {
             "name": "staging",
-            "sha": "a7a79dd9e8e55554711419ed3d43e2f9f8741606"
+            "sha": "25d206459546d54c2d2f50ce9b40d80c3c7c869b"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -463,7 +475,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-25T18:40:18.666Z"
+      "checkedAt": "2026-09-25T22:24:50.512Z"
     },
     {
       "source": "protocol",
@@ -538,7 +550,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-25T18:40:20.292Z"
+      "checkedAt": "2026-09-25T22:24:51.767Z"
     },
     {
       "source": "legacy-contracts",
@@ -586,7 +598,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-25T18:40:23.232Z"
+      "checkedAt": "2026-09-25T22:24:53.946Z"
     },
     {
       "source": "frame",
@@ -623,7 +635,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-25T18:40:26.413Z"
+      "checkedAt": "2026-09-25T22:24:56.106Z"
     },
     {
       "source": "names",
@@ -655,7 +667,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-25T18:40:27.576Z"
+      "checkedAt": "2026-09-25T22:24:57.180Z"
     },
     {
       "source": "indexer",
@@ -738,7 +750,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-25T18:40:30.425Z"
+      "checkedAt": "2026-09-25T22:24:59.368Z"
     }
   ],
   "discovery": {
@@ -776,5 +788,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-25T18:40:30.425Z"
+  "lastSuccessfulCheck": "2026-09-25T22:24:59.368Z"
 }

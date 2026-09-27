@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-27T10:44:16.955Z",
-  "completedAt": "2026-09-27T10:44:31.249Z",
+  "startedAt": "2026-09-27T14:04:52.340Z",
+  "completedAt": "2026-09-27T14:05:11.836Z",
   "successful": true,
   "sources": [
     {
@@ -490,7 +490,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-27T10:44:20.111Z"
+      "checkedAt": "2026-09-27T14:04:58.170Z"
     },
     {
       "source": "protocol",
@@ -565,7 +565,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-27T10:44:21.470Z"
+      "checkedAt": "2026-09-27T14:04:59.813Z"
     },
     {
       "source": "legacy-contracts",
@@ -613,7 +613,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-27T10:44:24.372Z"
+      "checkedAt": "2026-09-27T14:05:03.180Z"
     },
     {
       "source": "frame",
@@ -650,7 +650,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-27T10:44:27.335Z"
+      "checkedAt": "2026-09-27T14:05:06.565Z"
     },
     {
       "source": "names",
@@ -682,7 +682,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-27T10:44:28.534Z"
+      "checkedAt": "2026-09-27T14:05:08.325Z"
     },
     {
       "source": "indexer",
@@ -765,7 +765,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-27T10:44:31.043Z"
+      "checkedAt": "2026-09-27T14:05:11.836Z"
     }
   ],
   "discovery": {
@@ -803,5 +803,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-27T10:44:31.249Z"
+  "lastSuccessfulCheck": "2026-09-27T14:05:11.836Z"
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-28T06:59:33.162Z",
-  "completedAt": "2026-09-28T06:59:52.306Z",
+  "startedAt": "2026-09-28T11:58:43.684Z",
+  "completedAt": "2026-09-28T11:59:02.183Z",
   "successful": true,
   "sources": [
     {
@@ -458,6 +458,13 @@
         ],
         "pulls": [
           {
+            "number": 1533,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1533",
+            "head": "64c955ac350b8a9097733605b83316df58bc0908",
+            "base": "prod",
+            "title": "feat: ZeroDev passkey smart accounts (Arbitrum) + cross-chain deposits"
+          },
+          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -490,7 +497,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-28T06:59:38.790Z"
+      "checkedAt": "2026-09-28T11:58:48.734Z"
     },
     {
       "source": "protocol",
@@ -565,7 +572,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-28T06:59:40.251Z"
+      "checkedAt": "2026-09-28T11:58:50.003Z"
     },
     {
       "source": "legacy-contracts",
@@ -613,7 +620,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-28T06:59:43.802Z"
+      "checkedAt": "2026-09-28T11:58:53.623Z"
     },
     {
       "source": "frame",
@@ -650,7 +657,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-28T06:59:47.379Z"
+      "checkedAt": "2026-09-28T11:58:57.171Z"
     },
     {
       "source": "names",
@@ -682,7 +689,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-28T06:59:48.836Z"
+      "checkedAt": "2026-09-28T11:58:58.434Z"
     },
     {
       "source": "indexer",
@@ -765,11 +772,11 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-28T06:59:52.306Z"
+      "checkedAt": "2026-09-28T11:59:01.984Z"
     }
   ],
   "discovery": {
-    "checkedAt": "2026-09-27T10:44:31.249Z",
+    "checkedAt": "2026-09-28T11:59:02.183Z",
     "repositories": [
       {
         "id": 1155735358,
@@ -803,5 +810,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-28T06:59:52.306Z"
+  "lastSuccessfulCheck": "2026-09-28T11:59:02.183Z"
 }

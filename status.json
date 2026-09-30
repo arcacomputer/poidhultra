@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-09-30T19:25:02.282Z",
-  "completedAt": "2026-09-30T19:25:18.693Z",
+  "startedAt": "2026-09-30T23:54:34.436Z",
+  "completedAt": "2026-09-30T23:54:48.747Z",
   "successful": true,
   "sources": [
     {
@@ -557,7 +557,7 @@
           },
           {
             "name": "staging",
-            "sha": "02b3827592dda1029f6244cbb1f6904048395a64"
+            "sha": "72cf3d138f7a194f68451e85e132adbfbb44f059"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -582,9 +582,20 @@
           {
             "name": "wallet-connect-safety-tweaks",
             "sha": "87154602847c0ea7a2410129be0dee5c530a8073"
+          },
+          {
+            "name": "zerodev-robinhood-routing",
+            "sha": "86a1031fa4badde3a5b40aed499db106c69c6953"
           }
         ],
         "pulls": [
+          {
+            "number": 1548,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1548",
+            "head": "86a1031fa4badde3a5b40aed499db106c69c6953",
+            "base": "staging",
+            "title": "add Robinhood Chain smart routing source"
+          },
           {
             "number": 1541,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1541",
@@ -618,7 +629,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-09-30T19:25:06.574Z"
+      "checkedAt": "2026-09-30T23:54:38.132Z"
     },
     {
       "source": "protocol",
@@ -693,7 +704,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-30T19:25:08.187Z"
+      "checkedAt": "2026-09-30T23:54:39.608Z"
     },
     {
       "source": "legacy-contracts",
@@ -741,7 +752,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-30T19:25:11.080Z"
+      "checkedAt": "2026-09-30T23:54:42.294Z"
     },
     {
       "source": "frame",
@@ -778,7 +789,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-09-30T19:25:14.200Z"
+      "checkedAt": "2026-09-30T23:54:45.061Z"
     },
     {
       "source": "names",
@@ -810,7 +821,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-09-30T19:25:15.518Z"
+      "checkedAt": "2026-09-30T23:54:46.181Z"
     },
     {
       "source": "indexer",
@@ -893,7 +904,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-09-30T19:25:18.693Z"
+      "checkedAt": "2026-09-30T23:54:48.747Z"
     }
   ],
   "discovery": {
@@ -931,5 +942,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-09-30T19:25:18.693Z"
+  "lastSuccessfulCheck": "2026-09-30T23:54:48.747Z"
 }

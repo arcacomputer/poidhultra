@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-02T18:27:33.913Z",
-  "completedAt": "2026-10-02T18:27:51.672Z",
+  "startedAt": "2026-10-02T23:00:11.972Z",
+  "completedAt": "2026-10-02T23:00:28.924Z",
   "successful": true,
   "sources": [
     {
@@ -735,7 +735,7 @@
           },
           {
             "name": "staging",
-            "sha": "f052136f4749536427f5e13b4ec9011225d0e622"
+            "sha": "1a71e2e3f8ce0b0244fdac1244e257185e5bd66b"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -814,7 +814,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-02T18:27:39.326Z"
+      "checkedAt": "2026-10-02T23:00:17.080Z"
     },
     {
       "source": "protocol",
@@ -889,7 +889,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T18:27:40.834Z"
+      "checkedAt": "2026-10-02T23:00:18.545Z"
     },
     {
       "source": "legacy-contracts",
@@ -937,7 +937,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T18:27:43.933Z"
+      "checkedAt": "2026-10-02T23:00:21.552Z"
     },
     {
       "source": "frame",
@@ -974,7 +974,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-02T18:27:47.179Z"
+      "checkedAt": "2026-10-02T23:00:24.674Z"
     },
     {
       "source": "names",
@@ -1006,7 +1006,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T18:27:48.493Z"
+      "checkedAt": "2026-10-02T23:00:26.056Z"
     },
     {
       "source": "indexer",
@@ -1089,7 +1089,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-02T18:27:51.672Z"
+      "checkedAt": "2026-10-02T23:00:28.924Z"
     }
   ],
   "discovery": {
@@ -1127,5 +1127,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-02T18:27:51.672Z"
+  "lastSuccessfulCheck": "2026-10-02T23:00:28.924Z"
 }

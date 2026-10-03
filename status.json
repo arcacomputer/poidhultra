@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-02T23:00:11.972Z",
-  "completedAt": "2026-10-02T23:00:28.924Z",
+  "startedAt": "2026-10-03T02:02:06.252Z",
+  "completedAt": "2026-10-03T02:02:19.938Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7",
+      "observedRevision": "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7",
+        "head": "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -279,11 +279,17 @@
           "22ef368d546af454f4bec6e55ea41167fa10a332",
           "5dfc8f66876b053efe51d2dc60ca3807384a6539",
           "e667538b69c11ea8ff4d55b56da811e49ad38d9b",
+          "aaf71f6996752b13c2c1c5d1a1da86cfeb1be5e2",
           "1a9dc19670eca08c524f2ad3497a78c8acc11128",
+          "73af1221a1a6072522b70bca1a81b7fbc796887d",
           "f8734090b64421fc65bb963dcbd4fdcf1600038c",
           "40b6c13d604f6df9ce1eeddd7a1831d6068b44a3",
           "f052136f4749536427f5e13b4ec9011225d0e622",
-          "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7"
+          "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7",
+          "1a71e2e3f8ce0b0244fdac1244e257185e5bd66b",
+          "df486b0b9c3d8e6faf07908cd1b4eaecb4f224f1",
+          "0a071b299fd3bbc18fcf30e00ed16de67889d82c",
+          "29e8e7623e84c8a75be141e4f749207da7f9e6e3"
         ],
         "files": [
           {
@@ -382,6 +388,10 @@
           {
             "status": "M",
             "path": "src/components/account/PendingRefunds.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/account/ZkPassportVerify.tsx"
           },
           {
             "status": "A",
@@ -513,6 +523,10 @@
           },
           {
             "status": "M",
+            "path": "src/components/global/ClaimFundsButton.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/components/global/DarkModeToggle.tsx"
           },
           {
@@ -624,6 +638,10 @@
             "path": "src/utils/clientEnv.ts"
           },
           {
+            "status": "A",
+            "path": "src/utils/errors.ts"
+          },
+          {
             "status": "M",
             "path": "src/utils/generateMetadata.ts"
           },
@@ -723,7 +741,7 @@
           },
           {
             "name": "prod",
-            "sha": "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7"
+            "sha": "29e8e7623e84c8a75be141e4f749207da7f9e6e3"
           },
           {
             "name": "removing-ambire-block",
@@ -735,7 +753,7 @@
           },
           {
             "name": "staging",
-            "sha": "1a71e2e3f8ce0b0244fdac1244e257185e5bd66b"
+            "sha": "24635de24eb4ebc76ac11c2cfd979d81f57f5b83"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -768,34 +786,6 @@
         ],
         "pulls": [
           {
-            "number": 1551,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1551",
-            "head": "73af1221a1a6072522b70bca1a81b7fbc796887d",
-            "base": "staging",
-            "title": "feat: friendlier error toasts"
-          },
-          {
-            "number": 1549,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1549",
-            "head": "ade8c6173e550b44bfc706a0077a495937623ce2",
-            "base": "staging",
-            "title": "feat(home): polaroid hero spread with synced album word"
-          },
-          {
-            "number": 1541,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1541",
-            "head": "e87bbcb5efdf4d235fa9ec9c305165284cd98e53",
-            "base": "prod",
-            "title": "feat: ZeroDev smart-account login (passkey + Google) and cross-chain deposits"
-          },
-          {
-            "number": 1533,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1533",
-            "head": "64c955ac350b8a9097733605b83316df58bc0908",
-            "base": "prod",
-            "title": "feat: ZeroDev passkey smart accounts (Arbitrum) + cross-chain deposits"
-          },
-          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -814,7 +804,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-02T23:00:17.080Z"
+      "checkedAt": "2026-10-03T02:02:10.009Z"
     },
     {
       "source": "protocol",
@@ -889,7 +879,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T23:00:18.545Z"
+      "checkedAt": "2026-10-03T02:02:11.318Z"
     },
     {
       "source": "legacy-contracts",
@@ -937,7 +927,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T23:00:21.552Z"
+      "checkedAt": "2026-10-03T02:02:13.702Z"
     },
     {
       "source": "frame",
@@ -974,7 +964,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-02T23:00:24.674Z"
+      "checkedAt": "2026-10-03T02:02:16.474Z"
     },
     {
       "source": "names",
@@ -1006,7 +996,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-02T23:00:26.056Z"
+      "checkedAt": "2026-10-03T02:02:17.671Z"
     },
     {
       "source": "indexer",
@@ -1089,7 +1079,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-02T23:00:28.924Z"
+      "checkedAt": "2026-10-03T02:02:19.938Z"
     }
   ],
   "discovery": {
@@ -1127,5 +1117,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-02T23:00:28.924Z"
+  "lastSuccessfulCheck": "2026-10-03T02:02:19.938Z"
 }

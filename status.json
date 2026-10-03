@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-03T13:27:34.911Z",
-  "completedAt": "2026-10-03T13:27:48.792Z",
+  "startedAt": "2026-10-03T17:59:08.708Z",
+  "completedAt": "2026-10-03T17:59:22.357Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
+      "observedRevision": "8ec6da6e2db48fe32359d99edba4c23e8df4196c",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
+        "head": "8ec6da6e2db48fe32359d99edba4c23e8df4196c",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -289,7 +289,11 @@
           "1a71e2e3f8ce0b0244fdac1244e257185e5bd66b",
           "df486b0b9c3d8e6faf07908cd1b4eaecb4f224f1",
           "0a071b299fd3bbc18fcf30e00ed16de67889d82c",
-          "29e8e7623e84c8a75be141e4f749207da7f9e6e3"
+          "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
+          "ab0ec2711ce1e2aa06c38e5b8a75fafe600995fe",
+          "497b9e0b6d6c9e103cb81d6738f2b0fba943d202",
+          "7544d1266697fd77ca55e39bad1e23d64f51b94d",
+          "8ec6da6e2db48fe32359d99edba4c23e8df4196c"
         ],
         "files": [
           {
@@ -700,6 +704,10 @@
             "sha": "2f6ef8590be2ee8120dc7e3be08d95aaa8eba4a6"
           },
           {
+            "name": "custom-gift-a-fren-description",
+            "sha": "ab0ec2711ce1e2aa06c38e5b8a75fafe600995fe"
+          },
+          {
             "name": "degen-retirement-messages",
             "sha": "ee7d2edf143c851a582688b29d05ea97b2c0a3af"
           },
@@ -741,7 +749,7 @@
           },
           {
             "name": "prod",
-            "sha": "29e8e7623e84c8a75be141e4f749207da7f9e6e3"
+            "sha": "8ec6da6e2db48fe32359d99edba4c23e8df4196c"
           },
           {
             "name": "removing-ambire-block",
@@ -762,6 +770,10 @@
           {
             "name": "update-database-link-pattern-zod",
             "sha": "d383921d5702ed73980e6e3c2f6d1e3f8beadc22"
+          },
+          {
+            "name": "update-politician-bounty",
+            "sha": "7544d1266697fd77ca55e39bad1e23d64f51b94d"
           },
           {
             "name": "updating-bounty-card-headings",
@@ -804,7 +816,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-03T13:27:38.704Z"
+      "checkedAt": "2026-10-03T17:59:12.653Z"
     },
     {
       "source": "protocol",
@@ -879,7 +891,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-03T13:27:39.840Z"
+      "checkedAt": "2026-10-03T17:59:14.058Z"
     },
     {
       "source": "legacy-contracts",
@@ -927,7 +939,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-03T13:27:42.600Z"
+      "checkedAt": "2026-10-03T17:59:16.564Z"
     },
     {
       "source": "frame",
@@ -964,7 +976,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-03T13:27:45.299Z"
+      "checkedAt": "2026-10-03T17:59:18.844Z"
     },
     {
       "source": "names",
@@ -996,7 +1008,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-03T13:27:46.251Z"
+      "checkedAt": "2026-10-03T17:59:20.147Z"
     },
     {
       "source": "indexer",
@@ -1079,7 +1091,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-03T13:27:48.792Z"
+      "checkedAt": "2026-10-03T17:59:22.357Z"
     }
   ],
   "discovery": {
@@ -1117,5 +1129,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-03T13:27:48.792Z"
+  "lastSuccessfulCheck": "2026-10-03T17:59:22.357Z"
 }

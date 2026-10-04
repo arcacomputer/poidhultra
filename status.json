@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-04T17:38:25.087Z",
-  "completedAt": "2026-10-04T17:38:36.917Z",
+  "startedAt": "2026-10-04T21:32:31.936Z",
+  "completedAt": "2026-10-04T21:32:48.574Z",
   "successful": true,
   "sources": [
     {
@@ -795,11 +795,22 @@
             "sha": "87154602847c0ea7a2410129be0dee5c530a8073"
           },
           {
+            "name": "working",
+            "sha": "3716c5fd6e935cd7428d385de1a58a2203eba960"
+          },
+          {
             "name": "zerodev-robinhood-routing",
             "sha": "22ef368d546af454f4bec6e55ea41167fa10a332"
           }
         ],
         "pulls": [
+          {
+            "number": 1557,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1557",
+            "head": "3716c5fd6e935cd7428d385de1a58a2203eba960",
+            "base": "staging",
+            "title": "fix: hide notification on user's own actions in the feed"
+          },
           {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
@@ -819,7 +830,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-04T17:38:28.568Z"
+      "checkedAt": "2026-10-04T21:32:36.782Z"
     },
     {
       "source": "protocol",
@@ -894,7 +905,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-04T17:38:29.749Z"
+      "checkedAt": "2026-10-04T21:32:38.228Z"
     },
     {
       "source": "legacy-contracts",
@@ -942,7 +953,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-04T17:38:32.055Z"
+      "checkedAt": "2026-10-04T21:32:41.262Z"
     },
     {
       "source": "frame",
@@ -979,7 +990,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-04T17:38:33.957Z"
+      "checkedAt": "2026-10-04T21:32:44.478Z"
     },
     {
       "source": "names",
@@ -1011,7 +1022,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-04T17:38:35.100Z"
+      "checkedAt": "2026-10-04T21:32:45.814Z"
     },
     {
       "source": "indexer",
@@ -1094,7 +1105,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-04T17:38:36.916Z"
+      "checkedAt": "2026-10-04T21:32:48.573Z"
     }
   ],
   "discovery": {
@@ -1132,5 +1143,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-04T17:38:36.917Z"
+  "lastSuccessfulCheck": "2026-10-04T21:32:48.574Z"
 }

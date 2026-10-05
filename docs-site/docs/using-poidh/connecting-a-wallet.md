@@ -4,7 +4,7 @@ To use poidh, you'll need to connect a wallet.
 
 You can either connect an existing crypto wallet or create a new wallet directly through poidh.
 
-## Already have a wallet?
+## already have a wallet?
 
 Open the wallet menu and connect the wallet you already use.
 
@@ -18,7 +18,7 @@ poidh supports common wallet options such as:
 
 Once connected, you can use that wallet to create bounties, add funds, submit claims, vote, and withdraw rewards.
 
-## Don't have a wallet?
+## don't have a wallet?
 
 Choose **Create wallet** under **No wallet?** in the wallet picker.
 
@@ -32,7 +32,7 @@ You do **not** need to install a browser wallet extension before getting started
 
 After setup, your ZeroDev account appears in poidh like any other connected wallet.
 
-## Sponsored transactions
+## sponsored transactions
 
 poidh currently sponsors the gas for your **first 5 transactions** made through the ZeroDev wallet.
 
@@ -51,7 +51,7 @@ Examples of actions that may require an onchain transaction include:
 - accepting or nominating a claim
 - withdrawing funds
 
-## Supported networks
+## supported networks
 
 poidh currently supports:
 
@@ -61,13 +61,13 @@ poidh currently supports:
 
 **Degen Chain is retired** and is no longer supported for new poidh activity.
 
-## If you need to add funds
+## if you need to add funds
 
 Your wallet will need ETH for bounty funding, contributions, and — after sponsored transactions are used — gas.
 
 If you're using a ZeroDev wallet, poidh's account tools can help you view balances and move or deposit supported assets across supported networks.
 
-## Keep access to your wallet
+## keep access to your wallet
 
 Whichever option you use, make sure you keep access to the login method or wallet you connected.
 

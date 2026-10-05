@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# Connecting a Wallet
+# connecting a wallet 💼
 
 To use poidh, you'll need to connect a wallet.
 

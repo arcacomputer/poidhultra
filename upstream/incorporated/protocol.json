@@ -1,9 +1,9 @@
 {
   "version": 1,
   "source": "protocol",
-  "revision": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-  "subtreeRevision": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
+  "revision": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
+  "subtreeRevision": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
   "disposition": "integrated",
-  "reason": "Initial licensed history import.",
-  "review": "Initial import authorized by the accepted implementation plan."
+  "reason": "Complete upstream range applied by Git subtree. Review Ultra differences and required CI before merge.",
+  "review": "Required maintainer review of this integration PR"
 }

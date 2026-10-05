@@ -119,14 +119,13 @@ The reward is what turns a request into an incentive:
 
 poidh supports multiple chains.
 
-<img width="380" height="231" alt="Screen Shot 2026-07-27 at 5 03 36 PM" src="https://github.com/user-attachments/assets/13db5ac3-f38f-422c-bb54-da1d8d664888" />
+<img width="600" alt="create bounty chains" src="https://github.com/user-attachments/assets/e92ebb3d-090f-4cc6-bef7-524a529fb425" />
 
 When creating a bounty, choose where you want the bounty to live:
 
 * **Ethereum Mainnet**
 * **Base**
 * **Arbitrum**
-* **Degen Chain**
 
 The chain you select determines where the bounty is created and where its funds and activity are recorded.
 

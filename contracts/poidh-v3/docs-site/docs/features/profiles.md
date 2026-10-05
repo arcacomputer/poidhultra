@@ -43,6 +43,10 @@ To learn more about how scores are calculated, see the [**poidh score** document
 
 <img width="147" height="113" alt="poidh score" src="https://github.com/user-attachments/assets/4465adb0-a861-4dcd-a0cf-172259c4d2a7" />
 
+### note on Degen Chain poidh scores
+
+Degen Chain was officially retired on Aug 31st, 2026, but poidh continues to display historical poidh scores for activity on the chain based on our snapshot of wallets at the time of chain shutdown. Historic Degen Chain bounty pages and claim NFTs are not currently available for display on the frontend, but we are working on a relaunch of this information with data pulled from the chain's shutdown snapshot.
+
 ---
 
 ## activity statistics

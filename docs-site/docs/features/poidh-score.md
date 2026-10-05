@@ -46,7 +46,7 @@ As poidh evolves, the reputation system may continue to improve based on communi
 
 ### note on Degen Chain poidh scores
 
-Degen Chain was officially retired on Aug 31st, 2026, but poidh continues to display historical poidh scores for activity on the chain based on our snapshot of activity at the time of chain shutdown. Historic Degen Chain bounty pages and claim NFTs are not currently available for display on the frontend, but we are working on a relaunch of this information with data pulled from the chain's shutdown snapshot.
+Degen Chain was officially retired on Aug 31st, 2026, but poidh continues to display historical poidh scores for activity on the chain based on our snapshot of wallets at the time of chain shutdown. Historic Degen Chain bounty pages and claim NFTs are not currently available for display on the frontend, but we are working on a relaunch of this information with data pulled from the chain's shutdown snapshot.
 
 ---
 

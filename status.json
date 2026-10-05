@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-05T16:05:46.619Z",
-  "completedAt": "2026-10-05T16:06:05.248Z",
+  "startedAt": "2026-10-05T22:41:33.265Z",
+  "completedAt": "2026-10-05T22:41:52.379Z",
   "successful": true,
   "sources": [
     {
@@ -699,6 +699,10 @@
             "sha": "d6f313fbb4cbba9c8571cbe3cd427824e438959f"
           },
           {
+            "name": "connect-wallet-ux",
+            "sha": "5416dab6a5f7d261ed3be72620249e7104660a47"
+          },
+          {
             "name": "copilot/fix-issue-1286-again",
             "sha": "35c78cb6978e9ab1779cc9b8cfde97d9905af3ba"
           },
@@ -759,6 +763,10 @@
             "sha": "5864e10ba329b3e732d59cd479d72e59b28dfa7b"
           },
           {
+            "name": "revert-1549-carousel-refactor",
+            "sha": "e066f90b509aa9dd1222d325712732962344e3c8"
+          },
+          {
             "name": "revert-1556-perf/bounty-page-loading",
             "sha": "c556f7a6c2e26eec80b4c503a053ab1025aaf59e"
           },
@@ -768,7 +776,7 @@
           },
           {
             "name": "staging",
-            "sha": "9cbada5ed82f22c98e9a184f516d598467653bb8"
+            "sha": "19ed9fc478d1dbf46054f2153cc238481a4aa397"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -809,18 +817,11 @@
         ],
         "pulls": [
           {
-            "number": 1558,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1558",
-            "head": "c556f7a6c2e26eec80b4c503a053ab1025aaf59e",
-            "base": "staging",
-            "title": "Revert \"perf: server-load bounty page and remove layout shift\""
-          },
-          {
-            "number": 1557,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1557",
-            "head": "3716c5fd6e935cd7428d385de1a58a2203eba960",
-            "base": "staging",
-            "title": "fix: hide notification on user's own actions in the feed"
+            "number": 1561,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1561",
+            "head": "19ed9fc478d1dbf46054f2153cc238481a4aa397",
+            "base": "prod",
+            "title": "loading + layout shift updates and removing self-notifications from \"you\" feed"
           },
           {
             "number": 1531,
@@ -841,20 +842,75 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-05T16:05:51.855Z"
+      "checkedAt": "2026-10-05T22:41:38.319Z"
     },
     {
       "source": "protocol",
       "repository": "picsoritdidnthappen/poidh-v3",
       "incorporatedRevision": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-      "observedRevision": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-      "status": "current",
+      "observedRevision": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
+      "status": "pending-review",
       "range": {
         "base": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-        "head": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
+        "head": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
         "rewritten": false,
-        "commits": [],
-        "files": [],
+        "commits": [
+          "0867baebd91ae144a7f91f8e8dccd6874fe21dbf",
+          "99df3f7616bc90535246fb091b8caa9dc45b8795",
+          "5a72bb6e352260f1ba4e5790fc6849fb84dd0f8a",
+          "371c67dee3cdb4d2776be783fe4875178ab4a8a0",
+          "486ac29965ccb64557cf576af5afa961bcaa36e8",
+          "8b5ec7f4a10bf08ac5ac67404f5f7740d0cc63ac",
+          "2b64efd292c1169290cba915b4dd5d87dceff923",
+          "90ef08532d9cceb18e3db794ce8d1357181d699a",
+          "d90d556a1b986f68147d5987389efed506b73e3e",
+          "ff3cddd16dcf8fd3117b0fa3e14079a761f80218",
+          "030b703ca40e71b3246494ac7b08882f0be82bce",
+          "d8d398b7b1abf3451513b1c6cb8eeb22a6d30de7",
+          "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10"
+        ],
+        "files": [
+          {
+            "status": "M",
+            "path": "docs-site/docs/.vitepress/config.ts"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/contracts/deployment.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/developers/building-on-poidh.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/features/poidh-score.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/features/profiles.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/index.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/start-here/how-it-works.md"
+          },
+          {
+            "status": "A",
+            "path": "docs-site/docs/using-poidh/connecting-a-wallet.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/using-poidh/creating-a-bounty.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/using-poidh/getting-paid.md"
+          }
+        ],
         "removedCommits": []
       },
       "renamed": false,
@@ -882,7 +938,7 @@
           },
           {
             "name": "main",
-            "sha": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d"
+            "sha": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10"
           },
           {
             "name": "new-deployment-dates",
@@ -915,8 +971,8 @@
         ],
         "releases": []
       },
-      "pullRequest": null,
-      "checkedAt": "2026-10-05T16:05:53.571Z"
+      "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
+      "checkedAt": "2026-10-05T22:41:44.230Z"
     },
     {
       "source": "legacy-contracts",
@@ -964,7 +1020,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-05T16:05:56.932Z"
+      "checkedAt": "2026-10-05T22:41:46.202Z"
     },
     {
       "source": "frame",
@@ -1001,7 +1057,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-05T16:06:00.440Z"
+      "checkedAt": "2026-10-05T22:41:48.297Z"
     },
     {
       "source": "names",
@@ -1033,7 +1089,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-05T16:06:01.940Z"
+      "checkedAt": "2026-10-05T22:41:49.419Z"
     },
     {
       "source": "indexer",
@@ -1116,7 +1172,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-05T16:06:05.248Z"
+      "checkedAt": "2026-10-05T22:41:52.379Z"
     }
   ],
   "discovery": {
@@ -1154,5 +1210,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-05T16:06:05.248Z"
+  "lastSuccessfulCheck": "2026-10-05T22:41:52.379Z"
 }

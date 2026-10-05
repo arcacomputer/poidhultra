@@ -28,7 +28,11 @@ The poidh protocol is actively deployed across multiple EVM chains:
 * **Ethereum Mainnet**
 * **Arbitrum**
 * **Base**
+
+### retired networks
 * **Degen Chain**
+
+poidh previously deployed on Degen Chain but it has since been retired. That deployment information below is retained for historical/read-only reference only. New bounties, claims, funding, voting, and withdrawals are not supported there.
 
 ### contract repositories & addresses
 Developers can interact directly with the underlying bounty mechanics or query the proof-of-completion NFTs minted upon successful bounty execution. 

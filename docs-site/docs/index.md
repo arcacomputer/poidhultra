@@ -22,4 +22,4 @@ Why you should build on top of poidh and how to do it.
 
 **[contracts](0/contracts/overview)**
 <br>
-Learn more about the poidh v3 smart contracts powering bounties across Ethereum Mainnet, Arbitrum, Base, and Degen Chain.
+Learn more about the poidh v3 smart contracts powering bounties across Ethereum Mainnet, Arbitrum, Base.

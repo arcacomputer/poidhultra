@@ -26,7 +26,7 @@ The best bounties make the desired outcome and requirements easy to understand b
 
 A few things worth knowing before you post:
 
-- **Values fluctuate.** Bounty rewards are denominated in ETH or DEGEN, so the dollar equivalent will change with the market. Dollar figures in bounty descriptions are estimates, not guarantees.
+- **Values fluctuate.** Bounty rewards are denominated in ETH, so the dollar equivalent will change with the market. Dollar figures in bounty descriptions are estimates, not guarantees.
 - **Deadlines are suggestions, not rules.** You can include a suggested timeline in your description to set expectations, but nothing in the protocol enforces a hard cutoff. Bounties can stay open as long as you want.
 - **Your funds are yours.** They live in an immutable smart contract controlled by your wallet. poidh never touches them.
 

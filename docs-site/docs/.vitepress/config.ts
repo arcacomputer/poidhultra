@@ -45,6 +45,7 @@ export default defineConfig({
         text: 'using poidh',
         collapsed: false,
         items: [
+          { text: 'connecting a wallet', link: '/using-poidh/connecting-a-wallet' },
           { text: 'creating a bounty', link: '/using-poidh/creating-a-bounty' },
           { text: 'boosting a bounty', link: '/using-poidh/boosting-a-bounty' },
           { text: 'claiming a bounty', link: '/using-poidh/claiming-a-bounty' },

@@ -160,11 +160,6 @@ cast balance <CONTRACT_ADDRESS> --rpc-url $RPC_URL
 * Minimum bounty: **0.001 ETH**
 * Minimum contribution: **0.00001 ETH**
 
-**DEGEN Chain**
-
-* Minimum bounty: **1000 DEGEN**
-* Minimum contribution: **10 DEGEN**
-
 ### Voting Period
 
 * Default: **2 days**
@@ -204,10 +199,7 @@ cast balance <CONTRACT_ADDRESS> --rpc-url $RPC_URL
 * **Contract:** `0x18E5585ca7cE31b90Bc8BB7aAf84152857cE243f`
 * **Explorer:** https://explorer.degen.tips/address/0x18e5585ca7ce31b90bc8bb7aaf84152857ce243f
 * **Deployed:** Jan 19, 2026
-
-### Base Sepolia
-
-* Contract: **TBD**
+* **Retired:** Aug 31, 2026
 
 ---
 

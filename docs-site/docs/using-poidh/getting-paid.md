@@ -52,7 +52,6 @@ For example:
 | Total Bounty | Protocol Fee | Claimant Receives |
 | ------------ | -----------: | ----------------: |
 | 1.00 ETH     |    0.025 ETH |         0.975 ETH |
-| 100 DEGEN    |    2.5 DEGEN |        97.5 DEGEN |
 
 The protocol fee is deducted automatically when the bounty is completed.
 
@@ -71,7 +70,6 @@ For example:
 * Ethereum Mainnet rewards require ETH for gas.
 * Base rewards require ETH on Base for gas.
 * Arbitrum rewards require ETH on Arbitrum for gas.
-* DEGEN Chain rewards require DEGEN on DEGEN Chain for gas. You can bridge Base DEGEN to Degen Chain [via Stargate](https://stargate.finance/?srcChain=base&srcToken=0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed&dstChain=degen&dstToken=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE).
 
 The gas fee is separate from the 2.5% protocol fee.
 

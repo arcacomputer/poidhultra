@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-06T03:02:39.573Z",
-  "completedAt": "2026-10-06T03:02:53.783Z",
+  "startedAt": "2026-10-06T10:24:45.733Z",
+  "completedAt": "2026-10-06T10:25:01.568Z",
   "successful": true,
   "sources": [
     {
@@ -824,7 +824,7 @@
           },
           {
             "name": "staging",
-            "sha": "2cfccfd96132c7c5924ca938253798c58be4bf6f"
+            "sha": "081246130e6b7c395cdb7431175cd6a05710d7eb"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -865,13 +865,6 @@
         ],
         "pulls": [
           {
-            "number": 1562,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1562",
-            "head": "bd37fb8edfb8f74a69e47b7890e7930fdaba41c7",
-            "base": "staging",
-            "title": "perf: load the home and account pages on the server, shared claim media"
-          },
-          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -890,7 +883,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-06T03:02:43.719Z"
+      "checkedAt": "2026-10-06T10:24:50.516Z"
     },
     {
       "source": "protocol",
@@ -1021,7 +1014,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-06T03:02:44.968Z"
+      "checkedAt": "2026-10-06T10:24:52.002Z"
     },
     {
       "source": "legacy-contracts",
@@ -1069,7 +1062,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-06T03:02:47.206Z"
+      "checkedAt": "2026-10-06T10:24:54.463Z"
     },
     {
       "source": "frame",
@@ -1106,7 +1099,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-06T03:02:49.482Z"
+      "checkedAt": "2026-10-06T10:24:57.652Z"
     },
     {
       "source": "names",
@@ -1138,7 +1131,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-06T03:02:50.545Z"
+      "checkedAt": "2026-10-06T10:24:58.925Z"
     },
     {
       "source": "indexer",
@@ -1221,7 +1214,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-06T03:02:53.783Z"
+      "checkedAt": "2026-10-06T10:25:01.568Z"
     }
   ],
   "discovery": {
@@ -1259,5 +1252,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-06T03:02:53.783Z"
+  "lastSuccessfulCheck": "2026-10-06T10:25:01.568Z"
 }

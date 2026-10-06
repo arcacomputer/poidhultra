@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-05T22:41:33.265Z",
-  "completedAt": "2026-10-05T22:41:52.379Z",
+  "startedAt": "2026-10-06T03:02:39.573Z",
+  "completedAt": "2026-10-06T03:02:53.783Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7",
+      "observedRevision": "6de2b82397357df502debdc6d81c804017041fad",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7",
+        "head": "6de2b82397357df502debdc6d81c804017041fad",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -279,24 +279,52 @@
           "22ef368d546af454f4bec6e55ea41167fa10a332",
           "5dfc8f66876b053efe51d2dc60ca3807384a6539",
           "e667538b69c11ea8ff4d55b56da811e49ad38d9b",
+          "a8929f1a66c0e79543145233515fb90b0e57ed1e",
+          "31420d0d58e0c4485ec26e2dbbdd791ae8f45079",
           "aaf71f6996752b13c2c1c5d1a1da86cfeb1be5e2",
           "1a9dc19670eca08c524f2ad3497a78c8acc11128",
           "73af1221a1a6072522b70bca1a81b7fbc796887d",
+          "4eed78ebebffe6ac7f85323fb4787940dd27b267",
+          "512bd122e22b595a0ff0821be9cf1631d5efe818",
+          "ade8c6173e550b44bfc706a0077a495937623ce2",
           "f8734090b64421fc65bb963dcbd4fdcf1600038c",
           "40b6c13d604f6df9ce1eeddd7a1831d6068b44a3",
           "f052136f4749536427f5e13b4ec9011225d0e622",
           "b169f8dc90ed19c3aabffca26c0c0cd5c2b12eb7",
           "1a71e2e3f8ce0b0244fdac1244e257185e5bd66b",
+          "61bad3bfe00f2fde6f4bcb3603dd631fdbfa9de4",
+          "8c8e27c249bc080fbfca0e55e9ada8f73c61d51a",
           "df486b0b9c3d8e6faf07908cd1b4eaecb4f224f1",
           "0a071b299fd3bbc18fcf30e00ed16de67889d82c",
           "29e8e7623e84c8a75be141e4f749207da7f9e6e3",
+          "24635de24eb4ebc76ac11c2cfd979d81f57f5b83",
           "ab0ec2711ce1e2aa06c38e5b8a75fafe600995fe",
           "497b9e0b6d6c9e103cb81d6738f2b0fba943d202",
           "7544d1266697fd77ca55e39bad1e23d64f51b94d",
           "8ec6da6e2db48fe32359d99edba4c23e8df4196c",
+          "7a74e716d6be4d51c0555045223765e20a6b3296",
+          "f92563ba03fdf5cfbac11eca46534bc997a9e8c5",
+          "0acf9087076bfcf558c99e2a3f9f963f6ad19e78",
+          "e980467cdf12c9907f666034fa0f27c61f498bca",
+          "0d8283f1bd0426de9fc8af17e6176863ecb27dfb",
           "161187e4ed0c83340655597b1a4dc618b426ac19",
+          "e80d7688a2700f91c1a2f79a0332adba61054ecb",
           "2cf7b062bc6c02376676720bcac2ca3613cc9e0d",
-          "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7"
+          "a2179c1e5b01d26bbb488b8b12d9df8bb7b7e82d",
+          "9cbada5ed82f22c98e9a184f516d598467653bb8",
+          "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7",
+          "3716c5fd6e935cd7428d385de1a58a2203eba960",
+          "e066f90b509aa9dd1222d325712732962344e3c8",
+          "78d3832cb71cfb3927d9ac84dff05b55cd697bab",
+          "13668f5d6085062a6dda1cebfaf05645dfcbd89a",
+          "5416dab6a5f7d261ed3be72620249e7104660a47",
+          "14a6b2d7f6c188de0b033ed85fb4ef6918a9ab8e",
+          "c7b7c68be44e898a48878592414300fbf489be18",
+          "884790e8787eca3aa842dcd6548b5b8542e6e0b0",
+          "9b31dcc0845166f7ef8709f7d4165284530205e9",
+          "19ed9fc478d1dbf46054f2153cc238481a4aa397",
+          "2cfccfd96132c7c5924ca938253798c58be4bf6f",
+          "6de2b82397357df502debdc6d81c804017041fad"
         ],
         "files": [
           {
@@ -329,6 +357,10 @@
           },
           {
             "status": "A",
+            "path": "public/images/create-wallet-icon.png"
+          },
+          {
+            "status": "A",
             "path": "public/images/zerodev-logo.svg"
           },
           {
@@ -347,6 +379,10 @@
           {
             "status": "M",
             "path": "src/app/.well-known/farcaster.json/route.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/app/[netname]/bounty/[id]/BountyPage.tsx"
           },
           {
             "status": "M",
@@ -443,6 +479,10 @@
           {
             "status": "M",
             "path": "src/components/bounty/AcceptClaimConfirm.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/bounty/BountyClaims.tsx"
           },
           {
             "status": "M",
@@ -614,6 +654,10 @@
           },
           {
             "status": "M",
+            "path": "src/trpc/query-client.ts"
+          },
+          {
+            "status": "M",
             "path": "src/trpc/routers/accounts.ts"
           },
           {
@@ -635,6 +679,10 @@
           {
             "status": "M",
             "path": "src/trpc/routers/web3.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/trpc/server.tsx"
           },
           {
             "status": "A",
@@ -756,7 +804,7 @@
           },
           {
             "name": "prod",
-            "sha": "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7"
+            "sha": "6de2b82397357df502debdc6d81c804017041fad"
           },
           {
             "name": "removing-ambire-block",
@@ -776,7 +824,7 @@
           },
           {
             "name": "staging",
-            "sha": "19ed9fc478d1dbf46054f2153cc238481a4aa397"
+            "sha": "2cfccfd96132c7c5924ca938253798c58be4bf6f"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -817,11 +865,11 @@
         ],
         "pulls": [
           {
-            "number": 1561,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1561",
-            "head": "19ed9fc478d1dbf46054f2153cc238481a4aa397",
-            "base": "prod",
-            "title": "loading + layout shift updates and removing self-notifications from \"you\" feed"
+            "number": 1562,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1562",
+            "head": "bd37fb8edfb8f74a69e47b7890e7930fdaba41c7",
+            "base": "staging",
+            "title": "perf: load the home and account pages on the server, shared claim media"
           },
           {
             "number": 1531,
@@ -842,7 +890,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-05T22:41:38.319Z"
+      "checkedAt": "2026-10-06T03:02:43.719Z"
     },
     {
       "source": "protocol",
@@ -972,7 +1020,8 @@
         "releases": []
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
-      "checkedAt": "2026-10-05T22:41:44.230Z"
+      "waitingForActiveIntegration": true,
+      "checkedAt": "2026-10-06T03:02:44.968Z"
     },
     {
       "source": "legacy-contracts",
@@ -1020,7 +1069,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-05T22:41:46.202Z"
+      "checkedAt": "2026-10-06T03:02:47.206Z"
     },
     {
       "source": "frame",
@@ -1057,7 +1106,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-05T22:41:48.297Z"
+      "checkedAt": "2026-10-06T03:02:49.482Z"
     },
     {
       "source": "names",
@@ -1089,7 +1138,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-05T22:41:49.419Z"
+      "checkedAt": "2026-10-06T03:02:50.545Z"
     },
     {
       "source": "indexer",
@@ -1172,7 +1221,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-05T22:41:52.379Z"
+      "checkedAt": "2026-10-06T03:02:53.783Z"
     }
   ],
   "discovery": {
@@ -1210,5 +1259,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-05T22:41:52.379Z"
+  "lastSuccessfulCheck": "2026-10-06T03:02:53.783Z"
 }

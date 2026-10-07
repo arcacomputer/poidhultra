@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-06T21:41:21.145Z",
-  "completedAt": "2026-10-06T21:41:37.795Z",
+  "startedAt": "2026-10-07T01:35:46.487Z",
+  "completedAt": "2026-10-07T01:36:02.970Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "6de2b82397357df502debdc6d81c804017041fad",
+      "observedRevision": "f7260b68881e768dbfac88266cad31c9cc8ecd59",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "6de2b82397357df502debdc6d81c804017041fad",
+        "head": "f7260b68881e768dbfac88266cad31c9cc8ecd59",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -314,7 +314,17 @@
           "9cbada5ed82f22c98e9a184f516d598467653bb8",
           "96e86a3fdc150e6c3a6bcbf954d3543691ed21f7",
           "3716c5fd6e935cd7428d385de1a58a2203eba960",
+          "10b44eaee069f97860d28927a06f4a68822457f4",
+          "7a8093a19745a5be495edca8b807d0e116032ed7",
+          "fe9e02856a373058c41e81993356474d59855f82",
+          "114d0612b43cb08e7c8e65c6a164b877aab32a6a",
+          "7dde0050cb5713cde6c279c76d838f30db691d80",
+          "5de2269f68a9f4445a52fe18d3fc4230dfe083f2",
           "e066f90b509aa9dd1222d325712732962344e3c8",
+          "56d32688fd6d8d57897628a67ff2c49c26e173b8",
+          "96c701ae6f0805bf4789944b016a77c0e97863aa",
+          "414656a23ad93f6b1deb6d2cbc87f64e713c1255",
+          "d1ef341a7406aa027de421f37e5bbeff110c9039",
           "78d3832cb71cfb3927d9ac84dff05b55cd697bab",
           "13668f5d6085062a6dda1cebfaf05645dfcbd89a",
           "5416dab6a5f7d261ed3be72620249e7104660a47",
@@ -323,8 +333,24 @@
           "884790e8787eca3aa842dcd6548b5b8542e6e0b0",
           "9b31dcc0845166f7ef8709f7d4165284530205e9",
           "19ed9fc478d1dbf46054f2153cc238481a4aa397",
+          "10e5c0b191740f790376d8912cbd7fb8ee3b09f7",
+          "1125dabe53d17be37308e252b335fdc59de66b53",
           "2cfccfd96132c7c5924ca938253798c58be4bf6f",
-          "6de2b82397357df502debdc6d81c804017041fad"
+          "6de2b82397357df502debdc6d81c804017041fad",
+          "61112091399cf9876da952c0b6ea268a42cecf16",
+          "bd37fb8edfb8f74a69e47b7890e7930fdaba41c7",
+          "081246130e6b7c395cdb7431175cd6a05710d7eb",
+          "1cd82f51b8eed9c17b067f028dfdc2ec662bfb34",
+          "e48eb472760e8f03372f1e2627b2f2de03a1adf8",
+          "800e2bc1d42bbf4bc91de63d2fc203806f4fcfe2",
+          "77f471bba3a72d5a5bfe26db64a1b837c8382010",
+          "93cd2664f4cacdae9a2a36ecbc9bac2085d569f7",
+          "a6b9ec598f1e855f1b45e697b96af3ce9279a543",
+          "d5f6e83db31e8a24c25ebc834be9a93fe78dee29",
+          "6fa09b9c320dc6a62c7a83afdfb1af1489ad69b5",
+          "e894585b267bf293eebf9be853ccdca192df3c97",
+          "a6ec3a230b0a49118a12978a87fd98d53f9ebbec",
+          "f7260b68881e768dbfac88266cad31c9cc8ecd59"
         ],
         "files": [
           {
@@ -334,6 +360,10 @@
           {
             "status": "M",
             "path": ".github/workflows/lint.yml"
+          },
+          {
+            "status": "M",
+            "path": ".gitignore"
           },
           {
             "status": "M",
@@ -357,11 +387,19 @@
           },
           {
             "status": "A",
+            "path": "public/agents.txt"
+          },
+          {
+            "status": "A",
             "path": "public/images/create-wallet-icon.png"
           },
           {
             "status": "A",
             "path": "public/images/zerodev-logo.svg"
+          },
+          {
+            "status": "A",
+            "path": "public/llms.txt"
           },
           {
             "status": "R100",
@@ -374,7 +412,28 @@
           },
           {
             "status": "A",
+            "path": "scripts/sync-skill.mjs"
+          },
+          {
+            "status": "A",
             "path": "src/__tests__/wagmiConfig.test.ts"
+          },
+          {
+            "status": "R050",
+            "previousPath": "src/app/page.tsx",
+            "path": "src/app/(home)/HomePage.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/(home)/homeParams.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/app/(home)/layout.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/(home)/page.tsx"
           },
           {
             "status": "M",
@@ -398,6 +457,10 @@
           },
           {
             "status": "M",
+            "path": "src/app/account/[address]/page.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/app/error.tsx"
           },
           {
@@ -413,8 +476,8 @@
             "path": "src/app/layout.tsx"
           },
           {
-            "status": "M",
-            "path": "src/app/page.tsx"
+            "status": "A",
+            "path": "src/app/privacy/page.tsx"
           },
           {
             "status": "M",
@@ -435,6 +498,10 @@
           {
             "status": "M",
             "path": "src/components/account/ZkPassportVerify.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/account/sections.ts"
           },
           {
             "status": "A",
@@ -494,6 +561,10 @@
           },
           {
             "status": "M",
+            "path": "src/components/bounty/BountyList.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/components/bounty/BountySuccessModal.tsx"
           },
           {
@@ -526,6 +597,14 @@
           },
           {
             "status": "M",
+            "path": "src/components/bounty/NftList.tsx"
+          },
+          {
+            "status": "M",
+            "path": "src/components/bounty/PastBountyCard.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/components/bounty/SubmitVotingConfirm.tsx"
           },
           {
@@ -549,6 +628,10 @@
             "path": "src/components/claims/ClaimList.tsx"
           },
           {
+            "status": "A",
+            "path": "src/components/claims/ClaimMediaParts.tsx"
+          },
+          {
             "status": "M",
             "path": "src/components/claims/FormClaim.tsx"
           },
@@ -559,6 +642,10 @@
           {
             "status": "M",
             "path": "src/components/feed/ClaimImageEmbed.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/feed/HomeHeading.tsx"
           },
           {
             "status": "M",
@@ -642,6 +729,10 @@
           },
           {
             "status": "A",
+            "path": "src/hooks/useIsHydrating.ts"
+          },
+          {
+            "status": "A",
             "path": "src/hooks/useSmartRouting.ts"
           },
           {
@@ -691,6 +782,10 @@
           {
             "status": "M",
             "path": "src/utils/clientEnv.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/utils/constants.ts"
           },
           {
             "status": "A",
@@ -804,7 +899,7 @@
           },
           {
             "name": "prod",
-            "sha": "6de2b82397357df502debdc6d81c804017041fad"
+            "sha": "f7260b68881e768dbfac88266cad31c9cc8ecd59"
           },
           {
             "name": "removing-ambire-block",
@@ -824,7 +919,7 @@
           },
           {
             "name": "staging",
-            "sha": "6fa09b9c320dc6a62c7a83afdfb1af1489ad69b5"
+            "sha": "7190119c84144de1251af4ad3c6c17eaeb2f61b6"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -865,20 +960,6 @@
         ],
         "pulls": [
           {
-            "number": 1564,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1564",
-            "head": "6fa09b9c320dc6a62c7a83afdfb1af1489ad69b5",
-            "base": "prod",
-            "title": "layout shifts + privacy page + agents md"
-          },
-          {
-            "number": 1563,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1563",
-            "head": "ae9a43104cd09c8d2905be062fe39113b40ecef2",
-            "base": "staging",
-            "title": "fix(wallet): render the connected wallet state on the server"
-          },
-          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -897,7 +978,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-06T21:41:25.772Z"
+      "checkedAt": "2026-10-07T01:35:50.796Z"
     },
     {
       "source": "protocol",
@@ -1028,7 +1109,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-06T21:41:27.173Z"
+      "checkedAt": "2026-10-07T01:35:52.245Z"
     },
     {
       "source": "legacy-contracts",
@@ -1076,7 +1157,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-06T21:41:29.737Z"
+      "checkedAt": "2026-10-07T01:35:54.824Z"
     },
     {
       "source": "frame",
@@ -1113,7 +1194,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-06T21:41:33.611Z"
+      "checkedAt": "2026-10-07T01:35:57.349Z"
     },
     {
       "source": "names",
@@ -1145,7 +1226,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-06T21:41:34.891Z"
+      "checkedAt": "2026-10-07T01:36:00.292Z"
     },
     {
       "source": "indexer",
@@ -1228,7 +1309,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-06T21:41:37.795Z"
+      "checkedAt": "2026-10-07T01:36:02.970Z"
     }
   ],
   "discovery": {
@@ -1266,5 +1347,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-06T21:41:37.795Z"
+  "lastSuccessfulCheck": "2026-10-07T01:36:02.970Z"
 }

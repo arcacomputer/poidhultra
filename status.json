@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-09T16:17:17.062Z",
-  "completedAt": "2026-10-09T16:17:34.669Z",
+  "startedAt": "2026-10-09T21:43:05.520Z",
+  "completedAt": "2026-10-09T21:43:20.414Z",
   "successful": true,
   "sources": [
     {
@@ -957,7 +957,7 @@
           },
           {
             "name": "staging",
-            "sha": "9a3b89f94c8e8423fddce211ad6b573b0d73fa21"
+            "sha": "dbaef10344c60fef7d2ab6653113c426c449ac62"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1016,7 +1016,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-09T16:17:22.116Z"
+      "checkedAt": "2026-10-09T21:43:09.534Z"
     },
     {
       "source": "protocol",
@@ -1147,7 +1147,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-09T16:17:23.809Z"
+      "checkedAt": "2026-10-09T21:43:11.093Z"
     },
     {
       "source": "legacy-contracts",
@@ -1195,7 +1195,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-09T16:17:26.875Z"
+      "checkedAt": "2026-10-09T21:43:13.912Z"
     },
     {
       "source": "frame",
@@ -1232,7 +1232,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-09T16:17:30.201Z"
+      "checkedAt": "2026-10-09T21:43:16.591Z"
     },
     {
       "source": "names",
@@ -1264,7 +1264,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-09T16:17:31.536Z"
+      "checkedAt": "2026-10-09T21:43:17.892Z"
     },
     {
       "source": "indexer",
@@ -1347,7 +1347,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-09T16:17:34.668Z"
+      "checkedAt": "2026-10-09T21:43:20.414Z"
     }
   ],
   "discovery": {
@@ -1385,5 +1385,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-09T16:17:34.669Z"
+  "lastSuccessfulCheck": "2026-10-09T21:43:20.414Z"
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-19T11:14:54.329Z",
-  "completedAt": "2026-10-19T11:15:12.976Z",
+  "startedAt": "2026-10-19T17:30:39.106Z",
+  "completedAt": "2026-10-19T17:30:55.287Z",
   "successful": true,
   "sources": [
     {
@@ -1023,7 +1023,7 @@
           },
           {
             "name": "staging",
-            "sha": "443bd8b03398892cecf0c0bd894a531dc286ea75"
+            "sha": "34f042bceb49331918d8a2c3215aa2b58d48eb42"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1064,6 +1064,13 @@
         ],
         "pulls": [
           {
+            "number": 1581,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1581",
+            "head": "12eb479f29fccd9e0d70089bbc7d4be0d9b09e4c",
+            "base": "staging",
+            "title": "fix(mcp): say \"an open bounty\", not \"a open bounty\""
+          },
+          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -1082,7 +1089,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T11:14:59.955Z"
+      "checkedAt": "2026-10-19T17:30:44.307Z"
     },
     {
       "source": "protocol",
@@ -1213,7 +1220,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T11:15:01.627Z"
+      "checkedAt": "2026-10-19T17:30:45.912Z"
     },
     {
       "source": "legacy-contracts",
@@ -1261,7 +1268,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T11:15:04.763Z"
+      "checkedAt": "2026-10-19T17:30:48.701Z"
     },
     {
       "source": "frame",
@@ -1298,7 +1305,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-19T11:15:08.044Z"
+      "checkedAt": "2026-10-19T17:30:51.497Z"
     },
     {
       "source": "names",
@@ -1330,7 +1337,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T11:15:09.302Z"
+      "checkedAt": "2026-10-19T17:30:52.743Z"
     },
     {
       "source": "indexer",
@@ -1413,7 +1420,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-19T11:15:12.755Z"
+      "checkedAt": "2026-10-19T17:30:55.287Z"
     }
   ],
   "discovery": {
@@ -1451,5 +1458,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-19T11:15:12.976Z"
+  "lastSuccessfulCheck": "2026-10-19T17:30:55.287Z"
 }

@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-19T17:30:39.106Z",
-  "completedAt": "2026-10-19T17:30:55.287Z",
+  "startedAt": "2026-10-19T22:24:00.941Z",
+  "completedAt": "2026-10-19T22:24:13.884Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "003f146606f692f1b56865fd14f1919c5e74153d",
+      "observedRevision": "bd3a3dbbae0143ef3e507b3b2b4ce9ba44a21de9",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "003f146606f692f1b56865fd14f1919c5e74153d",
+        "head": "bd3a3dbbae0143ef3e507b3b2b4ce9ba44a21de9",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -417,8 +417,40 @@
           "44a38c264d170fb6ff6f521a6742652a49eb58b7",
           "329aed31f051d0711de3e52d0ca6aab7b450a112",
           "15f31852047a02e0879ef9c0f33b9528c0dbe313",
+          "88c772676531d0782d74d2de7edc074ab71f850e",
+          "8bfec0fdeeec50e26eaf7f66eceb3fb4da98b121",
+          "f9195ce9495a2c0afda549b3c83b8162c762621d",
+          "70ae741d7e077ffe54ee75b28106d4368c52a6dc",
+          "06702008c8f062269e961aa4319e62cd62e77746",
+          "81b550da45341024bc66a193628a103058b9ea62",
+          "624ef3e593113880067499ddc55c3c2e0fccb5f6",
           "986ecb9cced99ed62b4eef8260802aca87970422",
-          "003f146606f692f1b56865fd14f1919c5e74153d"
+          "003f146606f692f1b56865fd14f1919c5e74153d",
+          "2443712ccbeb85b9809baa16c241a3491ac18174",
+          "5cbdb22a20ac6cd3da5042a5712197543e0dda6c",
+          "042c9de02b2aa6c6999c75f7ba796a3098f5d57a",
+          "95d5e043a136c3673406cc809f4fb6b8b6d65419",
+          "92051d50ac80a4039b8cf7c0db89f62c93f576f9",
+          "815ccd14a31eb2a180e6d89858f1f585cd40125b",
+          "38c08b1a0fc724938cf5f7ddaf11d7fb2777fa3f",
+          "a92b9ea223f957e2fdf500b58d1ac4786e4670d9",
+          "a2656605705b6437808774681ae4de4cf94ab07a",
+          "4d6fb211abc6666126606070f76d2d67cd4f9e0d",
+          "9a450075d2adbf4851e4b9ef57f53a1013187bfc",
+          "2ab7413aa86b72c1e0188fe99ec3a619edfe4d5c",
+          "072370956142cfac25d567901ac804764c113b32",
+          "63476b641b149968bbd9e2decb0f0ab030a0436e",
+          "cbbb7a60947498e95f4036115f5442c501ddf717",
+          "b6e0bbe32a5a9243fb37d92300ec710a058ea9e5",
+          "d270a795ccc0aca46649e7b3e04723527100a3f7",
+          "e0dd3ca9078fc8223b86aeae664ea79d65655064",
+          "443bd8b03398892cecf0c0bd894a531dc286ea75",
+          "53026474546f786bd831d27ef00a273e0529dc3b",
+          "3c6aa1a2a0166d2564e93d5a1d04a611ca797fdb",
+          "12eb479f29fccd9e0d70089bbc7d4be0d9b09e4c",
+          "34f042bceb49331918d8a2c3215aa2b58d48eb42",
+          "30219eeb8ee38bf343d4048e615ff8c5bc6ee9e1",
+          "bd3a3dbbae0143ef3e507b3b2b4ce9ba44a21de9"
         ],
         "files": [
           {
@@ -444,6 +476,14 @@
           {
             "status": "M",
             "path": "SKILL.md"
+          },
+          {
+            "status": "M",
+            "path": "jest.config.js"
+          },
+          {
+            "status": "M",
+            "path": "jest.setup.js"
           },
           {
             "status": "A",
@@ -544,6 +584,10 @@
             "path": "src/app/account/[address]/page.tsx"
           },
           {
+            "status": "A",
+            "path": "src/app/api/mcp/route.ts"
+          },
+          {
             "status": "M",
             "path": "src/app/api/og/bounty/route.tsx"
           },
@@ -561,6 +605,10 @@
           },
           {
             "status": "M",
+            "path": "src/app/layout.client.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/app/layout.tsx"
           },
           {
@@ -570,6 +618,14 @@
           {
             "status": "M",
             "path": "src/app/terms/page.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/tx/TxApproval.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/tx/page.tsx"
           },
           {
             "status": "M",
@@ -804,6 +860,14 @@
             "path": "src/components/global/WalletProvider.tsx"
           },
           {
+            "status": "A",
+            "path": "src/components/global/WebMcpTools.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/global/__tests__/WebMcpTools.test.tsx"
+          },
+          {
             "status": "M",
             "path": "src/components/layout/Header.tsx"
           },
@@ -834,6 +898,38 @@
           {
             "status": "A",
             "path": "src/hooks/useYouFeedNotification.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/__tests__/actions.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/__tests__/origin.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/__tests__/server.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/__tests__/transactions.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/actions.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/origin.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/server.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/mcp/transactions.ts"
           },
           {
             "status": "M",
@@ -1003,7 +1099,7 @@
           },
           {
             "name": "prod",
-            "sha": "003f146606f692f1b56865fd14f1919c5e74153d"
+            "sha": "bd3a3dbbae0143ef3e507b3b2b4ce9ba44a21de9"
           },
           {
             "name": "removing-ambire-block",
@@ -1023,7 +1119,7 @@
           },
           {
             "name": "staging",
-            "sha": "34f042bceb49331918d8a2c3215aa2b58d48eb42"
+            "sha": "30219eeb8ee38bf343d4048e615ff8c5bc6ee9e1"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1064,11 +1160,39 @@
         ],
         "pulls": [
           {
-            "number": 1581,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1581",
-            "head": "12eb479f29fccd9e0d70089bbc7d4be0d9b09e4c",
+            "number": 1588,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1588",
+            "head": "bb0e74765b097a2f80bc6b1d531a42059cc18f6b",
+            "base": "prod",
+            "title": "fix: resolve #1584 (MCP / WebMCP edge cases: v2-era ids get calldata for a diffe)"
+          },
+          {
+            "number": 1587,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1587",
+            "head": "c6a39da39c1a6b072ad9b9856e3f83891bf3d5fb",
             "base": "staging",
-            "title": "fix(mcp): say \"an open bounty\", not \"a open bounty\""
+            "title": "fix(search): match % and _ literally, keep same-id bounties across chains"
+          },
+          {
+            "number": 1586,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1586",
+            "head": "fa8783a811848dca535cd217418985d691c2890c",
+            "base": "staging",
+            "title": "fix(mcp): don't return database errors to agents"
+          },
+          {
+            "number": 1585,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1585",
+            "head": "eb9c0fec95dc84c554bed0c0412edd2193ea0d6f",
+            "base": "staging",
+            "title": "fix(mcp): refuse actions on bounties from before poidh v3"
+          },
+          {
+            "number": 1582,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1582",
+            "head": "aea356fc0bd15cef91815dd88a9d5c4d4a8ec8aa",
+            "base": "staging",
+            "title": "feat(auth): SIWE sessions for offchain actions without signing each time "
           },
           {
             "number": 1531,
@@ -1089,7 +1213,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T17:30:44.307Z"
+      "checkedAt": "2026-10-19T22:24:05.136Z"
     },
     {
       "source": "protocol",
@@ -1220,7 +1344,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T17:30:45.912Z"
+      "checkedAt": "2026-10-19T22:24:06.543Z"
     },
     {
       "source": "legacy-contracts",
@@ -1268,7 +1392,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T17:30:48.701Z"
+      "checkedAt": "2026-10-19T22:24:08.631Z"
     },
     {
       "source": "frame",
@@ -1305,7 +1429,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-19T17:30:51.497Z"
+      "checkedAt": "2026-10-19T22:24:10.644Z"
     },
     {
       "source": "names",
@@ -1337,7 +1461,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T17:30:52.743Z"
+      "checkedAt": "2026-10-19T22:24:11.748Z"
     },
     {
       "source": "indexer",
@@ -1420,7 +1544,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-19T17:30:55.287Z"
+      "checkedAt": "2026-10-19T22:24:13.884Z"
     }
   ],
   "discovery": {
@@ -1458,5 +1582,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-19T17:30:55.287Z"
+  "lastSuccessfulCheck": "2026-10-19T22:24:13.884Z"
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-19T04:47:24.729Z",
-  "completedAt": "2026-10-19T04:47:42.779Z",
+  "startedAt": "2026-10-19T10:49:34.145Z",
+  "completedAt": "2026-10-19T10:49:52.894Z",
   "successful": true,
   "sources": [
     {
@@ -1023,7 +1023,7 @@
           },
           {
             "name": "staging",
-            "sha": "95d5e043a136c3673406cc809f4fb6b8b6d65419"
+            "sha": "443bd8b03398892cecf0c0bd894a531dc286ea75"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1064,20 +1064,6 @@
         ],
         "pulls": [
           {
-            "number": 1574,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1574",
-            "head": "624ef3e593113880067499ddc55c3c2e0fccb5f6",
-            "base": "staging",
-            "title": "feat(agents): webmcp tools for in-browser agents"
-          },
-          {
-            "number": 1573,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1573",
-            "head": "a92b9ea223f957e2fdf500b58d1ac4786e4670d9",
-            "base": "staging",
-            "title": "feat(agents): /tx approval page for agent-prepared actions"
-          },
-          {
             "number": 1531,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
             "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
@@ -1096,7 +1082,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T04:47:30.632Z"
+      "checkedAt": "2026-10-19T10:49:39.808Z"
     },
     {
       "source": "protocol",
@@ -1227,7 +1213,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-19T04:47:32.269Z"
+      "checkedAt": "2026-10-19T10:49:41.448Z"
     },
     {
       "source": "legacy-contracts",
@@ -1275,7 +1261,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T04:47:35.324Z"
+      "checkedAt": "2026-10-19T10:49:44.755Z"
     },
     {
       "source": "frame",
@@ -1312,7 +1298,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-19T04:47:38.672Z"
+      "checkedAt": "2026-10-19T10:49:48.227Z"
     },
     {
       "source": "names",
@@ -1344,7 +1330,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-19T04:47:39.923Z"
+      "checkedAt": "2026-10-19T10:49:49.781Z"
     },
     {
       "source": "indexer",
@@ -1427,7 +1413,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-19T04:47:42.778Z"
+      "checkedAt": "2026-10-19T10:49:52.894Z"
     }
   ],
   "discovery": {
@@ -1465,5 +1451,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-19T04:47:42.779Z"
+  "lastSuccessfulCheck": "2026-10-19T10:49:52.894Z"
 }

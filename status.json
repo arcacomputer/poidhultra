@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-20T18:29:08.392Z",
-  "completedAt": "2026-10-20T18:29:23.427Z",
+  "startedAt": "2026-10-20T22:20:08.460Z",
+  "completedAt": "2026-10-20T22:20:28.261Z",
   "successful": true,
   "sources": [
     {
@@ -1224,7 +1224,7 @@
           {
             "number": 1582,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1582",
-            "head": "72c6a637b97e682dd2a4fed43dbc8844d240bbbe",
+            "head": "31d40be77f9c59b7ed97eabb90b0f871b2b8a08d",
             "base": "staging",
             "title": "feat(auth): SIWE sessions for offchain actions without signing each time "
           },
@@ -1247,7 +1247,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-20T18:29:13.965Z"
+      "checkedAt": "2026-10-20T22:20:14.290Z"
     },
     {
       "source": "protocol",
@@ -1378,7 +1378,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-20T18:29:15.237Z"
+      "checkedAt": "2026-10-20T22:20:16.237Z"
     },
     {
       "source": "legacy-contracts",
@@ -1426,7 +1426,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-20T18:29:17.581Z"
+      "checkedAt": "2026-10-20T22:20:19.353Z"
     },
     {
       "source": "frame",
@@ -1463,7 +1463,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-20T18:29:19.811Z"
+      "checkedAt": "2026-10-20T22:20:22.697Z"
     },
     {
       "source": "names",
@@ -1495,7 +1495,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-20T18:29:21.315Z"
+      "checkedAt": "2026-10-20T22:20:24.193Z"
     },
     {
       "source": "indexer",
@@ -1578,7 +1578,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-20T18:29:23.427Z"
+      "checkedAt": "2026-10-20T22:20:28.261Z"
     }
   ],
   "discovery": {
@@ -1616,5 +1616,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-20T18:29:23.427Z"
+  "lastSuccessfulCheck": "2026-10-20T22:20:28.261Z"
 }

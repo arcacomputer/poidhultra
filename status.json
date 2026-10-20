@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-20T13:35:29.585Z",
-  "completedAt": "2026-10-20T13:35:49.227Z",
+  "startedAt": "2026-10-20T18:29:08.392Z",
+  "completedAt": "2026-10-20T18:29:23.427Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "9874ff4ce6710c045e899f321565a45a11f50ab1",
+      "observedRevision": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "9874ff4ce6710c045e899f321565a45a11f50ab1",
+        "head": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -459,7 +459,30 @@
           "7c6dc5216c606129f1b53ed8e186b938f712040d",
           "96ed30fdee5edd9455ed842b44c3808edebd1518",
           "707d11474a6088c705b08ae065f8240df6f5d931",
-          "9874ff4ce6710c045e899f321565a45a11f50ab1"
+          "9874ff4ce6710c045e899f321565a45a11f50ab1",
+          "5116050604a21a901cf86b27b535b656b7a4af7f",
+          "86d71d8a92f5471fa852435561034688b68463a3",
+          "52e809f0a134818dd9a936e7a055a508f1e99ae1",
+          "943255f5000ba2a2b7abe423f3bf7226120076d7",
+          "b6678bc921a6e4da27e0b33175fe4572a1563111",
+          "2104dc3a08b28688de75083cff1428b3386b3d9f",
+          "7c29f0c25941f5be2943abbd8d37d371ee35f98a",
+          "18bb6f9df8bcf55325319cd8649bc5c4f2625945",
+          "db1813432e8910ca6cc8b603c3c0cf143b1358ad",
+          "363339c1b2950a0b0b8e4b42c7fbdbd0a69c3935",
+          "2f4e74a5dcd506b45c2bf1e9271259ea2c2244a2",
+          "dfe3affc2dc902f09f3a00fe594e7c43a572536e",
+          "3c6dc4d1b4c353e4bfeb6955daa817bcaf8cb0ab",
+          "af3df25160bc6016a177e2e3097fb3201d8073f5",
+          "7517e81174f7386b7302cc5d3fa9215aac3f85a2",
+          "d26daccc6c3f63497c89015eea2421d962a9c67d",
+          "7f4bb4bfad6357df0e393f6b2c4b16e6f550e734",
+          "6fe3fb851f47b8ccb99073a27a0daa31ce5a96f3",
+          "12a66cd8c4d16ec8f3594cca5a751d653ad40499",
+          "3130d83005257bbf465db55cd2eaffa038916996",
+          "565416e928a2ad069be6c52158d72ac165e9d928",
+          "8454443d000c01d96f4387df5ed77114e9f6dc81",
+          "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f"
         ],
         "files": [
           {
@@ -591,6 +614,10 @@
           {
             "status": "M",
             "path": "src/app/account/[address]/page.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/api/mcp/__tests__/route.test.ts"
           },
           {
             "status": "A",
@@ -985,6 +1012,10 @@
             "path": "src/utils/__tests__/pinata.test.ts"
           },
           {
+            "status": "A",
+            "path": "src/utils/__tests__/protocolContracts.test.ts"
+          },
+          {
             "status": "M",
             "path": "src/utils/clientEnv.ts"
           },
@@ -1003,6 +1034,10 @@
           {
             "status": "M",
             "path": "src/utils/pinata.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/protocolContracts.ts"
           },
           {
             "status": "M",
@@ -1112,7 +1147,7 @@
           },
           {
             "name": "prod",
-            "sha": "9874ff4ce6710c045e899f321565a45a11f50ab1"
+            "sha": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f"
           },
           {
             "name": "removing-ambire-block",
@@ -1132,7 +1167,7 @@
           },
           {
             "name": "staging",
-            "sha": "d26daccc6c3f63497c89015eea2421d962a9c67d"
+            "sha": "8454443d000c01d96f4387df5ed77114e9f6dc81"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1189,7 +1224,7 @@
           {
             "number": 1582,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1582",
-            "head": "aea356fc0bd15cef91815dd88a9d5c4d4a8ec8aa",
+            "head": "72c6a637b97e682dd2a4fed43dbc8844d240bbbe",
             "base": "staging",
             "title": "feat(auth): SIWE sessions for offchain actions without signing each time "
           },
@@ -1212,7 +1247,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-20T13:35:35.893Z"
+      "checkedAt": "2026-10-20T18:29:13.965Z"
     },
     {
       "source": "protocol",
@@ -1343,7 +1378,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-20T13:35:37.888Z"
+      "checkedAt": "2026-10-20T18:29:15.237Z"
     },
     {
       "source": "legacy-contracts",
@@ -1391,7 +1426,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-20T13:35:41.410Z"
+      "checkedAt": "2026-10-20T18:29:17.581Z"
     },
     {
       "source": "frame",
@@ -1428,7 +1463,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-20T13:35:44.592Z"
+      "checkedAt": "2026-10-20T18:29:19.811Z"
     },
     {
       "source": "names",
@@ -1460,7 +1495,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-20T13:35:46.255Z"
+      "checkedAt": "2026-10-20T18:29:21.315Z"
     },
     {
       "source": "indexer",
@@ -1543,7 +1578,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-20T13:35:49.227Z"
+      "checkedAt": "2026-10-20T18:29:23.427Z"
     }
   ],
   "discovery": {
@@ -1581,5 +1616,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-20T13:35:49.227Z"
+  "lastSuccessfulCheck": "2026-10-20T18:29:23.427Z"
 }

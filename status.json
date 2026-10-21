@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-21T13:51:21.291Z",
-  "completedAt": "2026-10-21T13:51:38.970Z",
+  "startedAt": "2026-10-21T18:41:03.936Z",
+  "completedAt": "2026-10-21T18:41:17.972Z",
   "successful": true,
   "sources": [
     {
@@ -1208,6 +1208,34 @@
         ],
         "pulls": [
           {
+            "number": 1605,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1605",
+            "head": "2c84b66d2efa45a490ee9047082ba516953d25c2",
+            "base": "prod",
+            "title": "chore: Node 20 -> 22, remove unused dependencies"
+          },
+          {
+            "number": 1604,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1604",
+            "head": "e5c88df4493583988407e5a6b892e007e1a54a60",
+            "base": "prod",
+            "title": "fix(config): preserve /data and sub-paths when redirecting mainnet bounty 9"
+          },
+          {
+            "number": 1603,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1603",
+            "head": "d208a4ff3c4f2bfa7905405c17062b9808aa1950",
+            "base": "prod",
+            "title": "fix(claims): distinguish CORS, HTTP and empty-media failures in useClaimMedia"
+          },
+          {
+            "number": 1602,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1602",
+            "head": "99edeaf1dde93136f86cd56c6b1129183b0692bd",
+            "base": "prod",
+            "title": "fix(bounties): by-value pagination no longer drops equal-amount bounties"
+          },
+          {
             "number": 1596,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1596",
             "head": "71cc04b6879708193a9b413cf075a0705e1f8cfa",
@@ -1247,7 +1275,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-21T13:51:28.044Z"
+      "checkedAt": "2026-10-21T18:41:08.484Z"
     },
     {
       "source": "protocol",
@@ -1378,7 +1406,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-21T13:51:29.651Z"
+      "checkedAt": "2026-10-21T18:41:10.061Z"
     },
     {
       "source": "legacy-contracts",
@@ -1426,7 +1454,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-21T13:51:32.436Z"
+      "checkedAt": "2026-10-21T18:41:12.191Z"
     },
     {
       "source": "frame",
@@ -1463,7 +1491,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-21T13:51:34.991Z"
+      "checkedAt": "2026-10-21T18:41:14.509Z"
     },
     {
       "source": "names",
@@ -1495,7 +1523,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-21T13:51:36.360Z"
+      "checkedAt": "2026-10-21T18:41:15.657Z"
     },
     {
       "source": "indexer",
@@ -1578,7 +1606,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-21T13:51:38.969Z"
+      "checkedAt": "2026-10-21T18:41:17.972Z"
     }
   ],
   "discovery": {
@@ -1616,5 +1644,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-21T13:51:38.970Z"
+  "lastSuccessfulCheck": "2026-10-21T18:41:17.972Z"
 }

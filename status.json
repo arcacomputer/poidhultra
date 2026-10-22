@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-22T18:34:32.124Z",
-  "completedAt": "2026-10-22T18:34:48.843Z",
+  "startedAt": "2026-10-22T22:22:37.787Z",
+  "completedAt": "2026-10-22T22:22:51.116Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f",
+      "observedRevision": "2edb6444c9669fa4755a69eb62d685fe27c4530b",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f",
+        "head": "2edb6444c9669fa4755a69eb62d685fe27c4530b",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -450,6 +450,9 @@
           "12eb479f29fccd9e0d70089bbc7d4be0d9b09e4c",
           "34f042bceb49331918d8a2c3215aa2b58d48eb42",
           "30219eeb8ee38bf343d4048e615ff8c5bc6ee9e1",
+          "5f343464da65bbeeda5722064e7afdb3648fe21e",
+          "f5ee1a19bd49e76d610d7f53d0f2e7377415b5c8",
+          "aea356fc0bd15cef91815dd88a9d5c4d4a8ec8aa",
           "bd3a3dbbae0143ef3e507b3b2b4ce9ba44a21de9",
           "eb9c0fec95dc84c554bed0c0412edd2193ea0d6f",
           "fa8783a811848dca535cd217418985d691c2890c",
@@ -481,8 +484,28 @@
           "12a66cd8c4d16ec8f3594cca5a751d653ad40499",
           "3130d83005257bbf465db55cd2eaffa038916996",
           "565416e928a2ad069be6c52158d72ac165e9d928",
+          "9e6d0e028fc3a51a6ef25f3fa79e7d74b5bc0224",
           "8454443d000c01d96f4387df5ed77114e9f6dc81",
-          "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f"
+          "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f",
+          "72c6a637b97e682dd2a4fed43dbc8844d240bbbe",
+          "31d40be77f9c59b7ed97eabb90b0f871b2b8a08d",
+          "dd1f9705a4f0f4cc6305fa48263c2f51e99aedbf",
+          "ba6d98ddfb520d98ba225687420902a920921ae6",
+          "606fa1a452bbad4315b96ba5c697b773228d6f88",
+          "8d6f001ff333f291462c8d060991ef538242cac6",
+          "e7885c7e3a91472a3d0ba58d0071e90d2ce34c07",
+          "9db385cfb517e8cec355f15527eaf6f97f1ce473",
+          "eb14f776c0945d9340613db06338fa121064fd6c",
+          "bce5540641639e437dd1a9334a4f5aa1892dc062",
+          "d93f9f4573b7bee3b27a3149efd6d5d67488f940",
+          "da39a5e4814706ba36b6311b1880490368ef4828",
+          "fa5f4521233d45a83a38925dd0a43d0077b2c426",
+          "b61c0a0382a0514579a1201ac802d814365e8278",
+          "ba8fced8383ef556ff648133336048a2f745f2bf",
+          "708eb918a6fddda877fc06fb489f8557dd7508ef",
+          "0a808bec7cd91a1783595c77e9850624acf7892a",
+          "83964ada3fd5e933df9da6ab8afb0445a2b41f44",
+          "2edb6444c9669fa4755a69eb62d685fe27c4530b"
         ],
         "files": [
           {
@@ -520,6 +543,10 @@
           {
             "status": "A",
             "path": "migrations/015_add_neynar_last_updated_users_extra.sql"
+          },
+          {
+            "status": "A",
+            "path": "migrations/016_create_auth_tables.sql"
           },
           {
             "status": "M",
@@ -565,6 +592,34 @@
           {
             "status": "A",
             "path": "scripts/sync-skill.mjs"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/addToAlbum.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/authConfig.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/authRouter.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/banSignature.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/runWithSession.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/session.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/__tests__/stripLegacyCommentPrefix.test.ts"
           },
           {
             "status": "A",
@@ -682,6 +737,14 @@
           {
             "status": "A",
             "path": "src/components/account/sections.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/components/auth/SessionProvider.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/auth/SignInModal.tsx"
           },
           {
             "status": "A",
@@ -881,6 +944,10 @@
           },
           {
             "status": "M",
+            "path": "src/components/global/MarkdownContent.tsx"
+          },
+          {
+            "status": "M",
             "path": "src/components/global/Navbar.tsx"
           },
           {
@@ -973,6 +1040,18 @@
           },
           {
             "status": "M",
+            "path": "src/trpc/context.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/trpc/init.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/trpc/nonce.ts"
+          },
+          {
+            "status": "M",
             "path": "src/trpc/query-client.ts"
           },
           {
@@ -985,11 +1064,23 @@
           },
           {
             "status": "M",
+            "path": "src/trpc/routers/admin.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/trpc/routers/auth.ts"
+          },
+          {
+            "status": "M",
             "path": "src/trpc/routers/bounties.ts"
           },
           {
             "status": "M",
             "path": "src/trpc/routers/claims.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/trpc/routers/comments.ts"
           },
           {
             "status": "M",
@@ -1005,7 +1096,19 @@
           },
           {
             "status": "M",
+            "path": "src/trpc/routers/zkpassport.ts"
+          },
+          {
+            "status": "M",
             "path": "src/trpc/server.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/trpc/session.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/trpc/trpc.ts"
           },
           {
             "status": "A",
@@ -1014,6 +1117,10 @@
           {
             "status": "A",
             "path": "src/utils/__tests__/protocolContracts.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/authConfig.ts"
           },
           {
             "status": "M",
@@ -1042,6 +1149,14 @@
           {
             "status": "M",
             "path": "src/utils/serverEnv.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/sessionClient.ts"
+          },
+          {
+            "status": "M",
+            "path": "src/utils/utils.ts"
           },
           {
             "status": "A",
@@ -1147,7 +1262,7 @@
           },
           {
             "name": "prod",
-            "sha": "c14b3d60b4a84a6b4fc5caf87d8d97e8bbe8454f"
+            "sha": "2edb6444c9669fa4755a69eb62d685fe27c4530b"
           },
           {
             "name": "removing-ambire-block",
@@ -1167,7 +1282,7 @@
           },
           {
             "name": "staging",
-            "sha": "606fa1a452bbad4315b96ba5c697b773228d6f88"
+            "sha": "83964ada3fd5e933df9da6ab8afb0445a2b41f44"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1289,7 +1404,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-22T18:34:37.112Z"
+      "checkedAt": "2026-10-22T22:22:42.274Z"
     },
     {
       "source": "protocol",
@@ -1420,7 +1535,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-22T18:34:38.691Z"
+      "checkedAt": "2026-10-22T22:22:43.729Z"
     },
     {
       "source": "legacy-contracts",
@@ -1468,7 +1583,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-22T18:34:41.168Z"
+      "checkedAt": "2026-10-22T22:22:45.895Z"
     },
     {
       "source": "frame",
@@ -1505,7 +1620,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-22T18:34:44.727Z"
+      "checkedAt": "2026-10-22T22:22:47.756Z"
     },
     {
       "source": "names",
@@ -1537,7 +1652,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-22T18:34:46.072Z"
+      "checkedAt": "2026-10-22T22:22:48.888Z"
     },
     {
       "source": "indexer",
@@ -1620,7 +1735,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-22T18:34:48.843Z"
+      "checkedAt": "2026-10-22T22:22:51.116Z"
     }
   ],
   "discovery": {
@@ -1658,5 +1773,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-22T18:34:48.843Z"
+  "lastSuccessfulCheck": "2026-10-22T22:22:51.116Z"
 }

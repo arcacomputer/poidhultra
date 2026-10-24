@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-24T00:47:42.894Z",
-  "completedAt": "2026-10-24T00:48:01.010Z",
+  "startedAt": "2026-10-24T05:57:12.309Z",
+  "completedAt": "2026-10-24T05:57:28.760Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "11739d923c57b16d6e48baa6825c43891599a482",
+      "observedRevision": "2fabc229476cce85deca8c47f577c0800216a670",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "11739d923c57b16d6e48baa6825c43891599a482",
+        "head": "2fabc229476cce85deca8c47f577c0800216a670",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -507,7 +507,34 @@
           "83964ada3fd5e933df9da6ab8afb0445a2b41f44",
           "2edb6444c9669fa4755a69eb62d685fe27c4530b",
           "29408443ab073a5c04832c8f76c6216607256dc6",
-          "11739d923c57b16d6e48baa6825c43891599a482"
+          "11739d923c57b16d6e48baa6825c43891599a482",
+          "5a5fe386880b9eb1a546aa513ef070da268e8054",
+          "5869bb5a413f7de8b6f82ad28543d8ceb32a8ae8",
+          "92c472c3820fce04cf4f6f1a0ad0886f642f88a2",
+          "143fdf668887fd8c33974f8577dcc5c694c6f03d",
+          "9bc0eba4eb13b3a014d5339678a369cedb3bb640",
+          "e47f551664646d0a83588e4c1198d92fa0a4326c",
+          "f8c02472e43db79aa42c7af8b6df5f16325f594b",
+          "9ceadf27f68f8ecaba4236c1bd89355c260f1a33",
+          "2e3105b3cdae30ec1f251005f79f9184ef7cb1fc",
+          "5a2fcd020c40a8193086de94c5d3d735e568bd60",
+          "3b2f23a7343c7104c1cb4343fdbaf097c016cc15",
+          "012047d97d7f7dc6eb6ee3969538c53d962d902c",
+          "52e124d88bb4ac2408dc6edda82f48dae560b82a",
+          "906da757b37b6712ee7b3e448fedb2801c0a76e0",
+          "bb8d3ce852b4676d5716fb45f0895b5f8366e079",
+          "0d02fad1572f56ff67a107b36a457b8fd48d7b40",
+          "10e9d454fb99afffd9917753ed7d6a653a384640",
+          "6cedae3e7cabeb7b2407ceaf8c6949f592126361",
+          "96e3edb67969e3a35a309b3d27c80217fd709334",
+          "14209b1026a4af8d7ba13dedec12239a03c4c447",
+          "c3e513d0ed186fd0ec82f51eed92a64546e99ec0",
+          "0edee3718bce5eb17dccea400a51173f0b35be63",
+          "ce8b18c51d662307a7ecb86c8a73ec54f9cc2b03",
+          "39057b0f8b1e51c860e7aaec902d811ae0dd9df5",
+          "21b6fe2fb90e852b2899670e1bcd30c2ffbd9120",
+          "1e075b9e2f41a2093ec4a1c38628aa5469481736",
+          "2fabc229476cce85deca8c47f577c0800216a670"
         ],
         "files": [
           {
@@ -674,6 +701,18 @@
           },
           {
             "status": "A",
+            "path": "src/app/analytics/page.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/api/analytics/route.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/app/api/analytics/transactions/route.ts"
+          },
+          {
+            "status": "A",
             "path": "src/app/api/mcp/__tests__/route.test.ts"
           },
           {
@@ -719,6 +758,10 @@
           {
             "status": "A",
             "path": "src/app/tx/page.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/AnalyticsDashboard.tsx"
           },
           {
             "status": "M",
@@ -901,6 +944,10 @@
             "path": "src/components/feed/RecentPayouts.tsx"
           },
           {
+            "status": "A",
+            "path": "src/components/global/AnalyticsTicker.tsx"
+          },
+          {
             "status": "M",
             "path": "src/components/global/ClaimFundsButton.tsx"
           },
@@ -1035,6 +1082,10 @@
           {
             "status": "A",
             "path": "src/mcp/transactions.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/poidhAnalytics.ts"
           },
           {
             "status": "M",
@@ -1264,7 +1315,7 @@
           },
           {
             "name": "prod",
-            "sha": "11739d923c57b16d6e48baa6825c43891599a482"
+            "sha": "2fabc229476cce85deca8c47f577c0800216a670"
           },
           {
             "name": "removing-ambire-block",
@@ -1284,7 +1335,7 @@
           },
           {
             "name": "staging",
-            "sha": "bb8d3ce852b4676d5716fb45f0895b5f8366e079"
+            "sha": "1e075b9e2f41a2093ec4a1c38628aa5469481736"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1324,13 +1375,6 @@
           }
         ],
         "pulls": [
-          {
-            "number": 1614,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1614",
-            "head": "bb8d3ce852b4676d5716fb45f0895b5f8366e079",
-            "base": "prod",
-            "title": "adding analytics"
-          },
           {
             "number": 1609,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1609",
@@ -1413,7 +1457,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-24T00:47:48.392Z"
+      "checkedAt": "2026-10-24T05:57:17.753Z"
     },
     {
       "source": "protocol",
@@ -1544,7 +1588,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-24T00:47:50.051Z"
+      "checkedAt": "2026-10-24T05:57:19.216Z"
     },
     {
       "source": "legacy-contracts",
@@ -1592,7 +1636,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-24T00:47:53.168Z"
+      "checkedAt": "2026-10-24T05:57:22.306Z"
     },
     {
       "source": "frame",
@@ -1629,7 +1673,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-24T00:47:56.572Z"
+      "checkedAt": "2026-10-24T05:57:25.007Z"
     },
     {
       "source": "names",
@@ -1661,7 +1705,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-24T00:47:57.851Z"
+      "checkedAt": "2026-10-24T05:57:26.227Z"
     },
     {
       "source": "indexer",
@@ -1744,7 +1788,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-24T00:48:01.010Z"
+      "checkedAt": "2026-10-24T05:57:28.760Z"
     }
   ],
   "discovery": {
@@ -1782,5 +1826,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-24T00:48:01.010Z"
+  "lastSuccessfulCheck": "2026-10-24T05:57:28.760Z"
 }

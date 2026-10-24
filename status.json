@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-10-24T05:57:12.309Z",
-  "completedAt": "2026-10-24T05:57:28.760Z",
+  "startedAt": "2026-10-24T09:46:55.147Z",
+  "completedAt": "2026-10-24T09:47:10.743Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "2fabc229476cce85deca8c47f577c0800216a670",
+      "observedRevision": "c6b5b7408b8c3df7a9e18368a8e3d228297dc812",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "2fabc229476cce85deca8c47f577c0800216a670",
+        "head": "c6b5b7408b8c3df7a9e18368a8e3d228297dc812",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -534,7 +534,14 @@
           "39057b0f8b1e51c860e7aaec902d811ae0dd9df5",
           "21b6fe2fb90e852b2899670e1bcd30c2ffbd9120",
           "1e075b9e2f41a2093ec4a1c38628aa5469481736",
-          "2fabc229476cce85deca8c47f577c0800216a670"
+          "2fabc229476cce85deca8c47f577c0800216a670",
+          "dec48e17cb6066f36b69390d8bacb10993067311",
+          "f82f291968984d5a7db0aaeedae3dec6d28fd5a4",
+          "d18edbb3e105043ef5809513202b89cdadf07c61",
+          "4fac9c160e5cc50b383a021cc37e692d0e8a1501",
+          "8a2ecd2ae8470ef3b0ab0bbf5705e9d3434b85f1",
+          "51d440ee4d56e833c328eb95f3106308e098a437",
+          "c6b5b7408b8c3df7a9e18368a8e3d228297dc812"
         ],
         "files": [
           {
@@ -718,6 +725,10 @@
           {
             "status": "A",
             "path": "src/app/api/mcp/route.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/app/api/og/analytics/route.tsx"
           },
           {
             "status": "M",
@@ -1315,7 +1326,7 @@
           },
           {
             "name": "prod",
-            "sha": "2fabc229476cce85deca8c47f577c0800216a670"
+            "sha": "c6b5b7408b8c3df7a9e18368a8e3d228297dc812"
           },
           {
             "name": "removing-ambire-block",
@@ -1335,7 +1346,7 @@
           },
           {
             "name": "staging",
-            "sha": "1e075b9e2f41a2093ec4a1c38628aa5469481736"
+            "sha": "51d440ee4d56e833c328eb95f3106308e098a437"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1457,7 +1468,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-24T05:57:17.753Z"
+      "checkedAt": "2026-10-24T09:47:00.086Z"
     },
     {
       "source": "protocol",
@@ -1588,7 +1599,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-24T05:57:19.216Z"
+      "checkedAt": "2026-10-24T09:47:01.599Z"
     },
     {
       "source": "legacy-contracts",
@@ -1636,7 +1647,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-24T05:57:22.306Z"
+      "checkedAt": "2026-10-24T09:47:03.968Z"
     },
     {
       "source": "frame",
@@ -1673,7 +1684,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-24T05:57:25.007Z"
+      "checkedAt": "2026-10-24T09:47:06.767Z"
     },
     {
       "source": "names",
@@ -1705,7 +1716,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-24T05:57:26.227Z"
+      "checkedAt": "2026-10-24T09:47:08.007Z"
     },
     {
       "source": "indexer",
@@ -1788,11 +1799,11 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-24T05:57:28.760Z"
+      "checkedAt": "2026-10-24T09:47:10.542Z"
     }
   ],
   "discovery": {
-    "checkedAt": "2026-10-23T10:30:16.614Z",
+    "checkedAt": "2026-10-24T09:47:10.743Z",
     "repositories": [
       {
         "id": 1155735358,
@@ -1826,5 +1837,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-24T05:57:28.760Z"
+  "lastSuccessfulCheck": "2026-10-24T09:47:10.743Z"
 }

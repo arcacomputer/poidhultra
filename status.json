@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-27T22:58:56.731Z",
-  "completedAt": "2026-10-27T22:59:13.295Z",
+  "startedAt": "2026-10-28T02:20:02.479Z",
+  "completedAt": "2026-10-28T02:20:16.445Z",
   "successful": true,
   "sources": [
     {
@@ -1489,17 +1489,17 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-27T22:59:02.079Z"
+      "checkedAt": "2026-10-28T02:20:06.635Z"
     },
     {
       "source": "protocol",
       "repository": "picsoritdidnthappen/poidh-v3",
       "incorporatedRevision": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-      "observedRevision": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
+      "observedRevision": "f32d639c432590dc1b682795e9cb153d3b15b5e8",
       "status": "pending-review",
       "range": {
         "base": "23e1e51cf98d29f00dc657f87ddd67d1f0f08e9d",
-        "head": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
+        "head": "f32d639c432590dc1b682795e9cb153d3b15b5e8",
         "rewritten": false,
         "commits": [
           "0867baebd91ae144a7f91f8e8dccd6874fe21dbf",
@@ -1514,7 +1514,8 @@
           "ff3cddd16dcf8fd3117b0fa3e14079a761f80218",
           "030b703ca40e71b3246494ac7b08882f0be82bce",
           "d8d398b7b1abf3451513b1c6cb8eeb22a6d30de7",
-          "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10"
+          "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10",
+          "f32d639c432590dc1b682795e9cb153d3b15b5e8"
         ],
         "files": [
           {
@@ -1524,6 +1525,10 @@
           {
             "status": "M",
             "path": "docs-site/docs/contracts/deployment.md"
+          },
+          {
+            "status": "M",
+            "path": "docs-site/docs/developers/alternate-frontends.md"
           },
           {
             "status": "M",
@@ -1585,7 +1590,7 @@
           },
           {
             "name": "main",
-            "sha": "1bd15c9bfd2441fd7cd712c5992f4bddf6324e10"
+            "sha": "f32d639c432590dc1b682795e9cb153d3b15b5e8"
           },
           {
             "name": "new-deployment-dates",
@@ -1620,7 +1625,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-27T22:59:03.611Z"
+      "checkedAt": "2026-10-28T02:20:08.534Z"
     },
     {
       "source": "legacy-contracts",
@@ -1668,7 +1673,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-27T22:59:06.551Z"
+      "checkedAt": "2026-10-28T02:20:10.845Z"
     },
     {
       "source": "frame",
@@ -1705,7 +1710,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-27T22:59:09.206Z"
+      "checkedAt": "2026-10-28T02:20:13.111Z"
     },
     {
       "source": "names",
@@ -1737,7 +1742,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-27T22:59:10.548Z"
+      "checkedAt": "2026-10-28T02:20:14.279Z"
     },
     {
       "source": "indexer",
@@ -1820,7 +1825,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-27T22:59:13.295Z"
+      "checkedAt": "2026-10-28T02:20:16.445Z"
     }
   ],
   "discovery": {
@@ -1858,5 +1863,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-27T22:59:13.295Z"
+  "lastSuccessfulCheck": "2026-10-28T02:20:16.445Z"
 }

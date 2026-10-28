@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-10-28T11:37:50.532Z",
-  "completedAt": "2026-10-28T11:38:05.045Z",
+  "startedAt": "2026-10-28T16:41:33.902Z",
+  "completedAt": "2026-10-28T16:41:53.477Z",
   "successful": true,
   "sources": [
     {
@@ -1408,6 +1408,20 @@
         ],
         "pulls": [
           {
+            "number": 1620,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1620",
+            "head": "b017d178ec3cf76e6f91b05e3190be1ea55cece2",
+            "base": "prod",
+            "title": "adding \"created\" time to bounty pages"
+          },
+          {
+            "number": 1619,
+            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1619",
+            "head": "096a9d01efaaee6d703104970f462077186dc144",
+            "base": "staging",
+            "title": "fix: first-transaction failure from stale wallet connector"
+          },
+          {
             "number": 1609,
             "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1609",
             "head": "95b3fe5724d3c6dac95e8b0bb5f3e09f8b4d7b39",
@@ -1489,7 +1503,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-28T11:37:55.014Z"
+      "checkedAt": "2026-10-28T16:41:39.152Z"
     },
     {
       "source": "protocol",
@@ -1625,7 +1639,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-10-28T11:37:57.166Z"
+      "checkedAt": "2026-10-28T16:41:41.456Z"
     },
     {
       "source": "legacy-contracts",
@@ -1673,7 +1687,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-28T11:37:59.334Z"
+      "checkedAt": "2026-10-28T16:41:44.748Z"
     },
     {
       "source": "frame",
@@ -1710,7 +1724,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-10-28T11:38:01.375Z"
+      "checkedAt": "2026-10-28T16:41:47.610Z"
     },
     {
       "source": "names",
@@ -1742,7 +1756,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-10-28T11:38:02.741Z"
+      "checkedAt": "2026-10-28T16:41:49.091Z"
     },
     {
       "source": "indexer",
@@ -1825,7 +1839,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-10-28T11:38:04.799Z"
+      "checkedAt": "2026-10-28T16:41:53.477Z"
     }
   ],
   "discovery": {
@@ -1863,5 +1877,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-10-28T11:38:05.045Z"
+  "lastSuccessfulCheck": "2026-10-28T16:41:53.477Z"
 }

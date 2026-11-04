@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-11-04T18:01:35.115Z",
-  "completedAt": "2026-11-04T18:01:55.589Z",
+  "startedAt": "2026-11-04T23:43:34.910Z",
+  "completedAt": "2026-11-04T23:43:50.295Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "a03ef70532d6128df2290fdedd35f2c42440107b",
+      "observedRevision": "c9c50d23f236394ce8b0eb49d4c651652fec6ec9",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "a03ef70532d6128df2290fdedd35f2c42440107b",
+        "head": "c9c50d23f236394ce8b0eb49d4c651652fec6ec9",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -654,7 +654,43 @@
           "10a070af37f0ba05e35d671a2db4e25ec3a89982",
           "3e33767bbc5f1dd0396566815cf05c0a42a41ea7",
           "cbc5f54e3e3314396ace7023d0fb588b084d1e22",
-          "a03ef70532d6128df2290fdedd35f2c42440107b"
+          "a03ef70532d6128df2290fdedd35f2c42440107b",
+          "84a1c6aa00ad41020f980993ca0b08d79350d519",
+          "6bdef07ce615d1f61d27249886d415a2cc68c8c6",
+          "1b87ecba63474c7854dcf64d937cdf211576b32d",
+          "c9495da57c05172a887c126bd86494edafa2eb12",
+          "655ae39f59d297cc023d7a0c7816ed39f788f040",
+          "0ea9522a72a5a0af3bab67f68ab31f45a01b155c",
+          "572032491d428ee4fbc34c2a1745b2c58f9cd459",
+          "63e28ae689b826153b0775fad465ff5d91763cee",
+          "88058333e666aed02a549928c780f9fa387197ee",
+          "10af9cca0216fb7a1886fa7b7ea93bec623f4bde",
+          "9bb52f3509069a58f2407bc603fc4f528379c426",
+          "252d2cd2af71fc55e382e0beb015591b615a696c",
+          "abd54ac2481a7f233275d1770dd6d1eeef284e81",
+          "e2e0a0a79d55f51a0e41cb4395f15ee67628386d",
+          "746282d24b2fbd8f87438e9874bb17597c0889b2",
+          "beedfe0f224de845ee7f2ffca001693a29d17861",
+          "ef2bac44fad80f2b618e4cd70afb7bab6a64ab27",
+          "b52e0c49b960834faa16c3aead8c0d83c78725ec",
+          "e21e3ecacdfcf64b24183957ec23a37808d46bf7",
+          "628ddd0b7f2ef5ebf7d2e4bb98af60434ccb8214",
+          "836344eb232b4bc5e789de057f3a3e99a1375881",
+          "c79323b00dc7cd2888dee87d98e74700dbd63acb",
+          "635bc32b5af2a15ecd944cfa42f745046f5471ca",
+          "c3a9fa3e936193806f1b33511deb0ecb6ae9b7d2",
+          "518dc865c352250d08bb8eea3c2f0c148b2eddfa",
+          "2d847f8178b2fc99a86ad0ea9b47ea8bf14902bb",
+          "3c5c49eb996795aa184c8d5984c12c360edb707b",
+          "ea3fbad3b5e13f45aba0195e6b6e7b19ec7cdc92",
+          "0d2f37e01fedb0ef9eaeb634f6af9625c753a6fc",
+          "4885b7fda13d35b8cf2abf395cddbbbd172e41f2",
+          "33397e079bfea47de32b7ef1587bf75dde315390",
+          "74050931e964d2936568bdaaae691b9f4f0b487b",
+          "a489e766129cd55faca208d470ef52e37e206a5f",
+          "88f5540c81ea77ceb4cad50bcd24e254e118586d",
+          "20c41b59e7b47a8ee7c98a3530b14e79e897a805",
+          "c9c50d23f236394ce8b0eb49d4c651652fec6ec9"
         ],
         "files": [
           {
@@ -700,6 +736,14 @@
           {
             "status": "A",
             "path": "migrations/017_add_zkpassport_unique_id_users_extra.sql"
+          },
+          {
+            "status": "A",
+            "path": "migrations/018_ideas_discussion.sql"
+          },
+          {
+            "status": "A",
+            "path": "migrations/019_idea_comment_votes.sql"
           },
           {
             "status": "M",
@@ -873,6 +917,10 @@
           },
           {
             "status": "A",
+            "path": "src/app/api/og/ideas/route.tsx"
+          },
+          {
+            "status": "A",
             "path": "src/app/d/[cid]/data/route.ts"
           },
           {
@@ -890,6 +938,10 @@
           {
             "status": "M",
             "path": "src/app/feed/page.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/app/ideas/page.tsx"
           },
           {
             "status": "M",
@@ -1113,6 +1165,10 @@
           },
           {
             "status": "A",
+            "path": "src/components/feed/FeedLoader.tsx"
+          },
+          {
+            "status": "A",
             "path": "src/components/feed/FeedTimeline.tsx"
           },
           {
@@ -1202,6 +1258,18 @@
           {
             "status": "A",
             "path": "src/components/global/__tests__/WebMcpTools.test.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/ideas/DraftDiscussion.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/ideas/IdeaVote.tsx"
+          },
+          {
+            "status": "A",
+            "path": "src/components/ideas/IdeasPageClient.tsx"
           },
           {
             "status": "M",
@@ -1340,6 +1408,10 @@
             "path": "src/trpc/routers/comments.ts"
           },
           {
+            "status": "A",
+            "path": "src/trpc/routers/ideas.ts"
+          },
+          {
             "status": "M",
             "path": "src/trpc/routers/leaderboard.ts"
           },
@@ -1458,6 +1530,10 @@
           {
             "status": "M",
             "path": "tsconfig.json"
+          },
+          {
+            "status": "M",
+            "path": "vercel.json"
           }
         ],
         "removedCommits": []
@@ -1506,6 +1582,10 @@
             "sha": "ee7d2edf143c851a582688b29d05ea97b2c0a3af"
           },
           {
+            "name": "draft-comments-and-ideas",
+            "sha": "c79323b00dc7cd2888dee87d98e74700dbd63acb"
+          },
+          {
             "name": "fix-latest-claim-loading",
             "sha": "971795c115310b72fa9ee907c1e2495901f59631"
           },
@@ -1526,6 +1606,10 @@
             "sha": "a4f68e97ac60b56a2ed5d2e50c839e9be9e91e40"
           },
           {
+            "name": "ideas-page-optimization",
+            "sha": "0d2f37e01fedb0ef9eaeb634f6af9625c753a6fc"
+          },
+          {
             "name": "new-activity-notifications",
             "sha": "cbe90c8b0755b65d952335e4fceebfb26ebff9a4"
           },
@@ -1543,7 +1627,7 @@
           },
           {
             "name": "prod",
-            "sha": "a03ef70532d6128df2290fdedd35f2c42440107b"
+            "sha": "c9c50d23f236394ce8b0eb49d4c651652fec6ec9"
           },
           {
             "name": "removing-ambire-block",
@@ -1563,7 +1647,7 @@
           },
           {
             "name": "staging",
-            "sha": "0ea9522a72a5a0af3bab67f68ab31f45a01b155c"
+            "sha": "20c41b59e7b47a8ee7c98a3530b14e79e897a805"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1607,7 +1691,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-04T18:01:40.274Z"
+      "checkedAt": "2026-11-04T23:43:40.124Z"
     },
     {
       "source": "protocol",
@@ -1744,7 +1828,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-04T18:01:42.598Z"
+      "checkedAt": "2026-11-04T23:43:42.145Z"
     },
     {
       "source": "legacy-contracts",
@@ -1792,7 +1876,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-04T18:01:46.331Z"
+      "checkedAt": "2026-11-04T23:43:44.361Z"
     },
     {
       "source": "frame",
@@ -1829,7 +1913,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-11-04T18:01:50.978Z"
+      "checkedAt": "2026-11-04T23:43:46.633Z"
     },
     {
       "source": "names",
@@ -1861,7 +1945,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-04T18:01:52.514Z"
+      "checkedAt": "2026-11-04T23:43:47.891Z"
     },
     {
       "source": "indexer",
@@ -1944,7 +2028,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-11-04T18:01:55.588Z"
+      "checkedAt": "2026-11-04T23:43:50.295Z"
     }
   ],
   "discovery": {
@@ -1982,5 +2066,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-11-04T18:01:55.589Z"
+  "lastSuccessfulCheck": "2026-11-04T23:43:50.295Z"
 }

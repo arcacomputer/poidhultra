@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "startedAt": "2026-11-04T01:26:10.576Z",
-  "completedAt": "2026-11-04T01:26:29.449Z",
+  "startedAt": "2026-11-04T09:22:05.811Z",
+  "completedAt": "2026-11-04T09:22:22.670Z",
   "successful": true,
   "sources": [
     {
       "source": "app",
       "repository": "picsoritdidnthappen/poidh-app",
       "incorporatedRevision": "ea2f198486fcd713a84191e948d7ceca327beb96",
-      "observedRevision": "e483f4481f536322998aedc9de50c017a00aff3b",
+      "observedRevision": "a03ef70532d6128df2290fdedd35f2c42440107b",
       "status": "blocked-integration",
       "range": {
         "base": "ea2f198486fcd713a84191e948d7ceca327beb96",
-        "head": "e483f4481f536322998aedc9de50c017a00aff3b",
+        "head": "a03ef70532d6128df2290fdedd35f2c42440107b",
         "rewritten": false,
         "commits": [
           "38546256fb508b02fb30b193e31ddd52523a8592",
@@ -636,7 +636,25 @@
           "4f9c2033c9ad7ba35e1650ef968cacbd4dd6ba86",
           "93f267c7960c3c5d6f424dd1e559ead935dd7d8a",
           "88499d983d8884169c4916e4851dd28da7269945",
-          "e483f4481f536322998aedc9de50c017a00aff3b"
+          "e483f4481f536322998aedc9de50c017a00aff3b",
+          "ebde6a580815ebbcd87a0afc7332478962c97bce",
+          "7da1e9a45d6418742d50427b71882243b2c88871",
+          "3a79c32ea29ddf8da3aad3d417b03818b1d0a5d6",
+          "84632da93dd00e5d1d8ba84eff83fa61920738a4",
+          "cc3350029c81069cb5c18e151c5c737331a622fb",
+          "e436a9c00ac9f6adddfaab526a1bde3c188fd1d1",
+          "0bc8290808eeb69dcb7b599555b1a037967aaa32",
+          "4cf0b38a304936823b0b321265f449ced9238a51",
+          "3994c3f76649d1806d36e8f76d274ab6eaa41ff0",
+          "3f0ff25fa3f085b105f0c805f6c58b325331362d",
+          "e70ec289550475b7ba336402cab04593ec40aaee",
+          "90bd13d5e56c4cfdd9b471edfe7cc70a0732b35e",
+          "30ca3dae20fd23a2d8eeaf15e2d218c01ab6aebb",
+          "2850986e550879efdebfb24aa1157fc44074855e",
+          "10a070af37f0ba05e35d671a2db4e25ec3a89982",
+          "3e33767bbc5f1dd0396566815cf05c0a42a41ea7",
+          "cbc5f54e3e3314396ace7023d0fb588b084d1e22",
+          "a03ef70532d6128df2290fdedd35f2c42440107b"
         ],
         "files": [
           {
@@ -820,6 +838,10 @@
           {
             "status": "A",
             "path": "src/app/api/analytics/transactions/route.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/app/api/bounty-drafts/__tests__/route.test.ts"
           },
           {
             "status": "A",
@@ -1030,6 +1052,10 @@
             "path": "src/components/bounty/SubmitVotingConfirm.tsx"
           },
           {
+            "status": "A",
+            "path": "src/components/bounty/SubmitVotingSuccessModal.tsx"
+          },
+          {
             "status": "M",
             "path": "src/components/bounty/Voting.tsx"
           },
@@ -1182,6 +1208,10 @@
             "path": "src/components/layout/Header.tsx"
           },
           {
+            "status": "M",
+            "path": "src/components/og/BountyPreviewCard.tsx"
+          },
+          {
             "status": "A",
             "path": "src/components/ui/Sheet.tsx"
           },
@@ -1262,6 +1292,10 @@
             "path": "src/styles/globals.css"
           },
           {
+            "status": "A",
+            "path": "src/trpc/__tests__/nonce.test.ts"
+          },
+          {
             "status": "M",
             "path": "src/trpc/context.ts"
           },
@@ -1339,6 +1373,14 @@
           },
           {
             "status": "A",
+            "path": "src/utils/__tests__/clientIp.test.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/__tests__/draftAuthenticity.test.ts"
+          },
+          {
+            "status": "A",
             "path": "src/utils/__tests__/pinata.test.ts"
           },
           {
@@ -1354,8 +1396,20 @@
             "path": "src/utils/clientEnv.ts"
           },
           {
+            "status": "A",
+            "path": "src/utils/clientIp.ts"
+          },
+          {
             "status": "M",
             "path": "src/utils/constants.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/draftAuthenticity.ts"
+          },
+          {
+            "status": "A",
+            "path": "src/utils/draftSchema.ts"
           },
           {
             "status": "A",
@@ -1489,7 +1543,7 @@
           },
           {
             "name": "prod",
-            "sha": "e483f4481f536322998aedc9de50c017a00aff3b"
+            "sha": "a03ef70532d6128df2290fdedd35f2c42440107b"
           },
           {
             "name": "removing-ambire-block",
@@ -1509,7 +1563,7 @@
           },
           {
             "name": "staging",
-            "sha": "88499d983d8884169c4916e4851dd28da7269945"
+            "sha": "cbc5f54e3e3314396ace7023d0fb588b084d1e22"
           },
           {
             "name": "update-cyber-main-menu-color",
@@ -1548,104 +1602,12 @@
             "sha": "22ef368d546af454f4bec6e55ea41167fa10a332"
           }
         ],
-        "pulls": [
-          {
-            "number": 1632,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1632",
-            "head": "7da1e9a45d6418742d50427b71882243b2c88871",
-            "base": "staging",
-            "title": "fix: only serve authentic drafts on /d/<cid> (follow-up to #1628)"
-          },
-          {
-            "number": 1631,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1631",
-            "head": "ebde6a580815ebbcd87a0afc7332478962c97bce",
-            "base": "staging",
-            "title": "fix: harden agent draft publish path (follow-up to #1628)"
-          },
-          {
-            "number": 1609,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1609",
-            "head": "95b3fe5724d3c6dac95e8b0bb5f3e09f8b4d7b39",
-            "base": "prod",
-            "title": "fix(claims): wait for indexer before refreshing page after claim submitted for vote"
-          },
-          {
-            "number": 1608,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1608",
-            "head": "7ca2402826334a1da5e04d25da4308c26406bd5f",
-            "base": "prod",
-            "title": "fix(data): validate bounties/data limit+cursor fixes real sitemap URL"
-          },
-          {
-            "number": 1607,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1607",
-            "head": "fa69d80946389cd5bf32d7912f5df34104fdac65",
-            "base": "prod",
-            "title": "fix(bounty): block smart-wallet bounty creation with a clear pre-check"
-          },
-          {
-            "number": 1605,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1605",
-            "head": "2c84b66d2efa45a490ee9047082ba516953d25c2",
-            "base": "prod",
-            "title": "chore: Node 20 -> 22, remove unused dependencies"
-          },
-          {
-            "number": 1604,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1604",
-            "head": "e5c88df4493583988407e5a6b892e007e1a54a60",
-            "base": "prod",
-            "title": "fix(config): preserve /data and sub-paths when redirecting mainnet bounty 9"
-          },
-          {
-            "number": 1603,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1603",
-            "head": "d208a4ff3c4f2bfa7905405c17062b9808aa1950",
-            "base": "prod",
-            "title": "fix(claims): distinguish CORS, HTTP and empty-media failures in useClaimMedia"
-          },
-          {
-            "number": 1602,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1602",
-            "head": "99edeaf1dde93136f86cd56c6b1129183b0692bd",
-            "base": "prod",
-            "title": "fix(bounties): by-value pagination no longer drops equal-amount bounties"
-          },
-          {
-            "number": 1596,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1596",
-            "head": "77aa44d89e6d083401cacb677dc7b1258145195e",
-            "base": "staging",
-            "title": "fix(mcp): report completed bounties as completed and refuse voting on them"
-          },
-          {
-            "number": 1588,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1588",
-            "head": "bb0e74765b097a2f80bc6b1d531a42059cc18f6b",
-            "base": "prod",
-            "title": "fix: resolve #1584 (MCP / WebMCP edge cases: v2-era ids get calldata for a diffe)"
-          },
-          {
-            "number": 1531,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1531",
-            "head": "d68a931e6e678645508840393f2fd5290b6c76ac",
-            "base": "prod",
-            "title": "fix: resolve #1530 Two open claims on poidh bounties 1406 and 1415 ..."
-          },
-          {
-            "number": 1467,
-            "url": "https://github.com/picsoritdidnthappen/poidh-app/pull/1467",
-            "head": "2bf1cc1015c9942d8e8aeee9df22e60c6a524635",
-            "base": "prod",
-            "title": "fix(bounties): use _count for hasClaims to avoid false negatives"
-          }
-        ],
+        "pulls": [],
         "releases": []
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-04T01:26:16.180Z"
+      "checkedAt": "2026-11-04T09:22:11.340Z"
     },
     {
       "source": "protocol",
@@ -1782,7 +1744,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-04T01:26:18.679Z"
+      "checkedAt": "2026-11-04T09:22:13.734Z"
     },
     {
       "source": "legacy-contracts",
@@ -1830,7 +1792,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-04T01:26:21.910Z"
+      "checkedAt": "2026-11-04T09:22:16.239Z"
     },
     {
       "source": "frame",
@@ -1867,7 +1829,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-11-04T01:26:25.083Z"
+      "checkedAt": "2026-11-04T09:22:18.786Z"
     },
     {
       "source": "names",
@@ -1899,7 +1861,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-04T01:26:26.432Z"
+      "checkedAt": "2026-11-04T09:22:20.242Z"
     },
     {
       "source": "indexer",
@@ -1982,7 +1944,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-11-04T01:26:29.449Z"
+      "checkedAt": "2026-11-04T09:22:22.670Z"
     }
   ],
   "discovery": {
@@ -2020,5 +1982,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-11-04T01:26:29.449Z"
+  "lastSuccessfulCheck": "2026-11-04T09:22:22.670Z"
 }

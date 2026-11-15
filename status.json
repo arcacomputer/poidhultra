@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "startedAt": "2026-11-15T11:01:54.185Z",
-  "completedAt": "2026-11-15T11:02:08.838Z",
+  "startedAt": "2026-11-15T12:56:50.329Z",
+  "completedAt": "2026-11-15T12:57:05.735Z",
   "successful": true,
   "sources": [
     {
@@ -1750,7 +1750,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/8",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-15T11:01:58.966Z"
+      "checkedAt": "2026-11-15T12:56:55.225Z"
     },
     {
       "source": "protocol",
@@ -1887,7 +1887,7 @@
       },
       "pullRequest": "https://github.com/arcacomputer/poidhultra/pull/77",
       "waitingForActiveIntegration": true,
-      "checkedAt": "2026-11-15T11:02:00.989Z"
+      "checkedAt": "2026-11-15T12:56:57.129Z"
     },
     {
       "source": "legacy-contracts",
@@ -1935,7 +1935,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-15T11:02:03.116Z"
+      "checkedAt": "2026-11-15T12:56:59.775Z"
     },
     {
       "source": "frame",
@@ -1972,7 +1972,7 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/1",
-      "checkedAt": "2026-11-15T11:02:05.032Z"
+      "checkedAt": "2026-11-15T12:57:01.967Z"
     },
     {
       "source": "names",
@@ -2004,7 +2004,7 @@
         "releases": []
       },
       "pullRequest": null,
-      "checkedAt": "2026-11-15T11:02:06.915Z"
+      "checkedAt": "2026-11-15T12:57:03.328Z"
     },
     {
       "source": "indexer",
@@ -2087,11 +2087,11 @@
       },
       "pullRequest": null,
       "issue": "https://github.com/arcacomputer/poidhultra/issues/2",
-      "checkedAt": "2026-11-15T11:02:08.838Z"
+      "checkedAt": "2026-11-15T12:57:05.503Z"
     }
   ],
   "discovery": {
-    "checkedAt": "2026-11-14T12:29:21.088Z",
+    "checkedAt": "2026-11-15T12:57:05.735Z",
     "repositories": [
       {
         "id": 1155735358,
@@ -2125,5 +2125,5 @@
       }
     ]
   },
-  "lastSuccessfulCheck": "2026-11-15T11:02:08.838Z"
+  "lastSuccessfulCheck": "2026-11-15T12:57:05.735Z"
 }
